@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://bnw8lkxccral7"
+path="res://.godot/imported/road-straight-barrier-end.obj-ec4ad96831f8ce14f6b174f691f1c80e.mesh"
+
+[deps]
+
+files=["res://.godot/imported/road-straight-barrier-end.obj-ec4ad96831f8ce14f6b174f691f1c80e.mesh"]
+
+source_file="res://kenney_city-kit-roads (1)/Models/OBJ format/road-straight-barrier-end.obj"
+dest_files=["res://.godot/imported/road-straight-barrier-end.obj-ec4ad96831f8ce14f6b174f691f1c80e.mesh", "res://.godot/imported/road-straight-barrier-end.obj-ec4ad96831f8ce14f6b174f691f1c80e.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false
