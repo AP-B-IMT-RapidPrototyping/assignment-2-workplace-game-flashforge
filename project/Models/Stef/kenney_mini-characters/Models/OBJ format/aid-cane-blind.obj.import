@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://dkavlgjmv7ms0"
+path="res://.godot/imported/aid-cane-blind.obj-079dfc9b37bd6f3bd8a47ec202a3d9de.mesh"
+
+[deps]
+
+files=["res://.godot/imported/aid-cane-blind.obj-079dfc9b37bd6f3bd8a47ec202a3d9de.mesh"]
+
+source_file="res://Models/Stef/kenney_mini-characters/Models/OBJ format/aid-cane-blind.obj"
+dest_files=["res://.godot/imported/aid-cane-blind.obj-079dfc9b37bd6f3bd8a47ec202a3d9de.mesh", "res://.godot/imported/aid-cane-blind.obj-079dfc9b37bd6f3bd8a47ec202a3d9de.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false
