@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://q11s8iy82nys"]
+
+[ext_resource type="PackedScene" uid="uid://b2avf7swc5yw" path="res://Models/Stef/auto_sedan.glb" id="1_6dfp2"]
+
+[node name="auto" type="Node3D" unique_id=2003845161]
+
+[node name="model" parent="." unique_id=1691389647 instance=ExtResource("1_6dfp2")]
+
+[node name="item slots" type="Node3D" parent="." unique_id=538349431]
+
+[node name="wielen" type="Node3D" parent="item slots" unique_id=1502796192]
+
+[node name="linker voor wiel" type="Marker3D" parent="item slots/wielen" unique_id=1292838409]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49553525, 0.2801191, 0.6546538)
+
+[node name="rechter voor wiel" type="Marker3D" parent="item slots/wielen" unique_id=512864763]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.52628005, 0.29053456, 0.66212386)
+
+[node name="linker achter wiel" type="Marker3D" parent="item slots/wielen" unique_id=686365149]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49607974, 0.27295807, -0.66498476)
+
+[node name="rechter achter wiel" type="Marker3D" parent="item slots/wielen" unique_id=246151581]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4960332, 0.28781477, -0.6621306)
+
+[node name="deuren" type="Node3D" parent="item slots/wielen" unique_id=757668240]
+
+[node name="linker deur" type="Marker3D" parent="item slots/wielen/deuren" unique_id=1053716411]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6014092, 0.7442894, 0)
+
+[node name="rechter deur" type="Marker3D" parent="item slots/wielen/deuren" unique_id=836525833]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.53400075, 0.9007928, 0)
+
+[node name="motor" type="Marker3D" parent="item slots" unique_id=1734485773]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6784009, 0.82654494)
+
+[node name="uitlaat" type="Marker3D" parent="item slots" unique_id=786506876]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.32594508, 0.10094845, -1.023635)
