@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://cen1bb5jk52l4"]
+[gd_scene format=3 uid="uid://cidyb2628hrdk"]
 
 [ext_resource type="PackedScene" uid="uid://c4022grx2yvh2" path="res://Models/Stef/kenney_city-kit-roads (1)/Models/GLB format/road-crossroad-path.glb" id="1_n2tcu"]
 [ext_resource type="PackedScene" uid="uid://bocb1urkfwqln" path="res://Models/Stef/kenney_city-kit-roads (1)/Models/GLB format/tile-low.glb" id="2_ot556"]
