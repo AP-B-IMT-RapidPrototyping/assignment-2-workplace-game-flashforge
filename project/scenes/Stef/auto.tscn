@@ -1,8 +1,26 @@
 [gd_scene format=3 uid="uid://q11s8iy82nys"]
 
 [ext_resource type="PackedScene" uid="uid://b2avf7swc5yw" path="res://Models/Stef/auto_sedan.glb" id="1_6dfp2"]
+[ext_resource type="Script" uid="uid://fnw83308336d" path="res://scripts/Stef/AutoWerking.cs" id="1_vqxhv"]
+[ext_resource type="Script" uid="uid://dsprh7svb6muj" path="res://scripts/Stef/AutoOnderdeel.cs" id="3_txtdd"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_6dfp2"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_r8ws1"]
+height = 0.30337524
+radius = 0.064453125
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_yg51h"]
+size = Vector3(0.45715332, 0.75097656, 0.17962646)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_m5a2o"]
+size = Vector3(0.45300293, 0.16461182, 0.76464844)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_cn6kn"]
+size = Vector3(0.5492554, 0.20397949, 0.7839966)
 
 [node name="auto" type="Node3D" unique_id=2003845161]
+script = ExtResource("1_vqxhv")
 
 [node name="model" parent="." unique_id=1691389647 instance=ExtResource("1_6dfp2")]
 
@@ -13,25 +31,105 @@
 [node name="linker voor wiel" type="Marker3D" parent="item slots/wielen" unique_id=1292838409]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49553525, 0.2801191, 0.6546538)
 
+[node name="StaticBody3D" type="StaticBody3D" parent="item slots/wielen/linker voor wiel" unique_id=1183511818]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0.08671045, -0.039188445, 0.09166205)
+physics_material_override = SubResource("PhysicsMaterial_6dfp2")
+script = ExtResource("3_txtdd")
+PartName = "linker voor wiel"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="item slots/wielen/linker voor wiel/StaticBody3D" unique_id=340495772]
+transform = Transform3D(1, 4.371139e-08, -4.371139e-08, -4.371139e-08, -4.371139e-08, -1, -4.371139e-08, 1, -4.3711385e-08, -0.0885486, 0.06453198, 0.067444086)
+shape = SubResource("CylinderShape3D_r8ws1")
+
 [node name="rechter voor wiel" type="Marker3D" parent="item slots/wielen" unique_id=512864763]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.52628005, 0.29053456, 0.66212386)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="item slots/wielen/rechter voor wiel" unique_id=562833370]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0.08671045, -0.12958598, 0.13442242)
+physics_material_override = SubResource("PhysicsMaterial_6dfp2")
+script = ExtResource("3_txtdd")
+PartName = "rechter voor wiel"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="item slots/wielen/rechter voor wiel/StaticBody3D" unique_id=2048810926]
+transform = Transform3D(1, 4.371139e-08, -4.371139e-08, -4.371139e-08, -4.371139e-08, -1, -4.371139e-08, 1, -4.3711385e-08, -0.13938004, 0.13532108, 0.06744388)
+shape = SubResource("CylinderShape3D_r8ws1")
 
 [node name="linker achter wiel" type="Marker3D" parent="item slots/wielen" unique_id=686365149]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49607974, 0.27295807, -0.66498476)
 
+[node name="StaticBody3D" type="StaticBody3D" parent="item slots/wielen/linker achter wiel" unique_id=1161992563]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0.08671045, -0.03156653, 0.09150118)
+physics_material_override = SubResource("PhysicsMaterial_6dfp2")
+script = ExtResource("3_txtdd")
+PartName = "linker achtrer wiel"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="item slots/wielen/linker achter wiel/StaticBody3D" unique_id=1191672521]
+transform = Transform3D(1, 4.371139e-08, -4.371139e-08, -4.371139e-08, -4.371139e-08, -1, -4.371139e-08, 1, -4.3711385e-08, -0.08021921, 0.07685062, 0.06744391)
+shape = SubResource("CylinderShape3D_r8ws1")
+
 [node name="rechter achter wiel" type="Marker3D" parent="item slots/wielen" unique_id=246151581]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4960332, 0.28781477, -0.6621306)
 
-[node name="deuren" type="Node3D" parent="item slots/wielen" unique_id=757668240]
+[node name="StaticBody3D" type="StaticBody3D" parent="item slots/wielen/rechter achter wiel" unique_id=484365819]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0.08671045, -0.072770864, 0.06826961)
+physics_material_override = SubResource("PhysicsMaterial_6dfp2")
+script = ExtResource("3_txtdd")
+PartName = "rechter achter wiel"
 
-[node name="linker deur" type="Marker3D" parent="item slots/wielen/deuren" unique_id=1053716411]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6014092, 0.7442894, 0)
-
-[node name="rechter deur" type="Marker3D" parent="item slots/wielen/deuren" unique_id=836525833]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.53400075, 0.9007928, 0)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="item slots/wielen/rechter achter wiel/StaticBody3D" unique_id=1454155233]
+transform = Transform3D(1, 4.371139e-08, -4.371139e-08, -4.371139e-08, -4.371139e-08, -1, -4.371139e-08, 1, -4.3711385e-08, -0.06358844, 0.103609264, 0.06744388)
+shape = SubResource("CylinderShape3D_r8ws1")
 
 [node name="motor" type="Marker3D" parent="item slots" unique_id=1734485773]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6784009, 0.82654494)
 
+[node name="StaticBody3D" type="StaticBody3D" parent="item slots/motor" unique_id=1995479050]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0.08671045, -0.03156653, 0.09150118)
+physics_material_override = SubResource("PhysicsMaterial_6dfp2")
+script = ExtResource("3_txtdd")
+PartName = "motor"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="item slots/motor/StaticBody3D" unique_id=1063875224]
+transform = Transform3D(1, 4.371139e-08, -4.371139e-08, -4.371139e-08, -4.371139e-08, -1, -4.371139e-08, 1, -4.3711385e-08, -0.07039255, -0.021873713, 0.08648687)
+shape = SubResource("BoxShape3D_yg51h")
+
 [node name="uitlaat" type="Marker3D" parent="item slots" unique_id=786506876]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.32594508, 0.10094845, -1.023635)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.32594508, 0.10094845, -1.023635)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="item slots/uitlaat" unique_id=1021047796]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0.31453323, 0.073995054, 0.09150118)
+physics_material_override = SubResource("PhysicsMaterial_6dfp2")
+script = ExtResource("3_txtdd")
+PartName = "uitlaat"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="item slots/uitlaat/StaticBody3D" unique_id=1684698383]
+transform = Transform3D(1, 4.371139e-08, -4.371139e-08, -4.371139e-08, -4.371139e-08, -1, -4.371139e-08, 1, -4.3711385e-08, -0.08021921, 0.07685062, 0.054092526)
+shape = SubResource("CylinderShape3D_r8ws1")
+
+[node name="deuren" type="Node3D" parent="item slots" unique_id=757668240]
+
+[node name="linker deur" type="Marker3D" parent="item slots/deuren" unique_id=1053716411]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6014092, 0.7442894, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="item slots/deuren/linker deur" unique_id=1642075838]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -0.04295373, -0.0315665, 0.07521242)
+physics_material_override = SubResource("PhysicsMaterial_6dfp2")
+script = ExtResource("3_txtdd")
+PartName = "linker deur"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="item slots/deuren/linker deur/StaticBody3D" unique_id=278698693]
+transform = Transform3D(1, 4.371139e-08, -4.371139e-08, -4.371139e-08, -4.371139e-08, -1, -4.371139e-08, 1, -4.3711385e-08, 0.015422866, 0.13007331, 0.09463507)
+shape = SubResource("BoxShape3D_m5a2o")
+
+[node name="rechter deur" type="Marker3D" parent="item slots/deuren" unique_id=836525833]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.53400075, 0.9007928, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="item slots/deuren/rechter deur" unique_id=510627830]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0.08671045, -0.03156653, 0.09150118)
+physics_material_override = SubResource("PhysicsMaterial_6dfp2")
+script = ExtResource("3_txtdd")
+PartName = "rechter deur"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="item slots/deuren/rechter deur/StaticBody3D" unique_id=360900526]
+transform = Transform3D(1, 4.371139e-08, -4.371139e-08, -4.371139e-08, -4.371139e-08, -1, -4.371139e-08, 1, -4.3711385e-08, -0.038013436, 0.012977362, 0.012207091)
+shape = SubResource("BoxShape3D_cn6kn")
