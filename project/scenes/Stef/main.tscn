@@ -1,5 +1,74 @@
 [gd_scene format=3 uid="uid://cen1bb5jk52l4"]
 
+<<<<<<< HEAD:project/scenes/main.tscn
+[ext_resource type="PackedScene" uid="uid://c4022grx2yvh2" path="res://Models/Stef/kenney_city-kit-roads (1)/Models/GLB format/road-crossroad-path.glb" id="1_n2tcu"]
+[ext_resource type="PackedScene" uid="uid://bocb1urkfwqln" path="res://Models/Stef/kenney_city-kit-roads (1)/Models/GLB format/tile-low.glb" id="2_ot556"]
+[ext_resource type="PackedScene" uid="uid://dfsrag4dbkwtf" path="res://Models/Stef/kenney_city-kit-roads (1)/Models/GLB format/road-bend-sidewalk.glb" id="2_ygkv6"]
+[ext_resource type="PackedScene" uid="uid://ckh2rixagmr50" path="res://Models/Stef/kenney_city-kit-roads (1)/Models/GLB format/road-bridge.glb" id="3_t2ac2"]
+[ext_resource type="PackedScene" uid="uid://bmg7rkm0xbvgr" path="res://Models/Stef/kenney_city-kit-roads (1)/Models/GLB format/road-slant-flat-curve.glb" id="4_y0rjb"]
+[ext_resource type="PackedScene" uid="uid://basfqjhb1b4yl" path="res://Models/Stef/kenney_city-kit-roads (1)/Models/GLB format/road-roundabout.glb" id="5_r50oh"]
+[ext_resource type="PackedScene" uid="uid://2e36y6xdrx0r" path="res://Models/Stef/kenney_city-kit-roads (1)/Models/GLB format/road-straight.glb" id="6_kl032"]
+[ext_resource type="PackedScene" uid="uid://bw1a1amw74wee" path="res://Models/Stef/kenney_city-kit-roads (1)/Models/GLB format/road-intersection-line.glb" id="7_c3xhk"]
+[ext_resource type="PackedScene" uid="uid://be48op54sq5eh" path="res://Models/Stef/kenney_city-kit-roads (1)/Models/GLB format/road-end-round.glb" id="8_1cri0"]
+[ext_resource type="PackedScene" uid="uid://fb4ar1cycaqm" path="res://Models/Stef/kenney_city-kit-roads (1)/Models/GLB format/road-roundabout-barrier.glb" id="9_dtar0"]
+[ext_resource type="PackedScene" uid="uid://f65hypa3jjy2" path="res://Models/Stef/kenney_city-kit-roads (1)/Models/GLB format/road-curve-intersection.glb" id="10_q8u6p"]
+[ext_resource type="PackedScene" uid="uid://b2gp5knw8yvry" path="res://Models/Stef/kenney_city-kit-roads (1)/Models/GLB format/road-curve.glb" id="11_ot556"]
+[ext_resource type="PackedScene" uid="uid://bednrdvq3jret" path="res://Models/Stef/kenney_city-kit-roads (1)/Models/GLB format/road-curve-barrier.glb" id="12_16k2v"]
+[ext_resource type="PackedScene" uid="uid://is033g28p3lt" path="res://Models/Stef/kenney_city-kit-roads (1)/Models/GLB format/road-curve-intersection-barrier.glb" id="13_ss7in"]
+[ext_resource type="PackedScene" uid="uid://tt2e1apjgfmq" path="res://Models/Stef/kenney_city-kit-roads (1)/Models/GLB format/road-straight-barrier.glb" id="14_ytbs1"]
+[ext_resource type="PackedScene" uid="uid://xfgomrlt7xtk" path="res://Models/Stef/kenney_city-kit-roads (1)/Models/GLB format/road-slant-curve-barrier.glb" id="15_s5r3q"]
+[ext_resource type="PackedScene" uid="uid://cs3puyme8kfe6" path="res://scenes/Stef/ondergrond.tscn" id="16_dtar0"]
+[ext_resource type="PackedScene" uid="uid://2uisbl6y4aru" path="res://Models/Stef/kenny_city-kit-suburban/GLB format/tree-large.glb" id="17_q8u6p"]
+[ext_resource type="PackedScene" uid="uid://b1bmengxgxuvn" path="res://Models/Stef/kenney_city-kit-roads (1)/Models/GLB format/sign-highway.glb" id="19_16k2v"]
+[ext_resource type="PackedScene" uid="uid://beq758y4yax6d" path="res://Models/Stef/kenny_city-kit-suburban/GLB format/building-type-o.glb" id="20_lqcw1"]
+[ext_resource type="PackedScene" uid="uid://c5gppj5ymarwv" path="res://Models/Stef/kenny_city-kit-suburban/GLB format/building-type-e.glb" id="21_3wo1a"]
+[ext_resource type="PackedScene" uid="uid://e17a0uungpdy" path="res://Models/Stef/kenny_city-kit-suburban/GLB format/building-type-k.glb" id="22_wyuvi"]
+[ext_resource type="PackedScene" uid="uid://dwrmfjrbhkqlm" path="res://Models/Stef/kenny_city-kit-suburban/GLB format/building-type-q.glb" id="23_vvle2"]
+[ext_resource type="PackedScene" uid="uid://bgnp46pgc4jjj" path="res://Models/Stef/kenny_city-kit-suburban/GLB format/fence-2x3.glb" id="24_gtw22"]
+[ext_resource type="PackedScene" uid="uid://wjc8602gsnmm" path="res://Models/Stef/kenny_city-kit-suburban/GLB format/fence-3x3.glb" id="25_pjc7e"]
+[ext_resource type="PackedScene" uid="uid://bb4vycmh38ag2" path="res://Models/Stef/kenney_city-kit-commercial_2.1/Models/GLB format/building-m.glb" id="26_luut4"]
+[ext_resource type="PackedScene" uid="uid://c7g84gh281tbb" path="res://Models/Stef/kenney_city-kit-commercial_2.1/Models/GLB format/building-a.glb" id="27_2srak"]
+[ext_resource type="PackedScene" uid="uid://cb0lvgt3ogfv1" path="res://Models/Stef/kenney_city-kit-commercial_2.1/Models/GLB format/building-b.glb" id="28_0i2s5"]
+[ext_resource type="PackedScene" uid="uid://b7obpwqncj0mb" path="res://Models/Stef/kenney_city-kit-commercial_2.1/Models/GLB format/building-j.glb" id="30_rdydl"]
+[ext_resource type="PackedScene" uid="uid://lefvoi1tncc1" path="res://Models/Stef/kenney_city-kit-commercial_2.1/Models/GLB format/building-skyscraper-b.glb" id="31_7u8c8"]
+[ext_resource type="PackedScene" uid="uid://ch7g5ve8ems4c" path="res://Models/Stef/kenney_city-kit-commercial_2.1/Models/GLB format/building-l.glb" id="32_jkox3"]
+[ext_resource type="PackedScene" uid="uid://b243pu4fdcls0" path="res://Models/Stef/kenney_city-kit-commercial_2.1/Models/GLB format/building-skyscraper-d.glb" id="33_d2bnf"]
+[ext_resource type="PackedScene" uid="uid://det3hd02dqlfu" path="res://Models/Stef/kenney_city-kit-commercial_2.1/Models/GLB format/building-skyscraper-c.glb" id="34_s6b6n"]
+[ext_resource type="PackedScene" uid="uid://ll08s40d632m" path="res://Models/Stef/kenney_city-kit-commercial_2.1/Models/GLB format/building-skyscraper-e.glb" id="35_or4h2"]
+[ext_resource type="PackedScene" uid="uid://c8pte7bpu02or" path="res://Models/Stef/kenny_city-kit-suburban/GLB format/building-type-d.glb" id="36_b43iw"]
+[ext_resource type="PackedScene" uid="uid://b24tulllcrtv8" path="res://Models/Stef/kenny_city-kit-suburban/GLB format/building-type-p.glb" id="36_luut4"]
+[ext_resource type="PackedScene" uid="uid://cqow2adifhhl3" path="res://Models/Stef/kenny_city-kit-suburban/GLB format/building-type-r.glb" id="38_2srak"]
+[ext_resource type="PackedScene" uid="uid://cd4ilryinfmhm" path="res://Models/Stef/kenny_city-kit-suburban/GLB format/building-type-l.glb" id="38_ufsof"]
+[ext_resource type="PackedScene" uid="uid://crpkjyjrm7y8e" path="res://Models/Stef/kenny_city-kit-suburban/GLB format/building-type-j.glb" id="39_0i2s5"]
+[ext_resource type="PackedScene" uid="uid://dhrklgd4nind0" path="res://Models/Stef/kenny_city-kit-suburban/GLB format/building-type-h.glb" id="40_op8dl"]
+[ext_resource type="PackedScene" uid="uid://3k5gg4ulpq18" path="res://Models/Stef/kenny_city-kit-suburban/GLB format/building-type-f.glb" id="41_rdydl"]
+[ext_resource type="PackedScene" uid="uid://gckbqjd8wwfn" path="res://Models/Stef/kenny_city-kit-suburban/GLB format/building-type-c.glb" id="42_7u8c8"]
+[ext_resource type="PackedScene" uid="uid://b4fb2nh3eo015" path="res://Models/Stef/kenny_city-kit-suburban/GLB format/building-type-s.glb" id="44_jkox3"]
+[ext_resource type="PackedScene" uid="uid://cy6di156xhp0y" path="res://Models/Stef/kenney_city-kit-commercial_2.1/Models/GLB format/building-skyscraper-a.glb" id="45_0i2s5"]
+[ext_resource type="PackedScene" uid="uid://b7ufamfht3afv" path="res://Models/Stef/kenney_city-kit-commercial_2.1/Models/GLB format/building-k.glb" id="46_op8dl"]
+[ext_resource type="PackedScene" uid="uid://dth45jk0iagtl" path="res://Models/Stef/kenney_city-kit-commercial_2.1/Models/GLB format/building-g.glb" id="47_jkox3"]
+[ext_resource type="PackedScene" uid="uid://bkb00emgkxvca" path="res://Models/Stef/kenney_city-kit-commercial_2.1/Models/GLB format/building-e.glb" id="48_d2bnf"]
+[ext_resource type="PackedScene" uid="uid://eorprnkxpfo0" path="res://Models/Stef/kenney_city-kit-commercial_2.1/Models/GLB format/building-c.glb" id="49_s6b6n"]
+[ext_resource type="PackedScene" uid="uid://cr5hacs00lein" path="res://Models/Stef/kenney_city-kit-commercial_2.1/Models/GLB format/building-d.glb" id="50_or4h2"]
+[ext_resource type="PackedScene" uid="uid://8bs3hgv67kgw" path="res://Models/Stef/kenney_city-kit-roads (1)/Models/GLB format/sign-highway-detailed.glb" id="51_7o61e"]
+[ext_resource type="PackedScene" uid="uid://rut0vyikbltu" path="res://Models/Stef/kenney_city-kit-roads (1)/Models/GLB format/light-square-double.glb" id="52_772py"]
+[ext_resource type="PackedScene" uid="uid://dwdlsusbnbawf" path="res://Models/Stef/kenney_city-kit-roads (1)/Models/GLB format/light-curved.glb" id="53_e3ghg"]
+[ext_resource type="PackedScene" uid="uid://dbrr5v1ik13td" path="res://Models/Stef/kenney_city-kit-roads (1)/Models/GLB format/light-square.glb" id="54_m462g"]
+[ext_resource type="PackedScene" uid="uid://b34jrhgeedvgy" path="res://Models/Stef/kenney_city-kit-roads (1)/Models/GLB format/construction-barrier.glb" id="55_dlump"]
+[ext_resource type="PackedScene" uid="uid://3khgxttcp7ci" path="res://Models/Stef/kenney_city-kit-roads (1)/Models/GLB format/construction-light.glb" id="56_gug34"]
+[ext_resource type="PackedScene" uid="uid://bxqv82dplg3i" path="res://Models/Stef/kenney_city-kit-roads (1)/Models/GLB format/bridge-pillar-wide.glb" id="57_1l2kb"]
+[ext_resource type="PackedScene" uid="uid://nalgreswqo0c" path="res://Models/Stef/kenney_city-kit-commercial_2.1/Models/GLB format/detail-parasol-a.glb" id="58_1l2kb"]
+[ext_resource type="PackedScene" uid="uid://c13f4o5eiji81" path="res://Models/Stef/kenney_city-kit-commercial_2.1/Models/GLB format/detail-parasol-b.glb" id="59_lng2t"]
+[ext_resource type="PackedScene" uid="uid://7e3yap5iuc8c" path="res://Models/Stef/kenny_city-kit-suburban/GLB format/tree-small.glb" id="60_df326"]
+[ext_resource type="PackedScene" uid="uid://cb1ii1r7t0bpx" path="res://Models/Stef/kenny_city-kit-suburban/GLB format/planter.glb" id="61_mfiwv"]
+[ext_resource type="PackedScene" uid="uid://rh4577081jq1" path="res://Models/Stef/kenny_city-kit-suburban/GLB format/path-long.glb" id="62_606ol"]
+[ext_resource type="PackedScene" uid="uid://bqvcg6vb220v3" path="res://Models/Stef/kenny_city-kit-suburban/GLB format/path-short.glb" id="63_vawrf"]
+[ext_resource type="PackedScene" uid="uid://b4osx45685d3g" path="res://scenes/Stef/garage.tscn" id="64_od4ux"]
+[ext_resource type="PackedScene" uid="uid://bua4gurbpfq50" path="res://objects/Alen/Player.tscn" id="65_xhfw6"]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_od4ux"]
+data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
+=======
 [ext_resource type="PackedScene" uid="uid://cs3puyme8kfe6" path="res://scenes/Stef/ondergrond.tscn" id="1_kptno"]
 [ext_resource type="PackedScene" uid="uid://bocb1urkfwqln" path="res://Models/Stef/kenney_city-kit-roads (1)/Models/GLB format/tile-low.glb" id="2_27hqu"]
 [ext_resource type="PackedScene" uid="uid://f65hypa3jjy2" path="res://Models/Stef/kenney_city-kit-roads (1)/Models/GLB format/road-curve-intersection.glb" id="3_qt02y"]
@@ -64,6 +133,7 @@
 [ext_resource type="PackedScene" uid="uid://bqvcg6vb220v3" path="res://Models/Stef/kenny_city-kit-suburban/GLB format/path-short.glb" id="62_qox0n"]
 [ext_resource type="PackedScene" uid="uid://cvqdjglw35klk" path="res://scenes/Alen/player.tscn" id="63_nv4dl"]
 [ext_resource type="PackedScene" uid="uid://b4osx45685d3g" path="res://scenes/Stef/garage.tscn" id="64_q84hn"]
+>>>>>>> d841aad0a67042c3bdecf919e27979124b51a769:project/scenes/Stef/main.tscn
 
 [node name="main" type="Node3D" unique_id=439634394]
 
@@ -78,7 +148,16 @@ shadow_enabled = true
 [node name="ondergrond" parent="Map" unique_id=118520222 instance=ExtResource("1_kptno")]
 transform = Transform3D(25, 0, 0, 0, 1, 0, 0, 0, 20, -5.996, -0.5, 2.004)
 
+<<<<<<< HEAD:project/scenes/main.tscn
+[node name="StaticBody3D" type="StaticBody3D" parent="Map/ondergrond" unique_id=304283414]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Map/ondergrond/StaticBody3D" unique_id=778045970]
+shape = SubResource("ConcavePolygonShape3D_od4ux")
+
+[node name="ondergrond2" parent="Map" unique_id=1707798816 instance=ExtResource("16_dtar0")]
+=======
 [node name="ondergrond2" parent="Map" unique_id=1707798816 instance=ExtResource("1_kptno")]
+>>>>>>> d841aad0a67042c3bdecf919e27979124b51a769:project/scenes/Stef/main.tscn
 transform = Transform3D(100, 0, 0, 0, 1, 0, 0, 0, 100, 0, -0.5, 0)
 
 [node name="tiles" type="Node3D" parent="Map" unique_id=1183921115]
@@ -3297,8 +3376,15 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 5.09
 [node name="tree-small327" parent="Map/decoratie" unique_id=873937924 instance=ExtResource("57_noj8f")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.0818295, -9.536743e-07, -7.783908)
 
+<<<<<<< HEAD:project/scenes/main.tscn
+[node name="Node3D" parent="." unique_id=1939525001 instance=ExtResource("64_od4ux")]
+=======
 [node name="player" parent="." unique_id=1728694951 instance=ExtResource("63_nv4dl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.536503, 0, 2.2318964)
 
 [node name="Node3D" parent="." unique_id=1939525001 instance=ExtResource("64_q84hn")]
+>>>>>>> d841aad0a67042c3bdecf919e27979124b51a769:project/scenes/Stef/main.tscn
 transform = Transform3D(-4.371139e-09, 0, 0.1, 0, 0.1, 0, -0.1, 0, -4.371139e-09, -4.0206156, 0, 1.907978)
+
+[node name="Player" parent="." unique_id=1874107297 instance=ExtResource("65_xhfw6")]
+transform = Transform3D(0.065, 0, 0, 0, 0.065, 0, 0, 0, 0.065, -3.235, 0, 1.79)

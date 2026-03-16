@@ -1,9 +1,0 @@
-[gd_scene format=3 uid="uid://vi8m54cewque"]
-
-[node name="Player" type="CharacterBody3D" unique_id=1971453597]
-
-[node name="Camera3D" type="Camera3D" parent="." unique_id=1484878895]
-transform = Transform3D(1, 0, 0, 0, 0.6494215, 0.76042867, 0, -0.76042867, 0.6494215, -0.36098695, 0.55979466, -0.052348852)
-fov = 95.89952
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=2129294427]
