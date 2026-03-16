@@ -61,9 +61,12 @@
 [ext_resource type="PackedScene" uid="uid://7e3yap5iuc8c" path="res://Models/Stef/kenny_city-kit-suburban/GLB format/tree-small.glb" id="60_df326"]
 [ext_resource type="PackedScene" uid="uid://cb1ii1r7t0bpx" path="res://Models/Stef/kenny_city-kit-suburban/GLB format/planter.glb" id="61_mfiwv"]
 [ext_resource type="PackedScene" uid="uid://rh4577081jq1" path="res://Models/Stef/kenny_city-kit-suburban/GLB format/path-long.glb" id="62_606ol"]
-[ext_resource type="PackedScene" uid="uid://cvqdjglw35klk" path="res://scenes/Stef/player.tscn" id="63_ro3en"]
 [ext_resource type="PackedScene" uid="uid://bqvcg6vb220v3" path="res://Models/Stef/kenny_city-kit-suburban/GLB format/path-short.glb" id="63_vawrf"]
 [ext_resource type="PackedScene" uid="uid://b4osx45685d3g" path="res://scenes/Stef/garage.tscn" id="64_od4ux"]
+[ext_resource type="PackedScene" uid="uid://bua4gurbpfq50" path="res://objects/Alen/Player.tscn" id="65_xhfw6"]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_od4ux"]
+data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
 
 [node name="main" type="Node3D" unique_id=439634394]
 
@@ -77,6 +80,11 @@ shadow_enabled = true
 
 [node name="ondergrond" parent="Map" unique_id=118520222 instance=ExtResource("16_dtar0")]
 transform = Transform3D(25, 0, 0, 0, 1, 0, 0, 0, 20, -5.996, -0.5, 2.004)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Map/ondergrond" unique_id=304283414]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Map/ondergrond/StaticBody3D" unique_id=778045970]
+shape = SubResource("ConcavePolygonShape3D_od4ux")
 
 [node name="ondergrond2" parent="Map" unique_id=1707798816 instance=ExtResource("16_dtar0")]
 transform = Transform3D(100, 0, 0, 0, 1, 0, 0, 0, 100, 0, -0.5, 0)
@@ -3297,8 +3305,8 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 5.09
 [node name="tree-small327" parent="Map/decoratie" unique_id=873937924 instance=ExtResource("60_df326")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.0818295, -9.536743e-07, -7.783908)
 
-[node name="player" parent="." unique_id=1728694951 instance=ExtResource("63_ro3en")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.536503, 0, 2.2318964)
-
 [node name="Node3D" parent="." unique_id=1939525001 instance=ExtResource("64_od4ux")]
 transform = Transform3D(-4.371139e-09, 0, 0.1, 0, 0.1, 0, -0.1, 0, -4.371139e-09, -4.0206156, 0, 1.907978)
+
+[node name="Player" parent="." unique_id=1874107297 instance=ExtResource("65_xhfw6")]
+transform = Transform3D(0.065, 0, 0, 0, 0.065, 0, 0, 0, 0.065, -3.235, 0, 1.79)
