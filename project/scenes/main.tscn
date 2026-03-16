@@ -68,6 +68,9 @@
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_od4ux"]
 data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
 
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_xhfw6"]
+data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
+
 [node name="main" type="Node3D" unique_id=439634394]
 
 [node name="Map" type="Node3D" parent="." unique_id=736395342]
@@ -88,6 +91,11 @@ shape = SubResource("ConcavePolygonShape3D_od4ux")
 
 [node name="ondergrond2" parent="Map" unique_id=1707798816 instance=ExtResource("16_dtar0")]
 transform = Transform3D(100, 0, 0, 0, 1, 0, 0, 0, 100, 0, -0.5, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Map/ondergrond2" unique_id=1157113583]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Map/ondergrond2/StaticBody3D" unique_id=545157203]
+shape = SubResource("ConcavePolygonShape3D_xhfw6")
 
 [node name="tiles" type="Node3D" parent="Map" unique_id=1183921115]
 
@@ -843,106 +851,106 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17, 0, 8)
 
 [node name="gebouwen" type="Node3D" parent="Map" unique_id=1862852335]
 
-[node name="building-type-o2" parent="Map/gebouwen" unique_id=1172385178 instance=ExtResource("20_lqcw1")]
+[node name="building-type-o2" parent="Map/gebouwen" unique_id=1205293993 instance=ExtResource("20_lqcw1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.75, 0, -4)
 
-[node name="building-type-e2" parent="Map/gebouwen" unique_id=1896240649 instance=ExtResource("21_3wo1a")]
+[node name="building-type-e2" parent="Map/gebouwen" unique_id=757301159 instance=ExtResource("21_3wo1a")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4)
 
-[node name="building-type-e3" parent="Map/gebouwen" unique_id=169313383 instance=ExtResource("21_3wo1a")]
+[node name="building-type-e3" parent="Map/gebouwen" unique_id=1856652104 instance=ExtResource("21_3wo1a")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -4)
 
-[node name="building-type-k2" parent="Map/gebouwen" unique_id=723998888 instance=ExtResource("22_wyuvi")]
+[node name="building-type-k2" parent="Map/gebouwen" unique_id=1422667816 instance=ExtResource("22_wyuvi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -4)
 
-[node name="building-type-q2" parent="Map/gebouwen" unique_id=346563923 instance=ExtResource("23_vvle2")]
+[node name="building-type-q2" parent="Map/gebouwen" unique_id=607366831 instance=ExtResource("23_vvle2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -4)
 
-[node name="building-m2" parent="Map/gebouwen" unique_id=2084887612 instance=ExtResource("26_luut4")]
+[node name="building-m2" parent="Map/gebouwen" unique_id=753319317 instance=ExtResource("26_luut4")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -2, 0, 3)
 
-[node name="building-a2" parent="Map/gebouwen" unique_id=773396763 instance=ExtResource("27_2srak")]
+[node name="building-a2" parent="Map/gebouwen" unique_id=1104762782 instance=ExtResource("27_2srak")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 3)
 
-[node name="building-b2" parent="Map/gebouwen" unique_id=1458460600 instance=ExtResource("28_0i2s5")]
+[node name="building-b2" parent="Map/gebouwen" unique_id=767359597 instance=ExtResource("28_0i2s5")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 3, 0, 2)
 
-[node name="building-k2" parent="Map/gebouwen" unique_id=945048399 instance=ExtResource("46_op8dl")]
+[node name="building-k2" parent="Map/gebouwen" unique_id=1950871772 instance=ExtResource("46_op8dl")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 2, 0, 3)
 
-[node name="building-j2" parent="Map/gebouwen" unique_id=1910447237 instance=ExtResource("30_rdydl")]
+[node name="building-j2" parent="Map/gebouwen" unique_id=1345714109 instance=ExtResource("30_rdydl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 7)
 
-[node name="building-j3" parent="Map/gebouwen" unique_id=653519591 instance=ExtResource("30_rdydl")]
+[node name="building-j3" parent="Map/gebouwen" unique_id=586587680 instance=ExtResource("30_rdydl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 5)
 
-[node name="building-skyscraper-b2" parent="Map/gebouwen" unique_id=1072620919 instance=ExtResource("31_7u8c8")]
+[node name="building-skyscraper-b2" parent="Map/gebouwen" unique_id=1447394307 instance=ExtResource("31_7u8c8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 5)
 
-[node name="building-l2" parent="Map/gebouwen" unique_id=1483018840 instance=ExtResource("32_jkox3")]
+[node name="building-l2" parent="Map/gebouwen" unique_id=27751296 instance=ExtResource("32_jkox3")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 4, 0, 7)
 
-[node name="building-skyscraper-d2" parent="Map/gebouwen" unique_id=392832010 instance=ExtResource("33_d2bnf")]
+[node name="building-skyscraper-d2" parent="Map/gebouwen" unique_id=97959685 instance=ExtResource("33_d2bnf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 9)
 
-[node name="building-skyscraper-c2" parent="Map/gebouwen" unique_id=1839419866 instance=ExtResource("34_s6b6n")]
+[node name="building-skyscraper-c2" parent="Map/gebouwen" unique_id=614341923 instance=ExtResource("34_s6b6n")]
 transform = Transform3D(-1, 0, 8.940697e-08, 0, 1, 0, -8.940697e-08, 0, -1, 1, 0, 10)
 
-[node name="building-skyscraper-e2" parent="Map/gebouwen" unique_id=1730682856 instance=ExtResource("35_or4h2")]
+[node name="building-skyscraper-e2" parent="Map/gebouwen" unique_id=1748628239 instance=ExtResource("35_or4h2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 0)
 
-[node name="building-type-p2" parent="Map/gebouwen" unique_id=937766757 instance=ExtResource("36_luut4")]
+[node name="building-type-p2" parent="Map/gebouwen" unique_id=729948680 instance=ExtResource("36_luut4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 0)
 
-[node name="building-type-q3" parent="Map/gebouwen" unique_id=1052694500 instance=ExtResource("23_vvle2")]
+[node name="building-type-q3" parent="Map/gebouwen" unique_id=845557409 instance=ExtResource("23_vvle2")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 3, 0, -2)
 
-[node name="building-type-l2" parent="Map/gebouwen" unique_id=45621988 instance=ExtResource("38_ufsof")]
+[node name="building-type-l2" parent="Map/gebouwen" unique_id=518293582 instance=ExtResource("38_ufsof")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -0.28087217, 0, 0)
 
-[node name="building-type-r2" parent="Map/gebouwen" unique_id=610079891 instance=ExtResource("38_2srak")]
+[node name="building-type-r2" parent="Map/gebouwen" unique_id=1945073359 instance=ExtResource("38_2srak")]
 transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, -4, 0, -6)
 
-[node name="building-type-j2" parent="Map/gebouwen" unique_id=2028946810 instance=ExtResource("39_0i2s5")]
+[node name="building-type-j2" parent="Map/gebouwen" unique_id=332624377 instance=ExtResource("39_0i2s5")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -4, 0, -4)
 
-[node name="building-type-h2" parent="Map/gebouwen" unique_id=1424056065 instance=ExtResource("40_op8dl")]
+[node name="building-type-h2" parent="Map/gebouwen" unique_id=23875451 instance=ExtResource("40_op8dl")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -4, 0, -2)
 
-[node name="building-type-f2" parent="Map/gebouwen" unique_id=1995771932 instance=ExtResource("41_rdydl")]
+[node name="building-type-f2" parent="Map/gebouwen" unique_id=298458654 instance=ExtResource("41_rdydl")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -4.1831627, 0, 0)
 
-[node name="building-type-c2" parent="Map/gebouwen" unique_id=1740909563 instance=ExtResource("42_7u8c8")]
+[node name="building-type-c2" parent="Map/gebouwen" unique_id=1748341271 instance=ExtResource("42_7u8c8")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 5, 0, 2.29268)
 
-[node name="building-type-d2" parent="Map/gebouwen" unique_id=94501461 instance=ExtResource("36_b43iw")]
+[node name="building-type-d2" parent="Map/gebouwen" unique_id=1246535239 instance=ExtResource("36_b43iw")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 5, 0, -2)
 
-[node name="building-type-s2" parent="Map/gebouwen" unique_id=1519943836 instance=ExtResource("44_jkox3")]
+[node name="building-type-s2" parent="Map/gebouwen" unique_id=1182920091 instance=ExtResource("44_jkox3")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 5, 0, -0.21287903)
 
-[node name="building-k3" parent="Map/gebouwen" unique_id=901887749 instance=ExtResource("46_op8dl")]
+[node name="building-k3" parent="Map/gebouwen" unique_id=487094151 instance=ExtResource("46_op8dl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, -2)
 
-[node name="building-skyscraper-a2" parent="Map/gebouwen" unique_id=2078503613 instance=ExtResource("45_0i2s5")]
+[node name="building-skyscraper-a2" parent="Map/gebouwen" unique_id=1531192819 instance=ExtResource("45_0i2s5")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 1.2685188, 0, 0)
 
-[node name="building-i2" parent="Map/gebouwen" unique_id=1102362068 instance=ExtResource("46_op8dl")]
+[node name="building-i2" parent="Map/gebouwen" unique_id=903736198 instance=ExtResource("46_op8dl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2627022, 0, -1.9032323)
 
-[node name="building-g2" parent="Map/gebouwen" unique_id=721096890 instance=ExtResource("47_jkox3")]
+[node name="building-g2" parent="Map/gebouwen" unique_id=1022697339 instance=ExtResource("47_jkox3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 9)
 
-[node name="building-e2" parent="Map/gebouwen" unique_id=1943086379 instance=ExtResource("48_d2bnf")]
+[node name="building-e2" parent="Map/gebouwen" unique_id=726075960 instance=ExtResource("48_d2bnf")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 3.1718886, 0, 10.051073)
 
-[node name="building-c2" parent="Map/gebouwen" unique_id=225521726 instance=ExtResource("49_s6b6n")]
+[node name="building-c2" parent="Map/gebouwen" unique_id=1629494966 instance=ExtResource("49_s6b6n")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -0.87094164, 0, 10.030364)
 
-[node name="building-d2" parent="Map/gebouwen" unique_id=1376934178 instance=ExtResource("50_or4h2")]
+[node name="building-d2" parent="Map/gebouwen" unique_id=1217496029 instance=ExtResource("50_or4h2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.15781128, 0, 8.877552)
 
-[node name="building-a3" parent="Map/gebouwen" unique_id=279705334 instance=ExtResource("27_2srak")]
+[node name="building-a3" parent="Map/gebouwen" unique_id=1608502536 instance=ExtResource("27_2srak")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.1268854, 0, 8.867694)
 
 [node name="decoratie" type="Node3D" parent="Map" unique_id=618117752]
@@ -953,16 +961,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, 8)
 [node name="sign-highway2" parent="Map/decoratie" unique_id=507944852 instance=ExtResource("19_16k2v")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -11, 0.5, 8)
 
-[node name="fence-2x32" parent="Map/decoratie" unique_id=265894956 instance=ExtResource("24_gtw22")]
+[node name="fence-2x32" parent="Map/decoratie" unique_id=2077776219 instance=ExtResource("24_gtw22")]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -1.7681288, 0, -4.761136)
 
-[node name="fence-3x32" parent="Map/decoratie" unique_id=1996326044 instance=ExtResource("25_pjc7e")]
+[node name="fence-3x32" parent="Map/decoratie" unique_id=286601332 instance=ExtResource("25_pjc7e")]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -0.0016054213, -2.3841858e-07, -4.976263)
 
-[node name="fence-3x33" parent="Map/decoratie" unique_id=1164487452 instance=ExtResource("25_pjc7e")]
+[node name="fence-3x33" parent="Map/decoratie" unique_id=341263323 instance=ExtResource("25_pjc7e")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 4.027177, 0, -4.9642725)
 
-[node name="fence-2x33" parent="Map/decoratie" unique_id=770324944 instance=ExtResource("24_gtw22")]
+[node name="fence-2x33" parent="Map/decoratie" unique_id=828231596 instance=ExtResource("24_gtw22")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 2.0027847, -1.1920929e-07, -4.7693257)
 
 [node name="sign-highway-detailed2" parent="Map/decoratie" unique_id=629342068 instance=ExtResource("51_7o61e")]
@@ -2135,13 +2143,13 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -7.3
 [node name="tree-small329" parent="Map/decoratie" unique_id=783881231 instance=ExtResource("60_df326")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -7.4702406, -9.536743e-07, -6.615883)
 
-[node name="detail-parasol-a2" parent="Map/decoratie" unique_id=35519588 instance=ExtResource("58_1l2kb")]
+[node name="detail-parasol-a2" parent="Map/decoratie" unique_id=136745092 instance=ExtResource("58_1l2kb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 7)
 
-[node name="detail-parasol-a3" parent="Map/decoratie" unique_id=341421446 instance=ExtResource("58_1l2kb")]
+[node name="detail-parasol-a3" parent="Map/decoratie" unique_id=2105107537 instance=ExtResource("58_1l2kb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 5)
 
-[node name="detail-parasol-b2" parent="Map/decoratie" unique_id=533316823 instance=ExtResource("59_lng2t")]
+[node name="detail-parasol-b2" parent="Map/decoratie" unique_id=776914072 instance=ExtResource("59_lng2t")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 6)
 
 [node name="tree-large3" parent="Map/decoratie" unique_id=1907090590 instance=ExtResource("17_q8u6p")]
@@ -3309,4 +3317,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.0818295, -9.536743e-07, -7
 transform = Transform3D(-4.371139e-09, 0, 0.1, 0, 0.1, 0, -0.1, 0, -4.371139e-09, -4.0206156, 0, 1.907978)
 
 [node name="Player" parent="." unique_id=1874107297 instance=ExtResource("65_xhfw6")]
-transform = Transform3D(0.065, 0, 0, 0, 0.065, 0, 0, 0, 0.065, -3.235, 0, 1.79)
+transform = Transform3D(0.065, 0, 0, 0, 0.065, 0, 0, 0, 0.065, -3.235, 0.1, 1.79)
+JumpForce = 2.0

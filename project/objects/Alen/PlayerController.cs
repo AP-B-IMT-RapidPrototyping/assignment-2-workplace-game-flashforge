@@ -53,16 +53,18 @@ public partial class PlayerController : CharacterBody3D
     {
         if (@event is InputEventMouseMotion mouseMotion)
         {
-            // Horizontal rotation: roteer de HELE speler (Y-axis)
+            // Horizontale rotatie op de speler
             RotateY(-mouseMotion.Relative.X * _mouseSensitivity);
 
-            // Vertical rotation: roteer alleen de CAMERA (X-axis)
+            // Verticale rotatie op de HEAD node, niet op de camera
             _camera.RotateX(-mouseMotion.Relative.Y * _mouseSensitivity);
 
-            // Voorkom dat de camera omdraait (clamp tussen -86° en +86°, of -1.5 en 1.5 radialen)
-            Vector3 cameraRotation = _camera.Rotation;
-            cameraRotation.X = Mathf.Clamp(cameraRotation.X, -1.5f, 1.5f);
-            _camera.Rotation = cameraRotation;
+            // Clamp de X rotatie
+            Vector3 rot = _camera.Rotation;
+            rot.X = Mathf.Clamp(rot.X, -1.5f, 1.5f);
+            _camera.Rotation = rot;
         }
     }
+
+
 }

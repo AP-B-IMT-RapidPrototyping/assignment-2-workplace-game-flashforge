@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://cr5hacs00lein"
-path="res://.godot/imported/building-d.glb-6e5a2301a7114933959487be1d5dd244.scn"
+uid="uid://4k1l1rcyesrd"
+path="res://.godot/imported/taxi.fbx-2bc71af29cf0f7aba22d78e97e469a19.scn"
 
 [deps]
 
-source_file="res://Models/Stef/kenney_city-kit-commercial_2.1/Models/GLB format/building-d.glb"
-dest_files=["res://.godot/imported/building-d.glb-6e5a2301a7114933959487be1d5dd244.scn"]
+source_file="res://Models/Jens/taxi.fbx"
+dest_files=["res://.godot/imported/taxi.fbx-2bc71af29cf0f7aba22d78e97e469a19.scn"]
 
 [params]
 
@@ -30,20 +30,15 @@ meshes/force_disable_compression=false
 skins/use_named_skins=true
 animation/import=true
 animation/fps=30
-animation/trimming=false
+animation/trimming=true
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
 materials/extract=0
 materials/extract_format=0
 materials/extract_path=""
-_subresources={
-"nodes": {
-"PATH:building-d": {
-"generate/physics": true,
-"physics/shape_type": 1
-}
-}
-}
-gltf/naming_version=2
-gltf/embedded_image_handling=1
+_subresources={}
+fbx/importer=0
+fbx/allow_geometry_helper_nodes=false
+fbx/embedded_image_handling=1
+fbx/naming_version=2
