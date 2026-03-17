@@ -2,5 +2,5 @@ using Godot;
 
 public partial class AutoOnderdeel : StaticBody3D
 {
-    [Export] public AutoOnderdeel OnderdeelData;
+    [Export] public AutoResource OnderdeelData;
 }

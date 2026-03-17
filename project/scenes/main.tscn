@@ -5,7 +5,6 @@
 [ext_resource type="PackedScene" uid="uid://dfsrag4dbkwtf" path="res://Models/Stef/kenney_city-kit-roads (1)/Models/GLB format/road-bend-sidewalk.glb" id="2_ygkv6"]
 [ext_resource type="PackedScene" uid="uid://ckh2rixagmr50" path="res://Models/Stef/kenney_city-kit-roads (1)/Models/GLB format/road-bridge.glb" id="3_t2ac2"]
 [ext_resource type="PackedScene" uid="uid://bmg7rkm0xbvgr" path="res://Models/Stef/kenney_city-kit-roads (1)/Models/GLB format/road-slant-flat-curve.glb" id="4_y0rjb"]
-[ext_resource type="PackedScene" uid="uid://oqena6it738r" path="res://scenes/Alen/test.tscn" id="5_152kg"]
 [ext_resource type="PackedScene" uid="uid://basfqjhb1b4yl" path="res://Models/Stef/kenney_city-kit-roads (1)/Models/GLB format/road-roundabout.glb" id="5_r50oh"]
 [ext_resource type="PackedScene" uid="uid://2e36y6xdrx0r" path="res://Models/Stef/kenney_city-kit-roads (1)/Models/GLB format/road-straight.glb" id="6_kl032"]
 [ext_resource type="PackedScene" uid="uid://bw1a1amw74wee" path="res://Models/Stef/kenney_city-kit-roads (1)/Models/GLB format/road-intersection-line.glb" id="7_c3xhk"]
@@ -79,20 +78,17 @@ data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0
 [node name="Node3D" parent="." unique_id=1939525001 instance=ExtResource("64_od4ux")]
 transform = Transform3D(-4.371139e-09, 0, 0.1, 0, 0.1, 0, -0.1, 0, -4.371139e-09, -4.0206156, 0, 1.907978)
 
-[node name="player" parent="." unique_id=1728694951 node_paths=PackedStringArray("_camera") instance=ExtResource("65_152kg")]
+[node name="player" parent="." unique_id=1728694951 node_paths=PackedStringArray("_camera", "AimRayCast") instance=ExtResource("65_152kg")]
 transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, -3.3062758, 0, -0.21483743)
 script = ExtResource("66_r4e17")
 _mouseSensitivity = 0.003
 _camera = NodePath("Camera3D")
 _speed = 2.0
 _jumpVelocity = 2.0
+AimRayCast = NodePath("Camera3D/RayCast3D")
 
 [node name="auto" parent="." unique_id=2003845161 instance=ExtResource("65_1epgm")]
 transform = Transform3D(-8.742278e-09, 0, -0.2, 0, 0.2, 0, 0.2, 0, -8.742278e-09, -4.013089, 0, 1.9177114)
-
-[node name="StaticBody3D" parent="auto/item slots/wielen/linker voor wiel" parent_id_path=PackedInt32Array(2003845161, 1292838409) index="0" unique_id=1183511818]
-PartName = "LVwiel"
-Onderdeel = ExtResource("5_152kg")
 
 [node name="Map" type="Node3D" parent="." unique_id=736395342]
 
