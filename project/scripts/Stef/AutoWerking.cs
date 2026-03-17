@@ -4,36 +4,32 @@ using System;
 public partial class AutoWerking : Node
 {
     [Export] public float MaxFuel = 100f;
-    public float CurrentFuel;
+    [Export] public float CurrentFuel = 0;
 
     public override void _Ready()
     {
-        CurrentFuel = MaxFuel;
     }
 
-    public void InteractieMetOnderdeel(Node3D collider, AutoOnderdeel nieuwOnderdeel)
+    public void InteractieMetOnderdeel(Node3D collider, AutoResource nieuwOnderdeel)
     {
         if (collider.GetParent() is Marker3D slot)
         {
             GD.Print($"Onderdeel vervangen in slot: {slot.Name}");
-            EquipPart(slot, nieuwOnderdeel);
+            InstalleerOnderdeel(slot, nieuwOnderdeel);
         }
     }
 
-    public void EquipPart(Marker3D slot, AutoOnderdeel part)
+    public void InstalleerOnderdeel(Marker3D slot, AutoResource data)
     {
         foreach (var child in slot.GetChildren())
         {
-            if (child is not StaticBody3D) 
-            {
-                child.QueueFree();
-            }
+            if (child is not StaticBody3D) child.QueueFree();
         }
-        
-        if (part?.Onderdeel != null)
+
+        if (data?.OnderdeelModel != null)
         {
-            var newPart = part.Onderdeel.Instantiate<Node3D>();
-            slot.AddChild(newPart);
+            var nieuwModel = data.OnderdeelModel.Instantiate<Node3D>();
+            slot.AddChild(nieuwModel);
         }
     }
 }
