@@ -7,8 +7,8 @@ public partial class PlayerController : CharacterBody3D
 
     [Export] private Camera3D _camera;
 
-    [Export] private float _speed = 5.0f;
-    [Export] private float _jumpVelocity = 4.5f;
+    [Export] private float _speed = 3.0f;
+    [Export] private float _jumpVelocity = 2.0f;
 
     public override void _Ready()
     {
