@@ -9,15 +9,21 @@ public partial class PlayerController : CharacterBody3D
     [Export] private float _jumpVelocity = 2.5f;
 
     [Export] public RayCast3D AimRayCast;
-
-    // VERBETERING: Zorg dat dit type exact matcht met je Resource scriptnaam (AutoOnderdeel)
-    [Export] public AutoOnderdeel TestOnderdeel;
+    [Export] public Node3D HoldPosition; // Marker3D voor vasthouden
+    [Export] public AutoResource TestOnderdeel; // Dit blijft een Resource
 
     private Node3D _lastLookedAt = null;
+
+    // Pickup/drop variabelen
+    private StaticBody3D _heldObject = null;
+    private bool _isHolding = false;
 
     public override void _Ready()
     {
         Input.MouseMode = Input.MouseModeEnum.Captured;
+
+        if (HoldPosition == null)
+            GD.PrintErr("HoldPosition is niet toegewezen! Voeg een Marker3D toe.");
     }
 
     public override void _PhysicsProcess(double delta)
@@ -66,18 +72,13 @@ public partial class PlayerController : CharacterBody3D
 
         if (@event.IsActionPressed("interact"))
         {
-            if (AimRayCast != null && AimRayCast.IsColliding())
+            if (_isHolding)
             {
-                // We casten direct naar AutoOnderdeelFysica voor de interactie
-                if (AimRayCast.GetCollider() is AutoOnderdeelFysica targetFysica)
-                {
-                    var autoLogica = targetFysica.Owner?.GetNodeOrNull<AutoWerking>("AutoWerking");
-
-                    if (autoLogica != null)
-                    {
-                        autoLogica.InteractieMetOnderdeel(targetFysica, TestOnderdeel);
-                    }
-                }
+                DropObject();
+            }
+            else
+            {
+                TryPickupObject();
             }
         }
     }
@@ -85,6 +86,84 @@ public partial class PlayerController : CharacterBody3D
     public override void _Process(double delta)
     {
         CheckAim();
+    }
+
+    private void TryPickupObject()
+    {
+        if (AimRayCast == null || !AimRayCast.IsColliding()) return;
+
+        var collider = AimRayCast.GetCollider();
+
+        if (collider is StaticBody3D target)
+        {
+            if (target.IsInGroup("onderdelen"))
+            {
+                PickupObject(target);
+            }
+        }
+    }
+
+    private void PickupObject(StaticBody3D onderdeel)
+    {
+        if (_isHolding || onderdeel == null || HoldPosition == null) return;
+
+        _heldObject = onderdeel;
+        _isHolding = true;
+
+        // FOUT 1 OPGELOST: Alleen collision uitzetten voor StaticBody3D
+        // (geen check voor RigidBody3D meer omdat _heldObject StaticBody3D is)
+        _heldObject.CollisionLayer = 0;
+        _heldObject.CollisionMask = 0;
+
+        // Ouder veranderen
+        var originalParent = _heldObject.GetParent();
+        originalParent?.RemoveChild(_heldObject);
+        HoldPosition.AddChild(_heldObject);
+
+        // Positie resetten
+        _heldObject.Position = Vector3.Zero;
+        _heldObject.Rotation = Vector3.Zero;
+
+        // FOUT 2 OPGELOST: Check of het een AutoOnderdeel is en gebruik OnderdeelData.PartName
+        if (_heldObject is AutoOnderdeel autoOnderdeel && autoOnderdeel.OnderdeelData != null)
+        {
+            GD.Print($"Opgepakt: {autoOnderdeel.OnderdeelData.PartName}");
+        }
+        else
+        {
+            GD.Print($"Opgepakt: {_heldObject.Name}");
+        }
+    }
+
+    private void DropObject()
+    {
+        if (!_isHolding || _heldObject == null) return;
+
+        var objectToDrop = _heldObject;
+
+        // Uit HoldPosition halen
+        var holdParent = objectToDrop.GetParent();
+        holdParent?.RemoveChild(objectToDrop);
+
+        // Toevoegen aan CurrentScene
+        var sceneRoot = GetTree().CurrentScene;
+        sceneRoot.AddChild(objectToDrop);
+
+        // Positie instellen
+        if (HoldPosition != null)
+        {
+            objectToDrop.GlobalPosition = HoldPosition.GlobalPosition;
+        }
+
+        // FOUT 1 OPGELOST: Collision weer aanzetten (geen RigidBody check)
+        objectToDrop.CollisionLayer = 1;
+        objectToDrop.CollisionMask = 1;
+
+        // Reset variabelen
+        _heldObject = null;
+        _isHolding = false;
+
+        GD.Print("Object losgelaten");
     }
 
     private void CheckAim()
@@ -96,27 +175,33 @@ public partial class PlayerController : CharacterBody3D
             if (_lastLookedAt != null)
             {
                 _lastLookedAt = null;
-                GD.Print("Je kijkt nergens meer naar.");
+                if (!_isHolding)
+                    GD.Print("Je kijkt nergens meer naar.");
             }
             return;
         }
 
-        // VERBETERING: Gebruik één variabele en check op je specifieke type
         var collider = AimRayCast.GetCollider();
 
-        if (collider is AutoOnderdeelFysica target)
+        if (collider is AutoOnderdeel target)
         {
-            if (target != _lastLookedAt)
+            if (target != _lastLookedAt && !_isHolding)
             {
                 _lastLookedAt = target;
 
+                // TEST: Print eerst alle properties om te zien wat er is
+                GD.Print($"Target type: {target.GetType()}");
+                GD.Print($"OnderdeelData is null? {target.OnderdeelData == null}");
+
                 if (target.OnderdeelData != null)
                 {
-                    GD.Print("Je kijkt naar: " + target.OnderdeelData.PartName);
+                    GD.Print($"OnderdeelData type: {target.OnderdeelData.GetType()}");
+                    GD.Print($"PartName: {target.OnderdeelData.PartName}");
+                    GD.Print($"Je kijkt naar: {target.OnderdeelData.PartName} (Druk E om op te pakken)");
                 }
                 else
                 {
-                    GD.Print("Je kijkt naar onderdeel (zonder data): " + target.GetParent().Name);
+                    GD.Print("Je kijkt naar onderdeel (Druk E om op te pakken)");
                 }
             }
         }

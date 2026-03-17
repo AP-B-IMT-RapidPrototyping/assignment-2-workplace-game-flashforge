@@ -3,6 +3,22 @@
   "WorkspaceRootPath": "C:\\Users\\alenh\\Documents\\project flash forge\\assignment-2-workplace-game-flashforge\\project\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{9592C61D-3A19-411D-A323-697002188C5A}|project.csproj|c:\\users\\alenh\\documents\\project flash forge\\assignment-2-workplace-game-flashforge\\project\\scripts\\stef\\autowerking.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9592C61D-3A19-411D-A323-697002188C5A}|project.csproj|solutionrelative:scripts\\stef\\autowerking.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9592C61D-3A19-411D-A323-697002188C5A}|project.csproj|c:\\users\\alenh\\documents\\project flash forge\\assignment-2-workplace-game-flashforge\\project\\scripts\\stef\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9592C61D-3A19-411D-A323-697002188C5A}|project.csproj|solutionrelative:scripts\\stef\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9592C61D-3A19-411D-A323-697002188C5A}|project.csproj|c:\\users\\alenh\\documents\\project flash forge\\assignment-2-workplace-game-flashforge\\project\\scripts\\stef\\autoonderdeel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9592C61D-3A19-411D-A323-697002188C5A}|project.csproj|solutionrelative:scripts\\stef\\autoonderdeel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9592C61D-3A19-411D-A323-697002188C5A}|project.csproj|c:\\users\\alenh\\documents\\project flash forge\\assignment-2-workplace-game-flashforge\\project\\scripts\\stef\\autoresources.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9592C61D-3A19-411D-A323-697002188C5A}|project.csproj|solutionrelative:scripts\\stef\\autoresources.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{9592C61D-3A19-411D-A323-697002188C5A}|project.csproj|c:\\users\\alenh\\documents\\project flash forge\\assignment-2-workplace-game-flashforge\\project\\objects\\alen\\playercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{9592C61D-3A19-411D-A323-697002188C5A}|project.csproj|solutionrelative:objects\\alen\\playercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
@@ -19,12 +35,64 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "AutoWerking.cs",
+              "DocumentMoniker": "C:\\Users\\alenh\\Documents\\project flash forge\\assignment-2-workplace-game-flashforge\\project\\scripts\\Stef\\AutoWerking.cs",
+              "RelativeDocumentMoniker": "scripts\\Stef\\AutoWerking.cs",
+              "ToolTip": "C:\\Users\\alenh\\Documents\\project flash forge\\assignment-2-workplace-game-flashforge\\project\\scripts\\Stef\\AutoWerking.cs",
+              "RelativeToolTip": "scripts\\Stef\\AutoWerking.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAkwAUAAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-17T13:28:32.055Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "AutoResources.cs",
+              "DocumentMoniker": "C:\\Users\\alenh\\Documents\\project flash forge\\assignment-2-workplace-game-flashforge\\project\\scripts\\Stef\\AutoResources.cs",
+              "RelativeDocumentMoniker": "scripts\\Stef\\AutoResources.cs",
+              "ToolTip": "C:\\Users\\alenh\\Documents\\project flash forge\\assignment-2-workplace-game-flashforge\\project\\scripts\\Stef\\AutoResources.cs",
+              "RelativeToolTip": "scripts\\Stef\\AutoResources.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-17T13:28:29.354Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "AutoOnderdeel.cs",
+              "DocumentMoniker": "C:\\Users\\alenh\\Documents\\project flash forge\\assignment-2-workplace-game-flashforge\\project\\scripts\\Stef\\AutoOnderdeel.cs",
+              "RelativeDocumentMoniker": "scripts\\Stef\\AutoOnderdeel.cs",
+              "ToolTip": "C:\\Users\\alenh\\Documents\\project flash forge\\assignment-2-workplace-game-flashforge\\project\\scripts\\Stef\\AutoOnderdeel.cs",
+              "RelativeToolTip": "scripts\\Stef\\AutoOnderdeel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-17T13:28:25.701Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Player.cs",
+              "DocumentMoniker": "C:\\Users\\alenh\\Documents\\project flash forge\\assignment-2-workplace-game-flashforge\\project\\scripts\\Stef\\Player.cs",
+              "RelativeDocumentMoniker": "scripts\\Stef\\Player.cs",
+              "ToolTip": "C:\\Users\\alenh\\Documents\\project flash forge\\assignment-2-workplace-game-flashforge\\project\\scripts\\Stef\\Player.cs",
+              "RelativeToolTip": "scripts\\Stef\\Player.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-17T13:13:39.977Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "PlayerController.cs",
               "DocumentMoniker": "C:\\Users\\alenh\\Documents\\project flash forge\\assignment-2-workplace-game-flashforge\\project\\objects\\Alen\\PlayerController.cs",
               "RelativeDocumentMoniker": "objects\\Alen\\PlayerController.cs",
               "ToolTip": "C:\\Users\\alenh\\Documents\\project flash forge\\assignment-2-workplace-game-flashforge\\project\\objects\\Alen\\PlayerController.cs",
               "RelativeToolTip": "objects\\Alen\\PlayerController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEMAAAABAAAAAAAAAA==",
+              "ViewState": "AgIAALgAAAAAAAAAAAAiwM8AAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-03-16T00:53:28.831Z",
               "EditorCaption": ""

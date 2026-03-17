@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://oqena6it738r"]
+
+[ext_resource type="PackedScene" uid="uid://4k1l1rcyesrd" path="res://Models/Jens/taxi.fbx" id="1_m2nbn"]
+
+[node name="Node3D" type="Node3D" unique_id=1434109025]
+
+[node name="taxi" parent="." unique_id=776014433 groups=["onderdelen"] instance=ExtResource("1_m2nbn")]
