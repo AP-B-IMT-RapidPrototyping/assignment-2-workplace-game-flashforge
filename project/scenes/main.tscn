@@ -75,6 +75,22 @@ data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0
 
 [node name="main" type="Node3D" unique_id=439634394]
 
+[node name="Node3D" parent="." unique_id=1939525001 instance=ExtResource("64_od4ux")]
+transform = Transform3D(-4.371139e-09, 0, 0.1, 0, 0.1, 0, -0.1, 0, -4.371139e-09, -4.0206156, 0, 1.907978)
+
+[node name="player" parent="." unique_id=1728694951 node_paths=PackedStringArray("_camera", "AimRayCast") instance=ExtResource("65_152kg")]
+transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, -3.3062758, 0, -0.21483743)
+script = ExtResource("66_r4e17")
+_mouseSensitivity = 0.003
+_camera = NodePath("Camera3D")
+_speed = 2.0
+_jumpVelocity = 2.0
+AimRayCast = NodePath("Camera3D/RayCast3D")
+TestOnderdeel = null
+
+[node name="auto" parent="." unique_id=2003845161 instance=ExtResource("65_1epgm")]
+transform = Transform3D(-8.742278e-09, 0, -0.2, 0, 0.2, 0, 0.2, 0, -8.742278e-09, -4.013089, 0, 1.9177114)
+
 [node name="Map" type="Node3D" parent="." unique_id=736395342]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="Map" unique_id=1896650536]
@@ -3315,31 +3331,5 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 5.09
 [node name="tree-small327" parent="Map/decoratie" unique_id=873937924 instance=ExtResource("60_df326")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.0818295, -9.536743e-07, -7.783908)
 
-[node name="Node3D" parent="." unique_id=1939525001 instance=ExtResource("64_od4ux")]
-transform = Transform3D(-4.371139e-09, 0, 0.1, 0, 0.1, 0, -0.1, 0, -4.371139e-09, -4.0206156, 0, 1.907978)
-
-<<<<<<< HEAD
-[node name="Player" parent="." unique_id=1874107297 node_paths=PackedStringArray("_camera") instance=ExtResource("65_xhfw6")]
-transform = Transform3D(0.065, 0, 0, 0, 0.065, 0, 0, 0, 0.065, -3.235, 0.1, 1.79)
-_camera = NodePath("Head/Camera3D")
-_speed = 3.0
-_jumpVelocity = 2.0
-
-[editable path="Player"]
-=======
-[node name="auto" parent="." unique_id=2003845161 instance=ExtResource("65_1epgm")]
-transform = Transform3D(-8.742278e-09, 0, -0.2, 0, 0.2, 0, 0.2, 0, -8.742278e-09, -4.013089, 0, 1.9177114)
-
-[node name="player" parent="." unique_id=1728694951 node_paths=PackedStringArray("_camera", "AimRayCast") instance=ExtResource("65_152kg")]
-transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, -3.3062758, 0, -0.21483743)
-script = ExtResource("66_r4e17")
-_mouseSensitivity = 0.003
-_camera = NodePath("Camera3D")
-_speed = 2.0
-_jumpVelocity = 2.0
-AimRayCast = NodePath("Camera3D/RayCast3D")
-TestOnderdeel = null
-
-[editable path="auto"]
 [editable path="player"]
->>>>>>> 3563e86214590c4d654314952d202ef6329b5c20
+[editable path="auto"]

@@ -8,17 +8,12 @@ public partial class PlayerController : CharacterBody3D
     [Export] private float _speed = 2.0f;
     [Export] private float _jumpVelocity = 2.5f;
 
-<<<<<<< HEAD
-    [Export] private float _speed = 3.0f;
-    [Export] private float _jumpVelocity = 2.0f;
-=======
     [Export] public RayCast3D AimRayCast;
 
     // VERBETERING: Zorg dat dit type exact matcht met je Resource scriptnaam (AutoOnderdeel)
     [Export] public AutoOnderdeel TestOnderdeel;
 
     private Node3D _lastLookedAt = null;
->>>>>>> 3563e86214590c4d654314952d202ef6329b5c20
 
     public override void _Ready()
     {
