@@ -9,15 +9,20 @@ public partial class PlayerController : CharacterBody3D
     [Export] private float _jumpVelocity = 2.5f;
 
     [Export] public RayCast3D AimRayCast;
+    [Export] public Node3D HoldPosition;  // WAAR JE HET OBJECT VASTHOUDT
 
-    // Dit is je 'inventaris'. Het is een AutoResource (de data), niet de collider zelf.
-    private AutoResource _vastgehoudenOnderdeel = null;
+    // Het fysieke object dat je vasthoudt
+    private AutoOnderdeel _vastgehoudenObject = null;
+    private bool _isHolding = false;
 
     private Node3D _lastLookedAt = null;
 
     public override void _Ready()
     {
         Input.MouseMode = Input.MouseModeEnum.Captured;
+
+        if (HoldPosition == null)
+            GD.PrintErr("HoldPosition is niet toegewezen! Voeg een Marker3D toe aan de player.");
     }
 
     public override void _PhysicsProcess(double delta)
@@ -50,6 +55,13 @@ public partial class PlayerController : CharacterBody3D
 
         Velocity = velocity;
         MoveAndSlide();
+
+        // Als je iets vasthoudt, update de positie (voor de zekerheid)
+        if (_isHolding && _vastgehoudenObject != null && HoldPosition != null)
+        {
+            _vastgehoudenObject.Position = Vector3.Zero;
+            _vastgehoudenObject.Rotation = Vector3.Zero;
+        }
     }
 
     public override void _Input(InputEvent @event)
@@ -82,25 +94,53 @@ public partial class PlayerController : CharacterBody3D
             var autoLogica = targetFysica.Owner?.GetNodeOrNull<AutoWerking>("AutoWerking");
 
             // SITUATIE 1: Je hebt al iets vast en wilt het in de auto plaatsen
-            if (_vastgehoudenOnderdeel != null)
+            if (_isHolding)
             {
                 if (autoLogica != null)
                 {
-                    GD.Print($"Onderdeel {_vastgehoudenOnderdeel.PartName} plaatsen...");
-                    autoLogica.InteractieMetOnderdeel(targetFysica, _vastgehoudenOnderdeel);
-                    _vastgehoudenOnderdeel = null; // Hand is nu weer leeg
+                    GD.Print($"Onderdeel {_vastgehoudenObject.OnderdeelData.PartName} plaatsen...");
+
+                    // Bewaar data voordat we object verwijderen
+                    var dataOmTePlaatsen = _vastgehoudenObject.OnderdeelData;
+
+                    // Verwijder het vastgehouden object
+                    _vastgehoudenObject.QueueFree();
+                    _vastgehoudenObject = null;
+                    _isHolding = false;
+
+                    // Plaats in auto
+                    autoLogica.InteractieMetOnderdeel(targetFysica, dataOmTePlaatsen);
                 }
             }
-            // SITUATIE 2: Je hebt niets vast en wilt iets oppakken uit de auto
+            // SITUATIE 2: Je hebt niets vast en wilt iets oppakken
             else if (targetFysica.OnderdeelData != null)
             {
-                _vastgehoudenOnderdeel = targetFysica.OnderdeelData;
-                GD.Print($"Je hebt opgepakt: {_vastgehoudenOnderdeel.PartName}");
-
-                // Optioneel: Maak het slot in de auto leeg als je het oppakt
-                // autoLogica?.InstalleerOnderdeel(targetFysica.GetParent() as Marker3D, null);
+                PickupObject(targetFysica);
             }
         }
+    }
+
+    private void PickupObject(AutoOnderdeel onderdeel)
+    {
+        if (_isHolding || onderdeel == null || HoldPosition == null) return;
+
+        _vastgehoudenObject = onderdeel;
+        _isHolding = true;
+
+        // Collision uitzetten zodat je er doorheen kunt lopen
+        _vastgehoudenObject.CollisionLayer = 0;
+        _vastgehoudenObject.CollisionMask = 0;
+
+        // Verplaats naar HoldPosition
+        var originalParent = _vastgehoudenObject.GetParent();
+        originalParent?.RemoveChild(_vastgehoudenObject);
+        HoldPosition.AddChild(_vastgehoudenObject);
+
+        // Reset positie en rotatie
+        _vastgehoudenObject.Position = Vector3.Zero;
+        _vastgehoudenObject.Rotation = Vector3.Zero;
+
+        GD.Print($"Opgepakt: {_vastgehoudenObject.OnderdeelData?.PartName ?? _vastgehoudenObject.Name}");
     }
 
     public override void _Process(double delta)
@@ -110,12 +150,15 @@ public partial class PlayerController : CharacterBody3D
 
     private void CheckAim()
     {
-        if (AimRayCast == null || !AimRayCast.IsColliding())
+        if (AimRayCast == null) return;
+
+        if (!AimRayCast.IsColliding())
         {
             if (_lastLookedAt != null)
             {
                 _lastLookedAt = null;
-                GD.Print("Je kijkt nergens meer naar.");
+                if (!_isHolding)
+                    GD.Print("Je kijkt nergens meer naar.");
             }
             return;
         }
@@ -124,19 +167,23 @@ public partial class PlayerController : CharacterBody3D
 
         if (collider is AutoOnderdeel target)
         {
-            if (target != _lastLookedAt)
+            if (target != _lastLookedAt && !_isHolding)
             {
                 _lastLookedAt = target;
 
                 if (target.OnderdeelData != null)
                 {
-                    string actie = (_vastgehoudenOnderdeel == null) ? "Pak op" : "Vervang";
-                    GD.Print($"{actie}: {target.OnderdeelData.PartName}");
+                    GD.Print($"Je kijkt naar: {target.OnderdeelData.PartName} (Druk E om op te pakken)");
                 }
-                else if (_vastgehoudenOnderdeel != null)
-                {
-                    GD.Print($"Plaats {_vastgehoudenOnderdeel.PartName} in leeg slot");
-                }
+            }
+        }
+        // Als je iets vasthoudt en naar een auto-onderdeel kijkt
+        else if (_isHolding && collider is AutoOnderdeel autoTarget)
+        {
+            if (autoTarget != _lastLookedAt)
+            {
+                _lastLookedAt = autoTarget;
+                GD.Print($"Plaats {_vastgehoudenObject?.OnderdeelData?.PartName ?? "onderdeel"} hier (Druk E)");
             }
         }
     }

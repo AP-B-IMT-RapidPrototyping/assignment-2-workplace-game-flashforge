@@ -65,7 +65,7 @@
 [ext_resource type="PackedScene" uid="uid://b4osx45685d3g" path="res://scenes/Stef/garage.tscn" id="64_od4ux"]
 [ext_resource type="PackedScene" uid="uid://q11s8iy82nys" path="res://scenes/Stef/auto.tscn" id="65_1epgm"]
 [ext_resource type="PackedScene" uid="uid://dgb8cyo6jw56y" path="res://scenes/Alen/player.tscn" id="65_152kg"]
-[ext_resource type="Script" uid="uid://ctsbyx1ocxve6" path="res://objects/Alen/PlayerController.cs" id="66_r4e17"]
+[ext_resource type="PackedScene" uid="uid://4k1l1rcyesrd" path="res://Models/Jens/taxi.fbx" id="66_1epgm"]
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_od4ux"]
 data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
@@ -78,14 +78,8 @@ data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0
 [node name="Node3D" parent="." unique_id=1939525001 instance=ExtResource("64_od4ux")]
 transform = Transform3D(-4.371139e-09, 0, 0.1, 0, 0.1, 0, -0.1, 0, -4.371139e-09, -4.0206156, 0, 1.907978)
 
-[node name="player" parent="." unique_id=1728694951 node_paths=PackedStringArray("_camera", "AimRayCast") instance=ExtResource("65_152kg")]
+[node name="player" parent="." unique_id=1728694951 instance=ExtResource("65_152kg")]
 transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, -3.3062758, 0, -0.21483743)
-script = ExtResource("66_r4e17")
-_mouseSensitivity = 0.003
-_camera = NodePath("Camera3D")
-_speed = 2.0
-_jumpVelocity = 2.0
-AimRayCast = NodePath("Camera3D/RayCast3D")
 
 [node name="auto" parent="." unique_id=2003845161 instance=ExtResource("65_1epgm")]
 transform = Transform3D(-8.742278e-09, 0, -0.2, 0, 0.2, 0, 0.2, 0, -8.742278e-09, -4.013089, 0, 1.9177114)
@@ -3329,6 +3323,9 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 5.09
 
 [node name="tree-small327" parent="Map/decoratie" unique_id=873937924 instance=ExtResource("60_df326")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.0818295, -9.536743e-07, -7.783908)
+
+[node name="taxi" parent="." unique_id=776014433 instance=ExtResource("66_1epgm")]
+transform = Transform3D(0.065, 0, 0, 0, 0.065, 0, 0, 0, 0.065, -4.191, 0.12924814, 4.39)
 
 [editable path="player"]
 [editable path="auto"]
