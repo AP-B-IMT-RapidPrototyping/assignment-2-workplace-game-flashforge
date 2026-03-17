@@ -33,9 +33,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49553525, 0.2801191, 0.6546
 
 [node name="StaticBody3D" type="StaticBody3D" parent="item slots/wielen/linker voor wiel" unique_id=1183511818]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0.08671045, -0.039188445, 0.09166205)
+collision_layer = 2
 physics_material_override = SubResource("PhysicsMaterial_6dfp2")
 script = ExtResource("3_txtdd")
-PartName = "linker voor wiel"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="item slots/wielen/linker voor wiel/StaticBody3D" unique_id=340495772]
 transform = Transform3D(1, 4.371139e-08, -4.371139e-08, -4.371139e-08, -4.371139e-08, -1, -4.371139e-08, 1, -4.3711385e-08, -0.0885486, 0.06453198, 0.067444086)
@@ -46,9 +46,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.52628005, 0.29053456, 0.66
 
 [node name="StaticBody3D" type="StaticBody3D" parent="item slots/wielen/rechter voor wiel" unique_id=562833370]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0.08671045, -0.12958598, 0.13442242)
+collision_layer = 2
 physics_material_override = SubResource("PhysicsMaterial_6dfp2")
 script = ExtResource("3_txtdd")
-PartName = "rechter voor wiel"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="item slots/wielen/rechter voor wiel/StaticBody3D" unique_id=2048810926]
 transform = Transform3D(1, 4.371139e-08, -4.371139e-08, -4.371139e-08, -4.371139e-08, -1, -4.371139e-08, 1, -4.3711385e-08, -0.13938004, 0.13532108, 0.06744388)
@@ -59,9 +59,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49607974, 0.27295807, -0.66
 
 [node name="StaticBody3D" type="StaticBody3D" parent="item slots/wielen/linker achter wiel" unique_id=1161992563]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0.08671045, -0.03156653, 0.09150118)
+collision_layer = 2
 physics_material_override = SubResource("PhysicsMaterial_6dfp2")
 script = ExtResource("3_txtdd")
-PartName = "linker achtrer wiel"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="item slots/wielen/linker achter wiel/StaticBody3D" unique_id=1191672521]
 transform = Transform3D(1, 4.371139e-08, -4.371139e-08, -4.371139e-08, -4.371139e-08, -1, -4.371139e-08, 1, -4.3711385e-08, -0.08021921, 0.07685062, 0.06744391)
@@ -72,9 +72,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4960332, 0.28781477, -0.66
 
 [node name="StaticBody3D" type="StaticBody3D" parent="item slots/wielen/rechter achter wiel" unique_id=484365819]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0.08671045, -0.072770864, 0.06826961)
+collision_layer = 2
 physics_material_override = SubResource("PhysicsMaterial_6dfp2")
 script = ExtResource("3_txtdd")
-PartName = "rechter achter wiel"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="item slots/wielen/rechter achter wiel/StaticBody3D" unique_id=1454155233]
 transform = Transform3D(1, 4.371139e-08, -4.371139e-08, -4.371139e-08, -4.371139e-08, -1, -4.371139e-08, 1, -4.3711385e-08, -0.06358844, 0.103609264, 0.06744388)
@@ -85,9 +85,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6784009, 0.82654494)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="item slots/motor" unique_id=1995479050]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0.08671045, -0.03156653, 0.09150118)
+collision_layer = 2
 physics_material_override = SubResource("PhysicsMaterial_6dfp2")
 script = ExtResource("3_txtdd")
-PartName = "motor"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="item slots/motor/StaticBody3D" unique_id=1063875224]
 transform = Transform3D(1, 4.371139e-08, -4.371139e-08, -4.371139e-08, -4.371139e-08, -1, -4.371139e-08, 1, -4.3711385e-08, -0.07039255, -0.021873713, 0.08648687)
@@ -98,9 +98,9 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.32
 
 [node name="StaticBody3D" type="StaticBody3D" parent="item slots/uitlaat" unique_id=1021047796]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0.31453323, 0.073995054, 0.09150118)
+collision_layer = 2
 physics_material_override = SubResource("PhysicsMaterial_6dfp2")
 script = ExtResource("3_txtdd")
-PartName = "uitlaat"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="item slots/uitlaat/StaticBody3D" unique_id=1684698383]
 transform = Transform3D(1, 4.371139e-08, -4.371139e-08, -4.371139e-08, -4.371139e-08, -1, -4.371139e-08, 1, -4.3711385e-08, -0.08021921, 0.07685062, 0.054092526)
@@ -113,9 +113,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6014092, 0.7442894, 0)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="item slots/deuren/linker deur" unique_id=1642075838]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -0.04295373, -0.0315665, 0.07521242)
+collision_layer = 2
 physics_material_override = SubResource("PhysicsMaterial_6dfp2")
 script = ExtResource("3_txtdd")
-PartName = "linker deur"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="item slots/deuren/linker deur/StaticBody3D" unique_id=278698693]
 transform = Transform3D(1, 4.371139e-08, -4.371139e-08, -4.371139e-08, -4.371139e-08, -1, -4.371139e-08, 1, -4.3711385e-08, 0.015422866, 0.13007331, 0.09463507)
@@ -126,9 +126,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.53400075, 0.9007928, 0)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="item slots/deuren/rechter deur" unique_id=510627830]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0.08671045, -0.03156653, 0.09150118)
+collision_layer = 2
 physics_material_override = SubResource("PhysicsMaterial_6dfp2")
 script = ExtResource("3_txtdd")
-PartName = "rechter deur"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="item slots/deuren/rechter deur/StaticBody3D" unique_id=360900526]
 transform = Transform3D(1, 4.371139e-08, -4.371139e-08, -4.371139e-08, -4.371139e-08, -1, -4.371139e-08, 1, -4.3711385e-08, -0.038013436, 0.012977362, 0.012207091)

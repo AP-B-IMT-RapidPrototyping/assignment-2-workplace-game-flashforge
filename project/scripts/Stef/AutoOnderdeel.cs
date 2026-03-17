@@ -1,10 +1,6 @@
 using Godot;
-using System;
 
-[GlobalClass]
-public partial class AutoOnderdeel : Resource
+public partial class AutoOnderdeel : StaticBody3D
 {
-    [Export] public string PartName;
-    [Export] public PackedScene Onderdeel;
-    [Export] public float Weight;
+    [Export] public AutoOnderdeel OnderdeelData;
 }

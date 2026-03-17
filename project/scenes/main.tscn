@@ -63,7 +63,9 @@
 [ext_resource type="PackedScene" uid="uid://rh4577081jq1" path="res://Models/Stef/kenny_city-kit-suburban/GLB format/path-long.glb" id="62_606ol"]
 [ext_resource type="PackedScene" uid="uid://bqvcg6vb220v3" path="res://Models/Stef/kenny_city-kit-suburban/GLB format/path-short.glb" id="63_vawrf"]
 [ext_resource type="PackedScene" uid="uid://b4osx45685d3g" path="res://scenes/Stef/garage.tscn" id="64_od4ux"]
-[ext_resource type="PackedScene" uid="uid://bua4gurbpfq50" path="res://objects/Alen/Player.tscn" id="65_xhfw6"]
+[ext_resource type="PackedScene" uid="uid://q11s8iy82nys" path="res://scenes/Stef/auto.tscn" id="65_1epgm"]
+[ext_resource type="PackedScene" uid="uid://cvqdjglw35klk" path="res://scenes/Alen/player.tscn" id="65_152kg"]
+[ext_resource type="Script" uid="uid://ctsbyx1ocxve6" path="res://objects/Alen/PlayerController.cs" id="66_r4e17"]
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_od4ux"]
 data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
@@ -3316,6 +3318,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.0818295, -9.536743e-07, -7
 [node name="Node3D" parent="." unique_id=1939525001 instance=ExtResource("64_od4ux")]
 transform = Transform3D(-4.371139e-09, 0, 0.1, 0, 0.1, 0, -0.1, 0, -4.371139e-09, -4.0206156, 0, 1.907978)
 
+<<<<<<< HEAD
 [node name="Player" parent="." unique_id=1874107297 node_paths=PackedStringArray("_camera") instance=ExtResource("65_xhfw6")]
 transform = Transform3D(0.065, 0, 0, 0, 0.065, 0, 0, 0, 0.065, -3.235, 0.1, 1.79)
 _camera = NodePath("Head/Camera3D")
@@ -3323,3 +3326,20 @@ _speed = 3.0
 _jumpVelocity = 2.0
 
 [editable path="Player"]
+=======
+[node name="auto" parent="." unique_id=2003845161 instance=ExtResource("65_1epgm")]
+transform = Transform3D(-8.742278e-09, 0, -0.2, 0, 0.2, 0, 0.2, 0, -8.742278e-09, -4.013089, 0, 1.9177114)
+
+[node name="player" parent="." unique_id=1728694951 node_paths=PackedStringArray("_camera", "AimRayCast") instance=ExtResource("65_152kg")]
+transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, -3.3062758, 0, -0.21483743)
+script = ExtResource("66_r4e17")
+_mouseSensitivity = 0.003
+_camera = NodePath("Camera3D")
+_speed = 2.0
+_jumpVelocity = 2.0
+AimRayCast = NodePath("Camera3D/RayCast3D")
+TestOnderdeel = null
+
+[editable path="auto"]
+[editable path="player"]
+>>>>>>> 3563e86214590c4d654314952d202ef6329b5c20
