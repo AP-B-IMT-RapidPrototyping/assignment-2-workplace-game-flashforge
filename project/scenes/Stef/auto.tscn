@@ -20,6 +20,8 @@ size = Vector3(0.45300293, 0.16461182, 0.76464844)
 size = Vector3(0.5492554, 0.20397949, 0.7839966)
 
 [node name="auto" type="Node3D" unique_id=2003845161]
+
+[node name="autowerking" type="Node3D" parent="." unique_id=2104136576]
 script = ExtResource("1_vqxhv")
 
 [node name="model" parent="." unique_id=1691389647 instance=ExtResource("1_6dfp2")]
