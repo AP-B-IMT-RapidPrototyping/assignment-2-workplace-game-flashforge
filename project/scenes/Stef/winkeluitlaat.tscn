@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://b2b081k6di2rq"]
+
+[ext_resource type="Script" uid="uid://cjb114lnnh88y" path="res://scripts/Stef/GrondstoffenWinkel.cs" id="1_18lyc"]
+[ext_resource type="Resource" uid="uid://b4tbjclsw3yxw" path="res://Models/Stef/auto onderdelen/uitlaat.tres" id="2_18lyc"]
+[ext_resource type="PackedScene" uid="uid://b1c2nv2p7w0rw" path="res://scenes/Stef/packedscenes/uitlaat.tscn" id="3_18lyc"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_f8jhn"]
+height = 0.4547119
+radius = 0.048828125
+
+[node name="Node3D" type="StaticBody3D" unique_id=422099097]
+collision_layer = 3
+script = ExtResource("1_18lyc")
+OnderdeelData = ExtResource("2_18lyc")
+Prijs = 25
+
+[node name="MeshInstance3D" parent="." unique_id=2017701307 instance=ExtResource("3_18lyc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=524295243]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.22247314, 0)
+shape = SubResource("CylinderShape3D_f8jhn")

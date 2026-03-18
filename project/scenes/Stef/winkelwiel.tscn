@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://cujky4kee11s2"]
+
+[ext_resource type="Script" uid="uid://cjb114lnnh88y" path="res://scripts/Stef/GrondstoffenWinkel.cs" id="1_toknv"]
+[ext_resource type="Resource" uid="uid://c2rkyorurl0ym" path="res://Models/Stef/auto onderdelen/wiel.tres" id="2_85nfx"]
+[ext_resource type="PackedScene" uid="uid://c52q10h1vt1ch" path="res://Models/Stef/auto_wiel.glb" id="2_toknv"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_85nfx"]
+height = 0.34106445
+radius = 0.27392578
+
+[node name="Node3D" type="StaticBody3D" unique_id=422099097]
+script = ExtResource("1_toknv")
+OnderdeelData = ExtResource("2_85nfx")
+
+[node name="auto_wiel" parent="." unique_id=1338732457 instance=ExtResource("2_toknv")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1564384277]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, -0.01550293, -6.7765527e-10, 0)
+shape = SubResource("CylinderShape3D_85nfx")

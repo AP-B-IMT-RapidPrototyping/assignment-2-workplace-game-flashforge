@@ -12,6 +12,11 @@ public partial class PlayerController : CharacterBody3D
     private AutoOnderdeel _vastgehoudenObject = null;
     private bool _isHolding = false;
     private Node3D _lastLookedAt = null;
+    [Export] public Interact InteractieLabel;
+    public bool IsHoldingSomething()
+    {
+        return _isHolding;
+    }
     public override void _Ready()
     {
         Input.MouseMode = Input.MouseModeEnum.Captured;
@@ -57,7 +62,7 @@ public partial class PlayerController : CharacterBody3D
     {
         if (@event.IsActionPressed("interact"))
         {
-            GD.Print("Input gedetecteerd! De knop werkt."); // VOEG DIT TOE
+            GD.Print("Input gedetecteerd! De knop werkt.");
             HandleInteraction();
         }
         if (@event is InputEventMouseMotion mouseMotion)
@@ -75,21 +80,16 @@ public partial class PlayerController : CharacterBody3D
         if (AimRayCast == null || !AimRayCast.IsColliding()) return;
 
         var collider = AimRayCast.GetCollider();
-
-        // Hier wordt 'targetFysica' gedefinieerd. 
-        // Alles wat met het onderdeel te maken heeft, MOET binnen deze accolades { } staan.
         if (collider is AutoOnderdeel targetFysica)
         {
             var autoLogica = targetFysica.Owner as AutoWerking;
             if (autoLogica == null && targetFysica.Owner != null)
                 autoLogica = targetFysica.Owner.FindChild("*", true, false) as AutoWerking;
 
-            // SITUATIE 1: Je hebt iets vast -> PROBEREN TE PLAATSEN
             if (_isHolding && _vastgehoudenObject != null)
             {
                 if (autoLogica != null)
                 {
-                    // Check of het type matcht met wat het slot verwacht
                     if (_vastgehoudenObject.OnderdeelData.Type != targetFysica.PastHierIn)
                     {
                         GD.Print($"FOUT: Past niet! Dit slot verwacht: {targetFysica.PastHierIn}");
@@ -104,11 +104,8 @@ public partial class PlayerController : CharacterBody3D
                 }
                 return;
             }
-
-            // SITUATIE 2: Je hebt niets vast -> PROBEREN OP TE PAKKEN
             if (!_isHolding)
             {
-                // CHECK: Zit er wel echt data in dit slot?
                 if (targetFysica.OnderdeelData != null)
                 {
                     GD.Print($"Oppakken: {targetFysica.OnderdeelData.PartName}");
@@ -117,7 +114,6 @@ public partial class PlayerController : CharacterBody3D
                     if (autoLogica != null && targetFysica.GetParent() is Marker3D slot)
                     {
                         autoLogica.InstalleerOnderdeel(slot, null);
-                        // Wis de data in de collider zodat het slot nu 'leeg' is
                         targetFysica.OnderdeelData = null;
                     }
 
@@ -130,9 +126,14 @@ public partial class PlayerController : CharacterBody3D
                 return;
             }
         }
+        else if (collider is GrondstoffenWinkel bron)
+        {
+            GD.Print("Winkel geraakt! Koop-functie aanroepen...");
+            bron.KoopOnderdeel(this);
+        }
     }
 
-    private void SpawnObjectInHand(AutoResource data)
+    public void SpawnObjectInHand(AutoResource data)
     {
         var handObject = new AutoOnderdeel();
         handObject.OnderdeelData = data;
@@ -184,6 +185,7 @@ public partial class PlayerController : CharacterBody3D
     public override void _Process(double delta)
     {
         CheckAim();
+        CheckInteractieDisplay();
     }
 
     private void CheckAim()
@@ -203,5 +205,33 @@ public partial class PlayerController : CharacterBody3D
             else if (_isHolding)
                 GD.Print("Klik om hier te plaatsen [E]");
         }
+    }
+    private void CheckInteractieDisplay()
+    {
+        if (InteractieLabel == null) return;
+
+        if (AimRayCast.IsColliding())
+        {
+            var collider = AimRayCast.GetCollider();
+
+            if (collider is AutoOnderdeel onderdeel)
+            {
+                if (onderdeel.OnderdeelData != null)
+                    InteractieLabel.ToonMelding($"Pak {onderdeel.OnderdeelData.PartName} [E]");
+                else if (_isHolding)
+                    InteractieLabel.ToonMelding($"Plaats {_vastgehoudenObject.OnderdeelData.PartName} [E]");
+                else
+                    InteractieLabel.VerbergMelding();
+
+                return;
+            }
+
+            if (collider is GrondstoffenWinkel winkel)
+            {
+                InteractieLabel.ToonMelding($"Koop {winkel.OnderdeelData.PartName} voor €{winkel.Prijs} [E]");
+                return;
+            }
+        }
+        InteractieLabel.VerbergMelding();
     }
 }

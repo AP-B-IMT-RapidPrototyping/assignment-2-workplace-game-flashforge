@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://cowi41l254e4f"]
+
+[ext_resource type="Script" uid="uid://cjb114lnnh88y" path="res://scripts/Stef/GrondstoffenWinkel.cs" id="1_53wdx"]
+[ext_resource type="PackedScene" uid="uid://bteesftg0hsgc" path="res://Models/Stef/auto onderdelen/motorblok.glb" id="1_yvlof"]
+[ext_resource type="Resource" uid="uid://d4e3xqcg7hpeq" path="res://Models/Stef/auto onderdelen/motor.tres" id="2_aqq87"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_53wdx"]
+size = Vector3(0.6809082, 0.36993408, 0.5458374)
+
+[node name="Node3D" type="StaticBody3D" unique_id=422099097]
+collision_layer = 2
+script = ExtResource("1_53wdx")
+OnderdeelData = ExtResource("2_aqq87")
+
+[node name="motorblok" parent="." unique_id=1142380460 instance=ExtResource("1_yvlof")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=537587544]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0010986328, 0.18319702, -0.0024719238)
+shape = SubResource("BoxShape3D_53wdx")
