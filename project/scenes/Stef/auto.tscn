@@ -38,6 +38,7 @@ size = Vector3(1.0946655, 0.7211914, 1.2207031)
 script = ExtResource("1_vqxhv")
 OnderdeelSlots = [NodePath("../item slots/wielen/linker voor wiel"), NodePath("../item slots/wielen/rechter voor wiel"), NodePath("../item slots/wielen/linker achter wiel"), NodePath("../item slots/wielen/rechter achter wiel"), NodePath("../item slots/motor"), NodePath("../item slots/uitlaat")]
 BeschikbareOnderdelen = Array[Object]([ExtResource("5_pjuyf"), ExtResource("5_cn6kn"), ExtResource("4_yg51h")])
+SpawnKans = 0.6
 
 [node name="item slots" type="Node3D" parent="." unique_id=538349431]
 

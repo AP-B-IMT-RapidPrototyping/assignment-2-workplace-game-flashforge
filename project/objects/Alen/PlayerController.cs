@@ -71,68 +71,89 @@ public partial class PlayerController : CharacterBody3D
     }
 
     private void HandleInteraction()
-{
-    if (AimRayCast == null || !AimRayCast.IsColliding()) return;
-
-    var collider = AimRayCast.GetCollider();
-
-    if (collider is AutoOnderdeel targetFysica)
     {
-        var autoLogica = targetFysica.Owner as AutoWerking;
-        if (autoLogica == null && targetFysica.Owner != null)
-            autoLogica = targetFysica.Owner.FindChild("*", true, false) as AutoWerking;
+        if (AimRayCast == null || !AimRayCast.IsColliding()) return;
 
-        if (_isHolding && _vastgehoudenObject != null)
+        var collider = AimRayCast.GetCollider();
+
+        // Hier wordt 'targetFysica' gedefinieerd. 
+        // Alles wat met het onderdeel te maken heeft, MOET binnen deze accolades { } staan.
+        if (collider is AutoOnderdeel targetFysica)
         {
-            if (autoLogica != null)
-            {
-                GD.Print("Plaatsen in auto...");
-                autoLogica.InteractieMetOnderdeel(targetFysica, _vastgehoudenObject.OnderdeelData);
-                
-                _vastgehoudenObject.QueueFree();
-                _vastgehoudenObject = null;
-                _isHolding = false;
-            }
-            return;
-        }
-        if (!_isHolding && targetFysica.OnderdeelData != null)
-        {
-            GD.Print("Oppakken uit auto...");
-            AutoResource data = targetFysica.OnderdeelData;
+            var autoLogica = targetFysica.Owner as AutoWerking;
+            if (autoLogica == null && targetFysica.Owner != null)
+                autoLogica = targetFysica.Owner.FindChild("*", true, false) as AutoWerking;
 
-            if (autoLogica != null && targetFysica.GetParent() is Marker3D slot)
+            // SITUATIE 1: Je hebt iets vast -> PROBEREN TE PLAATSEN
+            if (_isHolding && _vastgehoudenObject != null)
             {
-                autoLogica.InstalleerOnderdeel(slot, null);
+                if (autoLogica != null)
+                {
+                    // Check of het type matcht met wat het slot verwacht
+                    if (_vastgehoudenObject.OnderdeelData.Type != targetFysica.PastHierIn)
+                    {
+                        GD.Print($"FOUT: Past niet! Dit slot verwacht: {targetFysica.PastHierIn}");
+                        return;
+                    }
+
+                    autoLogica.InteractieMetOnderdeel(targetFysica, _vastgehoudenObject.OnderdeelData);
+
+                    _vastgehoudenObject.QueueFree();
+                    _vastgehoudenObject = null;
+                    _isHolding = false;
+                }
+                return;
             }
 
-            SpawnObjectInHand(data);
-            return;
+            // SITUATIE 2: Je hebt niets vast -> PROBEREN OP TE PAKKEN
+            if (!_isHolding)
+            {
+                // CHECK: Zit er wel echt data in dit slot?
+                if (targetFysica.OnderdeelData != null)
+                {
+                    GD.Print($"Oppakken: {targetFysica.OnderdeelData.PartName}");
+                    AutoResource data = targetFysica.OnderdeelData;
+
+                    if (autoLogica != null && targetFysica.GetParent() is Marker3D slot)
+                    {
+                        autoLogica.InstalleerOnderdeel(slot, null);
+                        // Wis de data in de collider zodat het slot nu 'leeg' is
+                        targetFysica.OnderdeelData = null;
+                    }
+
+                    SpawnObjectInHand(data);
+                }
+                else
+                {
+                    GD.Print("Dit slot is leeg, er valt niets op te pakken.");
+                }
+                return;
+            }
         }
     }
-}
 
-private void SpawnObjectInHand(AutoResource data)
-{
-    var handObject = new AutoOnderdeel();
-    handObject.OnderdeelData = data;
-    
-    if (data.OnderdeelModel != null)
+    private void SpawnObjectInHand(AutoResource data)
     {
-        var model = data.OnderdeelModel.Instantiate();
-        handObject.AddChild(model);
+        var handObject = new AutoOnderdeel();
+        handObject.OnderdeelData = data;
+
+        if (data.OnderdeelModel != null)
+        {
+            var model = data.OnderdeelModel.Instantiate();
+            handObject.AddChild(model);
+        }
+
+        HoldPosition.AddChild(handObject);
+        handObject.Scale = new Vector3(0.2f, 0.2f, 0.2f);
+        handObject.Position = Vector3.Zero;
+        handObject.Rotation = Vector3.Zero;
+
+        handObject.CollisionLayer = 0;
+        handObject.CollisionMask = 0;
+
+        _vastgehoudenObject = handObject;
+        _isHolding = true;
     }
-
-    HoldPosition.AddChild(handObject);
-    handObject.Scale = new Vector3(0.2f, 0.2f, 0.2f);
-    handObject.Position = Vector3.Zero;
-    handObject.Rotation = Vector3.Zero;
-    
-    handObject.CollisionLayer = 0;
-    handObject.CollisionMask = 0;
-
-    _vastgehoudenObject = handObject;
-    _isHolding = true;
-}
 
     private void PickupObject(AutoOnderdeel onderdeel, AutoWerking autoLogica)
     {

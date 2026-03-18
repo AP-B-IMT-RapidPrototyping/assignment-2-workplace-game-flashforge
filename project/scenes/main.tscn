@@ -1,7 +1,11 @@
 [gd_scene format=3 uid="uid://cidyb2628hrdk"]
 
+[ext_resource type="Script" uid="uid://bgdjto3khf3r6" path="res://scripts/Stef/Carmanager.cs" id="1_1epgm"]
+[ext_resource type="PackedScene" uid="uid://r3mcq2g8pnjo" path="res://scenes/Stef/UI.tscn" id="1_152kg"]
 [ext_resource type="PackedScene" uid="uid://c4022grx2yvh2" path="res://Models/Stef/kenney_city-kit-roads (1)/Models/GLB format/road-crossroad-path.glb" id="1_n2tcu"]
 [ext_resource type="PackedScene" uid="uid://bocb1urkfwqln" path="res://Models/Stef/kenney_city-kit-roads (1)/Models/GLB format/tile-low.glb" id="2_ot556"]
+[ext_resource type="Script" uid="uid://qov1tbtbdtqf" path="res://scripts/Stef/MoneyManager.cs" id="2_r4e17"]
+[ext_resource type="Script" uid="uid://c605ckfluq5uh" path="res://scripts/Stef/MoneyDisplay.cs" id="2_y57op"]
 [ext_resource type="PackedScene" uid="uid://dfsrag4dbkwtf" path="res://Models/Stef/kenney_city-kit-roads (1)/Models/GLB format/road-bend-sidewalk.glb" id="2_ygkv6"]
 [ext_resource type="PackedScene" uid="uid://ckh2rixagmr50" path="res://Models/Stef/kenney_city-kit-roads (1)/Models/GLB format/road-bridge.glb" id="3_t2ac2"]
 [ext_resource type="PackedScene" uid="uid://bmg7rkm0xbvgr" path="res://Models/Stef/kenney_city-kit-roads (1)/Models/GLB format/road-slant-flat-curve.glb" id="4_y0rjb"]
@@ -74,7 +78,28 @@ data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0
 
 [node name="main" type="Node3D" unique_id=439634394]
 
-[node name="Node3D" parent="." unique_id=1939525001 instance=ExtResource("64_od4ux")]
+[node name="Control" parent="." unique_id=532778834 instance=ExtResource("1_152kg")]
+offset_left = 2.0
+offset_top = 1.0
+offset_right = -1.0
+offset_bottom = 12.99939
+
+[node name="Label" parent="Control" index="0" unique_id=1552737992 node_paths=PackedStringArray("MoneyManagerNode")]
+script = ExtResource("2_y57op")
+MoneyManagerNode = NodePath("../MoneyManager")
+
+[node name="MoneyManager" type="Control" parent="Control" unique_id=698576289]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("2_r4e17")
+
+[node name="Carmanager" type="Node3D" parent="." unique_id=1519753772 node_paths=PackedStringArray("MoneySystem")]
+script = ExtResource("1_1epgm")
+AutoScene = ExtResource("65_1epgm")
+MoneySystem = NodePath("../Control/MoneyManager")
+
+[node name="Garage" parent="." unique_id=1939525001 instance=ExtResource("64_od4ux")]
 transform = Transform3D(-4.371139e-09, 0, 0.1, 0, 0.1, 0, -0.1, 0, -4.371139e-09, -4.0206156, 0, 1.907978)
 
 [node name="player" parent="." unique_id=1728694951 instance=ExtResource("65_152kg")]
@@ -87,7 +112,10 @@ transform = Transform3D(1.5, 0, 0, 0, -1.7484556e-08, -1.5, 0, 0.4, -6.556708e-0
 transform = Transform3D(0.99999976, 0, 0, 0, 0.99999976, 0, 0, 0, 0.99999976, 0.21455264, -0.12333605, -0.33508188)
 
 [node name="auto" parent="." unique_id=2003845161 instance=ExtResource("65_1epgm")]
-transform = Transform3D(-8.742278e-09, 0, -0.2, 0, 0.2, 0, 0.2, 0, -8.742278e-09, -4.013089, 0, 1.9177114)
+transform = Transform3D(-8.742278e-09, 0, -0.2, 0, 0.2, 0, 0.2, 0, -8.742278e-09, -4.013089, 0, 2.8999045)
+
+[node name="autowerking" parent="auto" index="0" unique_id=2104136576 node_paths=PackedStringArray("OnderdeelSlots")]
+OnderdeelSlots = []
 
 [node name="Map" type="Node3D" parent="." unique_id=736395342]
 
@@ -3329,5 +3357,6 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 5.09
 [node name="tree-small327" parent="Map/decoratie" unique_id=873937924 instance=ExtResource("60_df326")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.0818295, -9.536743e-07, -7.783908)
 
+[editable path="Control"]
 [editable path="player"]
 [editable path="auto"]
