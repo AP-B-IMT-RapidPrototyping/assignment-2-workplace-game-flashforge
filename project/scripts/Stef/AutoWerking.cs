@@ -21,15 +21,21 @@ public partial class AutoWerking : Node
 
     public void InstalleerOnderdeel(Marker3D slot, AutoResource data)
     {
-        foreach (var child in slot.GetChildren())
+        foreach (Node child in slot.GetChildren())
         {
-            if (child is not StaticBody3D) child.QueueFree();
+            if (child is not StaticBody3D) 
+            {
+                child.Free();
+            }
         }
 
-        if (data?.OnderdeelModel != null)
+        if (data != null && data.OnderdeelModel != null)
         {
             var nieuwModel = data.OnderdeelModel.Instantiate<Node3D>();
             slot.AddChild(nieuwModel);
+            nieuwModel.Position = Vector3.Zero;
+            nieuwModel.Rotation = Vector3.Zero;
+            nieuwModel.Scale = Vector3.One;
         }
     }
 }
