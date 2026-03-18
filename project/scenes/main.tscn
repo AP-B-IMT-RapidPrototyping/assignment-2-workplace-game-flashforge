@@ -72,12 +72,16 @@
 [ext_resource type="PackedScene" uid="uid://cowi41l254e4f" path="res://scenes/Stef/winkelmotor.tscn" id="70_gdvew"]
 [ext_resource type="PackedScene" uid="uid://b2b081k6di2rq" path="res://scenes/Stef/winkeluitlaat.tscn" id="71_kjtvk"]
 [ext_resource type="PackedScene" uid="uid://cujky4kee11s2" path="res://scenes/Stef/winkelwiel.tscn" id="72_xrs0c"]
+[ext_resource type="PackedScene" uid="uid://brhtw7doxdyq8" path="res://Models/Stef/kenny_city-kit-suburban/GLB format/fence.glb" id="73_kjtvk"]
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_od4ux"]
 data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_xhfw6"]
 data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_kjtvk"]
+size = Vector3(27.216003, 4.404175, 1)
 
 [node name="main" type="Node3D" unique_id=439634394]
 
@@ -3272,26 +3276,11 @@ transform = Transform3D(0.071410455, 0, 0.997447, 0, 1, 0, -0.997447, 0, 0.07141
 [node name="tree-large393" parent="Map/decoratie" unique_id=830035575 instance=ExtResource("17_q8u6p")]
 transform = Transform3D(0.071410455, 0, 0.997447, 0, 1, 0, -0.997447, 0, 0.071410455, 3.617527, 0, -6.501971)
 
-[node name="tree-small311" parent="Map/decoratie" unique_id=837796909 instance=ExtResource("60_df326")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.0909243, -9.536743e-07, -6.0769587)
-
-[node name="tree-small312" parent="Map/decoratie" unique_id=1865836473 instance=ExtResource("60_df326")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.969102, -1.9073486e-06, -6.550153)
-
-[node name="tree-large394" parent="Map/decoratie" unique_id=781815217 instance=ExtResource("17_q8u6p")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.9554567, -9.536743e-07, -7.454871)
-
-[node name="tree-small313" parent="Map/decoratie" unique_id=704280477 instance=ExtResource("60_df326")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.1488543, 9.536743e-07, -7.094451)
-
 [node name="tree-small314" parent="Map/decoratie" unique_id=1978261792 instance=ExtResource("60_df326")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.568902, 0, -6.032202)
 
 [node name="tree-large395" parent="Map/decoratie" unique_id=260376443 instance=ExtResource("17_q8u6p")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.3729296, 9.536743e-07, -7.3596315)
-
-[node name="tree-large396" parent="Map/decoratie" unique_id=1315533043 instance=ExtResource("17_q8u6p")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.040227, 0, -5.4670076)
 
 [node name="tree-large397" parent="Map/decoratie" unique_id=1760193553 instance=ExtResource("17_q8u6p")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.1512194, 0, -5.7396574)
@@ -3347,12 +3336,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.388464, 0, -5.7591243)
 [node name="tree-small322" parent="Map/decoratie" unique_id=1488243610 instance=ExtResource("60_df326")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.585, 0, -4.882774)
 
-[node name="tree-large407" parent="Map/decoratie" unique_id=826890811 instance=ExtResource("17_q8u6p")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.0938845, 9.536743e-07, -4.9003325)
-
-[node name="tree-large408" parent="Map/decoratie" unique_id=31808491 instance=ExtResource("17_q8u6p")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.056325, 0, -4.3175797)
-
 [node name="tree-large409" parent="Map/decoratie" unique_id=1201057115 instance=ExtResource("17_q8u6p")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.1673174, 0, -4.5902295)
 
@@ -3370,6 +3353,710 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 5.09
 
 [node name="tree-small327" parent="Map/decoratie" unique_id=873937924 instance=ExtResource("60_df326")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.0818295, -9.536743e-07, -7.783908)
+
+[node name="MapBorder" type="Node3D" parent="Map" unique_id=1413418242]
+
+[node name="fence2" parent="Map/MapBorder" unique_id=193860817 instance=ExtResource("73_kjtvk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.9891853, 0, 11.79064)
+
+[node name="fence3" parent="Map/MapBorder" unique_id=967943126 instance=ExtResource("73_kjtvk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.5698338, 0, 11.79064)
+
+[node name="fence4" parent="Map/MapBorder" unique_id=124970539 instance=ExtResource("73_kjtvk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.15708, 0, 11.79064)
+
+[node name="fence5" parent="Map/MapBorder" unique_id=340736863 instance=ExtResource("73_kjtvk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.748787, 0, 11.79064)
+
+[node name="fence6" parent="Map/MapBorder" unique_id=1123300765 instance=ExtResource("73_kjtvk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.3451424, 0, 11.79064)
+
+[node name="fence7" parent="Map/MapBorder" unique_id=1402311806 instance=ExtResource("73_kjtvk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.9410467, 0, 11.79064)
+
+[node name="fence8" parent="Map/MapBorder" unique_id=197745549 instance=ExtResource("73_kjtvk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5446362, 0, 11.79064)
+
+[node name="fence9" parent="Map/MapBorder" unique_id=38624808 instance=ExtResource("73_kjtvk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.1434445, 0, 11.79064)
+
+[node name="fence10" parent="Map/MapBorder" unique_id=902572030 instance=ExtResource("73_kjtvk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.7338512, 0, 11.79064)
+
+[node name="fence11" parent="Map/MapBorder" unique_id=42748154 instance=ExtResource("73_kjtvk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.3354566, 0, 11.79064)
+
+[node name="fence12" parent="Map/MapBorder" unique_id=544692690 instance=ExtResource("73_kjtvk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.9412954, 0, 11.79064)
+
+[node name="fence13" parent="Map/MapBorder" unique_id=677920561 instance=ExtResource("73_kjtvk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5380642, 0, 11.79064)
+
+[node name="fence14" parent="Map/MapBorder" unique_id=1242999451 instance=ExtResource("73_kjtvk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.1482837, 0, 11.79064)
+
+[node name="fence15" parent="Map/MapBorder" unique_id=539987144 instance=ExtResource("73_kjtvk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7430165, 0, 11.79064)
+
+[node name="fence16" parent="Map/MapBorder" unique_id=986781142 instance=ExtResource("73_kjtvk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3391218, 0, 11.79064)
+
+[node name="fence17" parent="Map/MapBorder" unique_id=240062117 instance=ExtResource("73_kjtvk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.92866313, 0, 11.79064)
+
+[node name="fence18" parent="Map/MapBorder" unique_id=552135352 instance=ExtResource("73_kjtvk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5354141, 0, 11.79064)
+
+[node name="fence19" parent="Map/MapBorder" unique_id=765916 instance=ExtResource("73_kjtvk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.12792903, 0, 11.79064)
+
+[node name="fence20" parent="Map/MapBorder" unique_id=1797615320 instance=ExtResource("73_kjtvk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.27531177, 0, 11.79064)
+
+[node name="fence21" parent="Map/MapBorder" unique_id=411263996 instance=ExtResource("73_kjtvk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.67280334, 0, 11.79064)
+
+[node name="fence22" parent="Map/MapBorder" unique_id=1442604007 instance=ExtResource("73_kjtvk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0667455, 0, 11.79064)
+
+[node name="fence23" parent="Map/MapBorder" unique_id=1350328631 instance=ExtResource("73_kjtvk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4733143, 0, 11.79064)
+
+[node name="fence24" parent="Map/MapBorder" unique_id=1999318079 instance=ExtResource("73_kjtvk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8680469, 0, 11.79064)
+
+[node name="fence25" parent="Map/MapBorder" unique_id=1973958177 instance=ExtResource("73_kjtvk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.266766, 0, 11.79064)
+
+[node name="fence26" parent="Map/MapBorder" unique_id=92891364 instance=ExtResource("73_kjtvk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.661535, 0, 11.79064)
+
+[node name="fence27" parent="Map/MapBorder" unique_id=619750215 instance=ExtResource("73_kjtvk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.050698, 0, 11.79064)
+
+[node name="fence28" parent="Map/MapBorder" unique_id=80649117 instance=ExtResource("73_kjtvk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.4373198, 0, 11.79064)
+
+[node name="fence29" parent="Map/MapBorder" unique_id=318400996 instance=ExtResource("73_kjtvk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.8230824, 0, 11.79064)
+
+[node name="fence30" parent="Map/MapBorder" unique_id=599894463 instance=ExtResource("73_kjtvk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.224434, 0, 11.79064)
+
+[node name="fence31" parent="Map/MapBorder" unique_id=1025113581 instance=ExtResource("73_kjtvk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.633943, 0, 11.79064)
+
+[node name="fence32" parent="Map/MapBorder" unique_id=856757737 instance=ExtResource("73_kjtvk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.0247035, 0, 11.79064)
+
+[node name="fence34" parent="Map/MapBorder" unique_id=1645374321 instance=ExtResource("73_kjtvk")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 5.839158, 0, 11.59949)
+
+[node name="fence35" parent="Map/MapBorder" unique_id=2078070088 instance=ExtResource("73_kjtvk")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 5.839158, 0, 11.20711)
+
+[node name="fence36" parent="Map/MapBorder" unique_id=1584158776 instance=ExtResource("73_kjtvk")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 5.839158, 0, 10.817569)
+
+[node name="fence37" parent="Map/MapBorder" unique_id=416817225 instance=ExtResource("73_kjtvk")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 5.839158, 0, 10.431674)
+
+[node name="fence38" parent="Map/MapBorder" unique_id=1410558538 instance=ExtResource("73_kjtvk")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 5.839158, 0, 10.058138)
+
+[node name="fence39" parent="Map/MapBorder" unique_id=470239137 instance=ExtResource("73_kjtvk")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 5.839158, 0, 9.649298)
+
+[node name="fence40" parent="Map/MapBorder" unique_id=2000099330 instance=ExtResource("73_kjtvk")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 5.839158, 0, 9.249894)
+
+[node name="fence41" parent="Map/MapBorder" unique_id=1233278197 instance=ExtResource("73_kjtvk")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 5.839158, 0, 8.854682)
+
+[node name="fence42" parent="Map/MapBorder" unique_id=1280923324 instance=ExtResource("73_kjtvk")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 5.839158, 0, 8.468909)
+
+[node name="fence43" parent="Map/MapBorder" unique_id=1873530422 instance=ExtResource("73_kjtvk")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 5.839158, 0, 8.094151)
+
+[node name="fence44" parent="Map/MapBorder" unique_id=939477024 instance=ExtResource("73_kjtvk")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 5.839158, 0, 7.6851807)
+
+[node name="fence45" parent="Map/MapBorder" unique_id=2116966929 instance=ExtResource("73_kjtvk")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 5.839158, 0, 7.2759132)
+
+[node name="fence46" parent="Map/MapBorder" unique_id=224925048 instance=ExtResource("73_kjtvk")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 5.839158, 0, 6.8808417)
+
+[node name="fence47" parent="Map/MapBorder" unique_id=1619495084 instance=ExtResource("73_kjtvk")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 5.839158, 0, 6.4823365)
+
+[node name="fence48" parent="Map/MapBorder" unique_id=947219161 instance=ExtResource("73_kjtvk")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 5.839158, 0, 6.0940084)
+
+[node name="fence49" parent="Map/MapBorder" unique_id=1127847569 instance=ExtResource("73_kjtvk")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 5.839158, 0, 5.7047143)
+
+[node name="fence50" parent="Map/MapBorder" unique_id=18259150 instance=ExtResource("73_kjtvk")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 5.839158, 0, 5.29414)
+
+[node name="fence51" parent="Map/MapBorder" unique_id=1328606991 instance=ExtResource("73_kjtvk")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 5.839158, 0, 4.897596)
+
+[node name="fence52" parent="Map/MapBorder" unique_id=798527625 instance=ExtResource("73_kjtvk")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 5.839158, 0, 4.509872)
+
+[node name="fence53" parent="Map/MapBorder" unique_id=496942818 instance=ExtResource("73_kjtvk")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 5.839158, 0, 4.112632)
+
+[node name="fence54" parent="Map/MapBorder" unique_id=1121849336 instance=ExtResource("73_kjtvk")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 5.839158, 0, 3.7276998)
+
+[node name="fence55" parent="Map/MapBorder" unique_id=800265262 instance=ExtResource("73_kjtvk")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 5.839158, 0, 3.344198)
+
+[node name="fence56" parent="Map/MapBorder" unique_id=193618001 instance=ExtResource("73_kjtvk")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 5.839158, 0, 2.9634497)
+
+[node name="fence57" parent="Map/MapBorder" unique_id=1730853499 instance=ExtResource("73_kjtvk")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 5.839158, 0, 2.562947)
+
+[node name="fence58" parent="Map/MapBorder" unique_id=1310117503 instance=ExtResource("73_kjtvk")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 5.839158, 0, 2.1792943)
+
+[node name="fence67" parent="Map/MapBorder" unique_id=1085238501 instance=ExtResource("73_kjtvk")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 5.839158, 0, 0.17768025)
+
+[node name="fence68" parent="Map/MapBorder" unique_id=1263214372 instance=ExtResource("73_kjtvk")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 5.839158, 0, -0.22779506)
+
+[node name="fence69" parent="Map/MapBorder" unique_id=1896345868 instance=ExtResource("73_kjtvk")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 5.839158, 0, -0.6305208)
+
+[node name="fence70" parent="Map/MapBorder" unique_id=1879927813 instance=ExtResource("73_kjtvk")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 5.839158, 0, -1.0467744)
+
+[node name="fence71" parent="Map/MapBorder" unique_id=986362589 instance=ExtResource("73_kjtvk")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 5.839158, 0, -1.419923)
+
+[node name="fence72" parent="Map/MapBorder" unique_id=1376554871 instance=ExtResource("73_kjtvk")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 5.839158, 0, -1.8284132)
+
+[node name="fence73" parent="Map/MapBorder" unique_id=382233881 instance=ExtResource("73_kjtvk")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 5.839158, 0, -2.218721)
+
+[node name="fence74" parent="Map/MapBorder" unique_id=1672154472 instance=ExtResource("73_kjtvk")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 5.839158, 0, -2.6025503)
+
+[node name="fence75" parent="Map/MapBorder" unique_id=325926874 instance=ExtResource("73_kjtvk")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 5.839158, 0, -3.0168061)
+
+[node name="fence76" parent="Map/MapBorder" unique_id=886882350 instance=ExtResource("73_kjtvk")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 5.839158, 0, -3.4199944)
+
+[node name="fence77" parent="Map/MapBorder" unique_id=1918742702 instance=ExtResource("73_kjtvk")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 5.839158, 0, -3.8120062)
+
+[node name="fence78" parent="Map/MapBorder" unique_id=995226077 instance=ExtResource("73_kjtvk")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 5.839158, 0, -4.2204323)
+
+[node name="fence79" parent="Map/MapBorder" unique_id=1039436914 instance=ExtResource("73_kjtvk")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 5.839158, 0, -4.6323047)
+
+[node name="fence80" parent="Map/MapBorder" unique_id=662404112 instance=ExtResource("73_kjtvk")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 5.839158, 0, -5.055078)
+
+[node name="fence81" parent="Map/MapBorder" unique_id=15768373 instance=ExtResource("73_kjtvk")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 5.839158, 0, -5.4466166)
+
+[node name="fence82" parent="Map/MapBorder" unique_id=1315008114 instance=ExtResource("73_kjtvk")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 5.839158, 0, -5.848143)
+
+[node name="fence83" parent="Map/MapBorder" unique_id=1743167385 instance=ExtResource("73_kjtvk")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 5.839158, 0, -6.242282)
+
+[node name="fence84" parent="Map/MapBorder" unique_id=1533848461 instance=ExtResource("73_kjtvk")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 5.839158, 0, -6.6486487)
+
+[node name="fence85" parent="Map/MapBorder" unique_id=217146246 instance=ExtResource("73_kjtvk")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 5.839158, 0, -7.0358157)
+
+[node name="fence86" parent="Map/MapBorder" unique_id=1614489164 instance=ExtResource("73_kjtvk")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 5.839158, 0, -7.4359503)
+
+[node name="fence87" parent="Map/MapBorder" unique_id=989904775 instance=ExtResource("73_kjtvk")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 5.839158, 0, -7.8369017)
+
+[node name="fence88" parent="Map/MapBorder" unique_id=944028033 instance=ExtResource("73_kjtvk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.634742, 0, -8.035473)
+
+[node name="fence89" parent="Map/MapBorder" unique_id=655025673 instance=ExtResource("73_kjtvk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.2448215, 0, -8.035473)
+
+[node name="fence90" parent="Map/MapBorder" unique_id=1186884445 instance=ExtResource("73_kjtvk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.853231, 0, -8.035473)
+
+[node name="fence91" parent="Map/MapBorder" unique_id=2083196709 instance=ExtResource("73_kjtvk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.460663, 0, -8.035473)
+
+[node name="fence92" parent="Map/MapBorder" unique_id=384567266 instance=ExtResource("73_kjtvk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.067411, 0, -8.035473)
+
+[node name="fence93" parent="Map/MapBorder" unique_id=922286431 instance=ExtResource("73_kjtvk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.677449, 0, -8.035473)
+
+[node name="fence94" parent="Map/MapBorder" unique_id=2106930300 instance=ExtResource("73_kjtvk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.2956798, 0, -8.035473)
+
+[node name="fence95" parent="Map/MapBorder" unique_id=1279341244 instance=ExtResource("73_kjtvk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.8948054, 0, -8.035473)
+
+[node name="fence96" parent="Map/MapBorder" unique_id=1459739107 instance=ExtResource("73_kjtvk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.510395, 0, -8.035473)
+
+[node name="fence97" parent="Map/MapBorder" unique_id=1941949265 instance=ExtResource("73_kjtvk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.1095157, 0, -8.035473)
+
+[node name="fence98" parent="Map/MapBorder" unique_id=985998079 instance=ExtResource("73_kjtvk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.7148187, 0, -8.035473)
+
+[node name="fence99" parent="Map/MapBorder" unique_id=2015614108 instance=ExtResource("73_kjtvk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3156759, 0, -8.035473)
+
+[node name="fence100" parent="Map/MapBorder" unique_id=950704136 instance=ExtResource("73_kjtvk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9270966, 0, -8.035473)
+
+[node name="fence101" parent="Map/MapBorder" unique_id=617730946 instance=ExtResource("73_kjtvk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.534765, 0, -8.035473)
+
+[node name="fence102" parent="Map/MapBorder" unique_id=1403854526 instance=ExtResource("73_kjtvk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.14066052, 0, -8.035473)
+
+[node name="fence103" parent="Map/MapBorder" unique_id=1640427058 instance=ExtResource("73_kjtvk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.26013762, 0, -8.035473)
+
+[node name="fence104" parent="Map/MapBorder" unique_id=98314375 instance=ExtResource("73_kjtvk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6420868, 0, -8.035473)
+
+[node name="fence105" parent="Map/MapBorder" unique_id=387908503 instance=ExtResource("73_kjtvk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0348556, 0, -8.035473)
+
+[node name="fence106" parent="Map/MapBorder" unique_id=888310893 instance=ExtResource("73_kjtvk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.416033, 0, -8.035473)
+
+[node name="fence107" parent="Map/MapBorder" unique_id=2014931189 instance=ExtResource("73_kjtvk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7984821, 0, -8.035473)
+
+[node name="fence108" parent="Map/MapBorder" unique_id=328606273 instance=ExtResource("73_kjtvk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.1737175, 0, -8.035473)
+
+[node name="fence109" parent="Map/MapBorder" unique_id=306696437 instance=ExtResource("73_kjtvk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.578569, 0, -8.035473)
+
+[node name="fence110" parent="Map/MapBorder" unique_id=1292134095 instance=ExtResource("73_kjtvk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.977312, 0, -8.035473)
+
+[node name="fence111" parent="Map/MapBorder" unique_id=974751693 instance=ExtResource("73_kjtvk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.374654, 0, -8.035473)
+
+[node name="fence112" parent="Map/MapBorder" unique_id=1857979911 instance=ExtResource("73_kjtvk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.7512975, 0, -8.035473)
+
+[node name="fence113" parent="Map/MapBorder" unique_id=457216639 instance=ExtResource("73_kjtvk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.1408424, 0, -8.035473)
+
+[node name="fence114" parent="Map/MapBorder" unique_id=1549193632 instance=ExtResource("73_kjtvk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5166316, 0, -8.035473)
+
+[node name="fence115" parent="Map/MapBorder" unique_id=1673681502 instance=ExtResource("73_kjtvk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.9013667, 0, -8.035473)
+
+[node name="fence116" parent="Map/MapBorder" unique_id=1706710895 instance=ExtResource("73_kjtvk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.2742357, 0, -8.035473)
+
+[node name="fence117" parent="Map/MapBorder" unique_id=781476948 instance=ExtResource("73_kjtvk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.6634264, 0, -8.035473)
+
+[node name="fence118" parent="Map/MapBorder" unique_id=873613278 instance=ExtResource("73_kjtvk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.054741, 0, -8.035473)
+
+[node name="fence119" parent="Map/MapBorder" unique_id=1276351871 instance=ExtResource("73_kjtvk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.439172, 0, -8.035473)
+
+[node name="fence120" parent="Map/MapBorder" unique_id=99237385 instance=ExtResource("73_kjtvk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.830569, 0, -8.035473)
+
+[node name="fence121" parent="Map/MapBorder" unique_id=1125460692 instance=ExtResource("73_kjtvk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.217851, 0, -8.035473)
+
+[node name="fence122" parent="Map/MapBorder" unique_id=1382431845 instance=ExtResource("73_kjtvk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.5983763, 0, -8.035473)
+
+[node name="fence123" parent="Map/MapBorder" unique_id=1736199585 instance=ExtResource("73_kjtvk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.9675064, 0, -8.035473)
+
+[node name="fence124" parent="Map/MapBorder" unique_id=1441261855 instance=ExtResource("73_kjtvk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.359606, 0, -8.035473)
+
+[node name="fence125" parent="Map/MapBorder" unique_id=1255879987 instance=ExtResource("73_kjtvk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.748934, 0, -8.035473)
+
+[node name="fence126" parent="Map/MapBorder" unique_id=1769621206 instance=ExtResource("73_kjtvk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.149466, 0, -8.035473)
+
+[node name="fence127" parent="Map/MapBorder" unique_id=2015361886 instance=ExtResource("73_kjtvk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.534448, 0, -8.035473)
+
+[node name="fence128" parent="Map/MapBorder" unique_id=1130772170 instance=ExtResource("73_kjtvk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.901752, 0, -8.035473)
+
+[node name="fence129" parent="Map/MapBorder" unique_id=1735861342 instance=ExtResource("73_kjtvk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.281539, 0, -8.035473)
+
+[node name="fence130" parent="Map/MapBorder" unique_id=1241075754 instance=ExtResource("73_kjtvk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.666963, 0, -8.035473)
+
+[node name="fence131" parent="Map/MapBorder" unique_id=1912557086 instance=ExtResource("73_kjtvk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.040216, 0, -8.035473)
+
+[node name="fence132" parent="Map/MapBorder" unique_id=578417720 instance=ExtResource("73_kjtvk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.408964, 0, -8.035473)
+
+[node name="fence133" parent="Map/MapBorder" unique_id=346337693 instance=ExtResource("73_kjtvk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.814082, 0, -8.035473)
+
+[node name="fence134" parent="Map/MapBorder" unique_id=2014519537 instance=ExtResource("73_kjtvk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.196658, 0, -8.035473)
+
+[node name="fence135" parent="Map/MapBorder" unique_id=159984529 instance=ExtResource("73_kjtvk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.589315, 0, -8.035473)
+
+[node name="fence136" parent="Map/MapBorder" unique_id=1912225484 instance=ExtResource("73_kjtvk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.965551, 0, -8.035473)
+
+[node name="fence137" parent="Map/MapBorder" unique_id=757002831 instance=ExtResource("73_kjtvk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.351347, 0, -8.035473)
+
+[node name="fence138" parent="Map/MapBorder" unique_id=52542071 instance=ExtResource("73_kjtvk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.74339, 0, -8.035473)
+
+[node name="fence139" parent="Map/MapBorder" unique_id=1086072913 instance=ExtResource("73_kjtvk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.12884, 0, -8.035473)
+
+[node name="fence140" parent="Map/MapBorder" unique_id=1688120891 instance=ExtResource("73_kjtvk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.5046425, 0, -8.035473)
+
+[node name="fence141" parent="Map/MapBorder" unique_id=1962635689 instance=ExtResource("73_kjtvk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.883264, 0, -8.035473)
+
+[node name="fence142" parent="Map/MapBorder" unique_id=1474875071 instance=ExtResource("73_kjtvk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.274937, 0, -8.035473)
+
+[node name="fence143" parent="Map/MapBorder" unique_id=548725185 instance=ExtResource("73_kjtvk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.668607, 0, -8.035473)
+
+[node name="fence144" parent="Map/MapBorder" unique_id=1356307184 instance=ExtResource("73_kjtvk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.054996, 0, -8.035473)
+
+[node name="fence145" parent="Map/MapBorder" unique_id=1414169733 instance=ExtResource("73_kjtvk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.459782, 0, -8.035473)
+
+[node name="fence146" parent="Map/MapBorder" unique_id=1982050423 instance=ExtResource("73_kjtvk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.856134, 0, -8.035473)
+
+[node name="fence147" parent="Map/MapBorder" unique_id=1482953511 instance=ExtResource("73_kjtvk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.239645, 0, -8.035473)
+
+[node name="fence148" parent="Map/MapBorder" unique_id=144734358 instance=ExtResource("73_kjtvk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.61655, 0, -8.035473)
+
+[node name="fence149" parent="Map/MapBorder" unique_id=1761704301 instance=ExtResource("73_kjtvk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.019796, 0, -8.035473)
+
+[node name="fence150" parent="Map/MapBorder" unique_id=1106485590 instance=ExtResource("73_kjtvk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.421339, 0, -8.035473)
+
+[node name="fence151" parent="Map/MapBorder" unique_id=481530051 instance=ExtResource("73_kjtvk")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -18.624392, 0, -7.8345504)
+
+[node name="fence152" parent="Map/MapBorder" unique_id=780982729 instance=ExtResource("73_kjtvk")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -18.624392, 0, -7.42113)
+
+[node name="fence153" parent="Map/MapBorder" unique_id=1813727816 instance=ExtResource("73_kjtvk")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -18.624392, 0, -7.0237293)
+
+[node name="fence154" parent="Map/MapBorder" unique_id=959861555 instance=ExtResource("73_kjtvk")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -18.624392, 0, -6.6282654)
+
+[node name="fence155" parent="Map/MapBorder" unique_id=1533773709 instance=ExtResource("73_kjtvk")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -18.624392, 0, -6.2256813)
+
+[node name="fence156" parent="Map/MapBorder" unique_id=621988216 instance=ExtResource("73_kjtvk")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -18.624392, 0, -5.8214107)
+
+[node name="fence157" parent="Map/MapBorder" unique_id=1265598764 instance=ExtResource("73_kjtvk")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -18.624392, 0, -5.404789)
+
+[node name="fence158" parent="Map/MapBorder" unique_id=867782355 instance=ExtResource("73_kjtvk")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -18.624392, 0, -4.994474)
+
+[node name="fence159" parent="Map/MapBorder" unique_id=1780932257 instance=ExtResource("73_kjtvk")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -18.624392, 0, -4.6014233)
+
+[node name="fence160" parent="Map/MapBorder" unique_id=1455841158 instance=ExtResource("73_kjtvk")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -18.624392, 0, -4.221237)
+
+[node name="fence161" parent="Map/MapBorder" unique_id=1173029332 instance=ExtResource("73_kjtvk")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -18.624392, 0, -3.827301)
+
+[node name="fence162" parent="Map/MapBorder" unique_id=1567839566 instance=ExtResource("73_kjtvk")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -18.624392, 0, -3.4198353)
+
+[node name="fence163" parent="Map/MapBorder" unique_id=437680444 instance=ExtResource("73_kjtvk")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -18.624392, 0, -3.0363696)
+
+[node name="fence164" parent="Map/MapBorder" unique_id=397466618 instance=ExtResource("73_kjtvk")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -18.624392, 0, -2.650445)
+
+[node name="fence165" parent="Map/MapBorder" unique_id=1449414167 instance=ExtResource("73_kjtvk")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -18.624392, 0, -2.2566853)
+
+[node name="fence166" parent="Map/MapBorder" unique_id=328057931 instance=ExtResource("73_kjtvk")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -18.624392, 0, -1.8731135)
+
+[node name="fence167" parent="Map/MapBorder" unique_id=640856460 instance=ExtResource("73_kjtvk")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -18.624392, 0, -1.4815243)
+
+[node name="fence168" parent="Map/MapBorder" unique_id=79371753 instance=ExtResource("73_kjtvk")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -18.624392, 0, -1.0832404)
+
+[node name="fence169" parent="Map/MapBorder" unique_id=2144742800 instance=ExtResource("73_kjtvk")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -18.624392, 0, -0.7004467)
+
+[node name="fence170" parent="Map/MapBorder" unique_id=953791168 instance=ExtResource("73_kjtvk")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -18.624392, 0, -0.2969231)
+
+[node name="fence171" parent="Map/MapBorder" unique_id=1464279534 instance=ExtResource("73_kjtvk")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -18.624392, 0, 0.0870415)
+
+[node name="fence172" parent="Map/MapBorder" unique_id=919883003 instance=ExtResource("73_kjtvk")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -18.624392, 0, 0.47902828)
+
+[node name="fence173" parent="Map/MapBorder" unique_id=488026142 instance=ExtResource("73_kjtvk")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -18.624392, 0, 0.8680389)
+
+[node name="fence174" parent="Map/MapBorder" unique_id=228393535 instance=ExtResource("73_kjtvk")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -18.624392, 0, 1.2703602)
+
+[node name="fence175" parent="Map/MapBorder" unique_id=1759467550 instance=ExtResource("73_kjtvk")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -18.624392, 0, 1.6696502)
+
+[node name="fence176" parent="Map/MapBorder" unique_id=1182276318 instance=ExtResource("73_kjtvk")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -18.624392, 0, 2.0442848)
+
+[node name="fence177" parent="Map/MapBorder" unique_id=1243768358 instance=ExtResource("73_kjtvk")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -18.624392, 0, 2.4378579)
+
+[node name="fence178" parent="Map/MapBorder" unique_id=892618220 instance=ExtResource("73_kjtvk")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -18.624392, 0, 2.8338509)
+
+[node name="fence179" parent="Map/MapBorder" unique_id=1172064127 instance=ExtResource("73_kjtvk")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -18.624392, 0, 3.2120175)
+
+[node name="fence180" parent="Map/MapBorder" unique_id=527263156 instance=ExtResource("73_kjtvk")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -18.624392, 0, 3.5994263)
+
+[node name="fence181" parent="Map/MapBorder" unique_id=1085384046 instance=ExtResource("73_kjtvk")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -18.624392, 0, 3.9928632)
+
+[node name="fence182" parent="Map/MapBorder" unique_id=646570850 instance=ExtResource("73_kjtvk")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -18.624392, 0, 4.4119253)
+
+[node name="fence183" parent="Map/MapBorder" unique_id=1472817122 instance=ExtResource("73_kjtvk")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -18.624392, 0, 4.8156066)
+
+[node name="fence184" parent="Map/MapBorder" unique_id=1763765008 instance=ExtResource("73_kjtvk")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -18.624392, 0, 5.1853056)
+
+[node name="fence185" parent="Map/MapBorder" unique_id=1502692139 instance=ExtResource("73_kjtvk")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -18.624392, 0, 5.5766187)
+
+[node name="fence186" parent="Map/MapBorder" unique_id=2147269063 instance=ExtResource("73_kjtvk")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -18.624392, 0, 5.958393)
+
+[node name="fence187" parent="Map/MapBorder" unique_id=52440106 instance=ExtResource("73_kjtvk")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -18.624392, 0, 6.3558803)
+
+[node name="fence188" parent="Map/MapBorder" unique_id=582304240 instance=ExtResource("73_kjtvk")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -18.624392, 0, 6.762119)
+
+[node name="fence189" parent="Map/MapBorder" unique_id=1189271694 instance=ExtResource("73_kjtvk")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -18.624392, 0, 7.169667)
+
+[node name="fence190" parent="Map/MapBorder" unique_id=474519656 instance=ExtResource("73_kjtvk")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -18.624392, 0, 7.578445)
+
+[node name="fence191" parent="Map/MapBorder" unique_id=11219833 instance=ExtResource("73_kjtvk")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -18.624392, 0, 7.961803)
+
+[node name="fence192" parent="Map/MapBorder" unique_id=1797695824 instance=ExtResource("73_kjtvk")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -18.624392, 0, 8.368113)
+
+[node name="fence193" parent="Map/MapBorder" unique_id=274155274 instance=ExtResource("73_kjtvk")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -18.624392, 0, 8.761282)
+
+[node name="fence194" parent="Map/MapBorder" unique_id=1394541475 instance=ExtResource("73_kjtvk")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -18.624392, 0, 9.145631)
+
+[node name="fence195" parent="Map/MapBorder" unique_id=789340880 instance=ExtResource("73_kjtvk")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -18.624392, 0, 9.560781)
+
+[node name="fence196" parent="Map/MapBorder" unique_id=1016579500 instance=ExtResource("73_kjtvk")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -18.624392, 0, 9.964891)
+
+[node name="fence197" parent="Map/MapBorder" unique_id=2816833 instance=ExtResource("73_kjtvk")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -18.624392, 0, 10.344717)
+
+[node name="fence198" parent="Map/MapBorder" unique_id=114002587 instance=ExtResource("73_kjtvk")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -18.624392, 0, 10.734221)
+
+[node name="fence199" parent="Map/MapBorder" unique_id=309876037 instance=ExtResource("73_kjtvk")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -18.624392, 0, 11.136551)
+
+[node name="fence200" parent="Map/MapBorder" unique_id=1708582396 instance=ExtResource("73_kjtvk")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -18.624392, 0, 11.522764)
+
+[node name="fence201" parent="Map/MapBorder" unique_id=840374824 instance=ExtResource("73_kjtvk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.409485, 0, 11.722031)
+
+[node name="fence202" parent="Map/MapBorder" unique_id=1771721404 instance=ExtResource("73_kjtvk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.014324, 0, 11.722031)
+
+[node name="fence203" parent="Map/MapBorder" unique_id=294757038 instance=ExtResource("73_kjtvk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.623674, 0, 11.722031)
+
+[node name="fence204" parent="Map/MapBorder" unique_id=1757889402 instance=ExtResource("73_kjtvk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.233335, 0, 11.722031)
+
+[node name="fence205" parent="Map/MapBorder" unique_id=350470669 instance=ExtResource("73_kjtvk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.848322, 0, 11.722031)
+
+[node name="fence206" parent="Map/MapBorder" unique_id=1339018863 instance=ExtResource("73_kjtvk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.467289, 0, 11.722031)
+
+[node name="fence207" parent="Map/MapBorder" unique_id=1969590342 instance=ExtResource("73_kjtvk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.095844, 0, 11.722031)
+
+[node name="fence208" parent="Map/MapBorder" unique_id=976359160 instance=ExtResource("73_kjtvk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.708404, 0, 11.722031)
+
+[node name="fence209" parent="Map/MapBorder" unique_id=407609596 instance=ExtResource("73_kjtvk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.322802, 0, 11.722031)
+
+[node name="fence210" parent="Map/MapBorder" unique_id=154255361 instance=ExtResource("73_kjtvk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.931615, 0, 11.722031)
+
+[node name="fence211" parent="Map/MapBorder" unique_id=1713762982 instance=ExtResource("73_kjtvk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.55287, 0, 11.722031)
+
+[node name="fence212" parent="Map/MapBorder" unique_id=144338789 instance=ExtResource("73_kjtvk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.186089, 0, 11.722031)
+
+[node name="fence213" parent="Map/MapBorder" unique_id=2074335794 instance=ExtResource("73_kjtvk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.821227, 0, 11.722031)
+
+[node name="fence214" parent="Map/MapBorder" unique_id=394982817 instance=ExtResource("73_kjtvk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.43933, 0, 11.722031)
+
+[node name="fence215" parent="Map/MapBorder" unique_id=353331711 instance=ExtResource("73_kjtvk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.0697365, 0, 11.722031)
+
+[node name="fence216" parent="Map/MapBorder" unique_id=1272820315 instance=ExtResource("73_kjtvk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.6818285, 0, 11.722031)
+
+[node name="fence217" parent="Map/MapBorder" unique_id=162756860 instance=ExtResource("73_kjtvk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.290111, 0, 11.722031)
+
+[node name="fence218" parent="Map/MapBorder" unique_id=875883699 instance=ExtResource("73_kjtvk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.915501, 0, 11.722031)
+
+[node name="fence219" parent="Map/MapBorder" unique_id=1613515789 instance=ExtResource("73_kjtvk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.505785, 0, 11.722031)
+
+[node name="fence220" parent="Map/MapBorder" unique_id=1813446344 instance=ExtResource("73_kjtvk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.112916, 0, 11.722031)
+
+[node name="fence221" parent="Map/MapBorder" unique_id=356828831 instance=ExtResource("73_kjtvk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.726696, 0, 11.722031)
+
+[node name="fence222" parent="Map/MapBorder" unique_id=942583154 instance=ExtResource("73_kjtvk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.335495, 0, 11.722031)
+
+[node name="fence223" parent="Map/MapBorder" unique_id=605178815 instance=ExtResource("73_kjtvk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.944981, 0, 11.722031)
+
+[node name="fence224" parent="Map/MapBorder" unique_id=781986921 instance=ExtResource("73_kjtvk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.545708, 0, 11.722031)
+
+[node name="fence225" parent="Map/MapBorder" unique_id=944585905 instance=ExtResource("73_kjtvk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.1435375, 0, 11.722031)
+
+[node name="fence226" parent="Map/MapBorder" unique_id=1185829843 instance=ExtResource("73_kjtvk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.750124, 0, 11.722031)
+
+[node name="fence227" parent="Map/MapBorder" unique_id=195770027 instance=ExtResource("73_kjtvk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.352925, 0, 11.722031)
+
+[node name="fence228" parent="Map/MapBorder" unique_id=1464436966 instance=ExtResource("73_kjtvk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.957466, 0, 11.722031)
+
+[node name="fence229" parent="Map/MapBorder" unique_id=885473571 instance=ExtResource("73_kjtvk")]
+transform = Transform3D(1.4235628, 0, -0.092073455, 0, 1, 0, 0.14239156, 0, 0.9205063, -7.464563, -0.0021123886, 11.751467)
+
+[node name="fence61" parent="Map/MapBorder" unique_id=1872816635 instance=ExtResource("73_kjtvk")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 6.6445627, 0, 1.7688012)
+
+[node name="fence62" parent="Map/MapBorder" unique_id=912728516 instance=ExtResource("73_kjtvk")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 6.6445627, 0, 1.3692895)
+
+[node name="fence63" parent="Map/MapBorder" unique_id=2068555125 instance=ExtResource("73_kjtvk")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 6.6445627, 0, 0.9628805)
+
+[node name="fence64" parent="Map/MapBorder" unique_id=1262414958 instance=ExtResource("73_kjtvk")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 6.6445627, 0, 0.5618007)
+
+[node name="fence59" parent="Map/MapBorder" unique_id=965088248 instance=ExtResource("73_kjtvk")]
+transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1.0000001, 6.037099, 0, 1.9684353)
+
+[node name="fence66" parent="Map/MapBorder" unique_id=1340571045 instance=ExtResource("73_kjtvk")]
+transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1.0000001, 6.037099, 0, 0.37659073)
+
+[node name="fence60" parent="Map/MapBorder" unique_id=1211997254 instance=ExtResource("73_kjtvk")]
+transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1.0000001, 6.4390965, 0, 1.9684353)
+
+[node name="fence65" parent="Map/MapBorder" unique_id=1194036536 instance=ExtResource("73_kjtvk")]
+transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1.0000001, 6.4390965, 0, 0.36700487)
+
+[node name="fence33" parent="Map/MapBorder" unique_id=1289892627 instance=ExtResource("73_kjtvk")]
+transform = Transform3D(1.5330725, 0, 0, 0, 1, 0, 0, 0, 1, 5.526745, 0, 11.79064)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Map" unique_id=988597893]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Map/StaticBody3D" unique_id=1545601822]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.960144, 1.7020874, -8.554539)
+shape = SubResource("BoxShape3D_kjtvk")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Map/StaticBody3D" unique_id=1419616560]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.162201, 1.7020874, 12.27935)
+shape = SubResource("BoxShape3D_kjtvk")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="Map/StaticBody3D" unique_id=213840795]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 7.1333604, 1.7020874, -0.13949013)
+shape = SubResource("BoxShape3D_kjtvk")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="Map/StaticBody3D" unique_id=1121527490]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -19.156681, 1.7020874, -0.13949013)
+shape = SubResource("BoxShape3D_kjtvk")
 
 [editable path="Control"]
 [editable path="player"]
