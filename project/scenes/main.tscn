@@ -95,6 +95,9 @@ offset_bottom = 12.99939
 script = ExtResource("2_y57op")
 MoneyManagerNode = NodePath("../MoneyManager")
 
+[node name="interact" parent="Control" index="1" unique_id=128546596 node_paths=PackedStringArray("_tekstLabel")]
+_tekstLabel = NodePath(".")
+
 [node name="MoneyManager" type="Control" parent="Control" unique_id=698576289]
 anchors_preset = 0
 offset_right = 40.0
