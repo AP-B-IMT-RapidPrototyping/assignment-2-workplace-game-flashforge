@@ -107,7 +107,7 @@ shape = SubResource("CylinderShape3D_r8ws1")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.10987818, -0.28781477, 0.0030537844)
 
 [node name="motor" type="Marker3D" parent="item slots" unique_id=1734485773]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6784009, 0.82654494)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.59273005, 0.82654494)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="item slots/motor" unique_id=1995479050]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0.08671045, -0.03156653, 0.09150118)
@@ -117,11 +117,11 @@ script = ExtResource("3_txtdd")
 OnderdeelData = ExtResource("5_pjuyf")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="item slots/motor/StaticBody3D" unique_id=1063875224]
-transform = Transform3D(1, 4.371139e-08, -4.371139e-08, -4.371139e-08, -4.371139e-08, -1, -4.371139e-08, 1, -4.3711385e-08, -0.07039255, -0.021873713, 0.08648687)
+transform = Transform3D(1, 4.371139e-08, -4.371139e-08, -4.371139e-08, -4.371139e-08, -1, -4.371139e-08, 1, -4.3711385e-08, -0.07039254, 0.069874406, 0.086486876)
 shape = SubResource("BoxShape3D_yg51h")
 
 [node name="motorblok" parent="item slots/motor" unique_id=1652318907 instance=ExtResource("9_pjuyf")]
-transform = Transform3D(1.3, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 0.005400751, -0.2606811, 0.026830375)
+transform = Transform3D(1.3, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 0.005400751, -0.17145592, 0.026830375)
 
 [node name="uitlaat" type="Marker3D" parent="item slots" unique_id=786506876]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0.32594508, 0.10094845, -0.90672827)
