@@ -1,9 +1,9 @@
 [gd_resource type="Resource" script_class="AutoResource" format=3 uid="uid://c2rkyorurl0ym"]
 
-[ext_resource type="PackedScene" uid="uid://4k1l1rcyesrd" path="res://Models/Jens/taxi.fbx" id="1_lnanr"]
+[ext_resource type="PackedScene" uid="uid://c52q10h1vt1ch" path="res://Models/Stef/auto_wiel.glb" id="1_lnanr"]
 [ext_resource type="Script" uid="uid://boy3ta5vq66y6" path="res://scripts/Stef/AutoResource.cs" id="2_vyt04"]
 
 [resource]
 script = ExtResource("2_vyt04")
-PartName = "test"
+PartName = "wiel"
 OnderdeelModel = ExtResource("1_lnanr")

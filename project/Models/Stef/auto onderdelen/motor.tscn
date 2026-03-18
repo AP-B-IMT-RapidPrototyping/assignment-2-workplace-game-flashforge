@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://cdmqp6lo1xtor"]
+
+[ext_resource type="PackedScene" uid="uid://bteesftg0hsgc" path="res://Models/Stef/auto onderdelen/motorblok.glb" id="1_idx5a"]
+
+[node name="motor" type="Node3D" unique_id=1190999914]
+
+[node name="motorblok" parent="." unique_id=674565509 instance=ExtResource("1_idx5a")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)

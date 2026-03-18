@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="AutoResource" format=3 uid="uid://d4e3xqcg7hpeq"]
+
+[ext_resource type="PackedScene" uid="uid://bteesftg0hsgc" path="res://Models/Stef/auto onderdelen/motorblok.glb" id="1_o40cc"]
+[ext_resource type="Script" uid="uid://boy3ta5vq66y6" path="res://scripts/Stef/AutoResource.cs" id="2_4gk3h"]
+
+[resource]
+script = ExtResource("2_4gk3h")
+PartName = "motor"
+OnderdeelModel = ExtResource("1_o40cc")
