@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://p6857spwnacm" path="res://scenes/Alen/uitlaat.glb" id="1_ivbiy"]
 
 [node name="MeshInstance3D" type="MeshInstance3D" unique_id=2017701307]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
 
 [node name="uitlaat" parent="." unique_id=258518116 instance=ExtResource("1_ivbiy")]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
