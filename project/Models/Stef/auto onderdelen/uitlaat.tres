@@ -7,3 +7,4 @@
 script = ExtResource("2_b8he8")
 PartName = "uitlaat"
 OnderdeelModel = ExtResource("1_3ceta")
+Type = 1

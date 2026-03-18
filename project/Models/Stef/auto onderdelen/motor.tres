@@ -7,3 +7,4 @@
 script = ExtResource("2_4gk3h")
 PartName = "motor"
 OnderdeelModel = ExtResource("1_o40cc")
+Type = 2
