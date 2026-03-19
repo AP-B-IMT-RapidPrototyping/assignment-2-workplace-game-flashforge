@@ -48,29 +48,41 @@ public partial class Carmanager : Node3D
 
 	private async void OnAutoVoltooid()
 	{
-		var script = _huidigeAuto.FindChild("*", true, false) as AutoWerking;
-		if (script != null)
-		{
-			script.AutoVoltooid -= OnAutoVoltooid;
-		}
-		GD.Print("Auto wordt over 2 seconden weggehaald...");
-		var anim = _huidigeAuto.GetNode<AnimationPlayer>("AnimationPlayer");
-		anim.Play("despawnanimation");
-		if (MoneySystem != null)
-		{
-			MoneySystem.AddMoney(BeloningPerAuto);
-		}
-		await ToSignal(GetTree().CreateTimer(6.0f), "timeout");
+	Node scriptNode = _huidigeAuto;
+    if (!(scriptNode is AutoWerking)) scriptNode = _huidigeAuto.FindChild("*", true, false);
+    
+    if (scriptNode is AutoWerking script)
+    {
+        script.AutoVoltooid -= OnAutoVoltooid;
+    }
 
-		if (IsInstanceValid(_huidigeAuto))
-		{
-			_huidigeAuto.QueueFree();
-			_huidigeAuto = null;
-		}
+    GD.Print("Auto voltooid! Beloning uitbetalen...");
+    if (MoneySystem != null) MoneySystem.AddMoney(BeloningPerAuto);
+    AnimationPlayer anim = _huidigeAuto.FindChild("AnimationPlayer", true, false) as AnimationPlayer;
 
-		GD.Print($"Wachten op volgende auto ({WachttijdSeconden}s)...");
-		await ToSignal(GetTree().CreateTimer(WachttijdSeconden), "timeout");
+    if (anim != null)
+    {
+        GD.Print("Despawn animatie starten...");
+        anim.Play("despawnanimation");
+        await ToSignal(anim, "animation_finished"); 
+    }
+    else
+    {
+        GD.PrintErr("FOUT: AnimationPlayer niet gevonden op de auto!");
+        await ToSignal(GetTree().CreateTimer(1.0f), "timeout");
+    }
+    if (IsInstanceValid(_huidigeAuto))
+    {
+        GD.Print("Auto wordt nu verwijderd.");
+        _huidigeAuto.QueueFree();
+        _huidigeAuto = null;
+    }
+    if (WachttijdSeconden > 0)
+    {
+        GD.Print($"Wachten op volgende auto ({WachttijdSeconden}s)...");
+        await ToSignal(GetTree().CreateTimer(WachttijdSeconden), "timeout");
+    }
 
-		SpawnNieuweAuto();
+    SpawnNieuweAuto();
 	}
 }

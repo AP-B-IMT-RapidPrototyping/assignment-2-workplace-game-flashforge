@@ -11,7 +11,9 @@
 [ext_resource type="PackedScene" uid="uid://bmg7rkm0xbvgr" path="res://Models/Stef/kenney_city-kit-roads (1)/Models/GLB format/road-slant-flat-curve.glb" id="4_y0rjb"]
 [ext_resource type="PackedScene" uid="uid://basfqjhb1b4yl" path="res://Models/Stef/kenney_city-kit-roads (1)/Models/GLB format/road-roundabout.glb" id="5_r50oh"]
 [ext_resource type="PackedScene" uid="uid://2e36y6xdrx0r" path="res://Models/Stef/kenney_city-kit-roads (1)/Models/GLB format/road-straight.glb" id="6_kl032"]
+[ext_resource type="Script" uid="uid://c636tqw8oj48t" path="res://scripts/Stef/Verkeermanager.cs" id="6_xrs0c"]
 [ext_resource type="PackedScene" uid="uid://bw1a1amw74wee" path="res://Models/Stef/kenney_city-kit-roads (1)/Models/GLB format/road-intersection-line.glb" id="7_c3xhk"]
+[ext_resource type="PackedScene" uid="uid://dyu1f8vo2qvys" path="res://scenes/Stef/voertuigen/auto1.tscn" id="7_xljpf"]
 [ext_resource type="PackedScene" uid="uid://be48op54sq5eh" path="res://Models/Stef/kenney_city-kit-roads (1)/Models/GLB format/road-end-round.glb" id="8_1cri0"]
 [ext_resource type="PackedScene" uid="uid://fb4ar1cycaqm" path="res://Models/Stef/kenney_city-kit-roads (1)/Models/GLB format/road-roundabout-barrier.glb" id="9_dtar0"]
 [ext_resource type="PackedScene" uid="uid://f65hypa3jjy2" path="res://Models/Stef/kenney_city-kit-roads (1)/Models/GLB format/road-curve-intersection.glb" id="10_q8u6p"]
@@ -83,22 +85,29 @@ data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0
 [sub_resource type="BoxShape3D" id="BoxShape3D_kjtvk"]
 size = Vector3(27.216003, 4.404175, 1)
 
+[sub_resource type="Curve3D" id="Curve3D_kjtvk"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 22, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
 [node name="main" type="Node3D" unique_id=439634394]
 
-[node name="Control" parent="." unique_id=532778834 instance=ExtResource("1_152kg")]
+[node name="UI" parent="." unique_id=532778834 instance=ExtResource("1_152kg")]
 offset_left = 2.0
 offset_top = 1.0
 offset_right = -1.0
 offset_bottom = 12.99939
 
-[node name="geld" parent="Control" index="0" unique_id=1552737992 node_paths=PackedStringArray("MoneyManagerNode")]
+[node name="geld" parent="UI" index="0" unique_id=1552737992 node_paths=PackedStringArray("MoneyManagerNode")]
 script = ExtResource("2_y57op")
 MoneyManagerNode = NodePath("../MoneyManager")
 
-[node name="interact" parent="Control" index="1" unique_id=128546596 node_paths=PackedStringArray("_tekstLabel")]
+[node name="interact" parent="UI" index="1" unique_id=128546596 node_paths=PackedStringArray("_tekstLabel")]
 _tekstLabel = NodePath(".")
 
-[node name="MoneyManager" type="Control" parent="Control" unique_id=698576289]
+[node name="MoneyManager" type="Control" parent="UI" unique_id=698576289]
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
@@ -107,7 +116,13 @@ script = ExtResource("2_r4e17")
 [node name="Carmanager" type="Node3D" parent="." unique_id=1519753772 node_paths=PackedStringArray("MoneySystem")]
 script = ExtResource("1_1epgm")
 AutoScene = ExtResource("65_1epgm")
-MoneySystem = NodePath("../Control/MoneyManager")
+MoneySystem = NodePath("../UI/MoneyManager")
+
+[node name="verkeermanager" type="Node3D" parent="." unique_id=1621237053 node_paths=PackedStringArray("PathParent")]
+script = ExtResource("6_xrs0c")
+AutoScene = ExtResource("7_xljpf")
+PathParent = NodePath("../autowegen/Path3D")
+SpawnInterval = 1.0
 
 [node name="Garage" parent="." unique_id=1939525001 instance=ExtResource("64_od4ux")]
 transform = Transform3D(-4.371139e-09, 0, 0.1, 0, 0.1, 0, -0.1, 0, -4.371139e-09, -4.0206156, 0, 1.907978)
@@ -117,20 +132,20 @@ transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -3.5980082, 0.1111421, 
 
 [node name="motor" parent="winkel" unique_id=422099097 node_paths=PackedStringArray("MoneySystem") instance=ExtResource("70_gdvew")]
 transform = Transform3D(0.875, 0, 0, 0, 0.875, 0, 0, 0, 0.875, -0.6153431, -0.27785525, 1.2037153)
-MoneySystem = NodePath("../../Control/MoneyManager")
+MoneySystem = NodePath("../../UI/MoneyManager")
 
 [node name="uitlaat" parent="winkel" unique_id=1670136933 node_paths=PackedStringArray("MoneySystem") instance=ExtResource("71_kjtvk")]
 transform = Transform3D(1.25, 0, 0, 0, 1.25, 0, 0, 0, 1.25, -1.1226597, -0.27785525, -0.37951756)
 collision_layer = 2
-MoneySystem = NodePath("../../Control/MoneyManager")
+MoneySystem = NodePath("../../UI/MoneyManager")
 
 [node name="wiel" parent="winkel" unique_id=413077558 node_paths=PackedStringArray("MoneySystem") instance=ExtResource("72_xrs0c")]
 collision_layer = 2
-MoneySystem = NodePath("../../Control/MoneyManager")
+MoneySystem = NodePath("../../UI/MoneyManager")
 
 [node name="player" parent="." unique_id=1728694951 node_paths=PackedStringArray("InteractieLabel") instance=ExtResource("65_152kg")]
 transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, -3.7248201, 0, 2.3294902)
-InteractieLabel = NodePath("../Control/interact")
+InteractieLabel = NodePath("../UI/interact")
 
 [node name="RayCast3D" parent="player/Camera3D" parent_id_path=PackedInt32Array(1728694951, 1031425661) index="0" unique_id=1003440602]
 transform = Transform3D(1.5, 0, 0, 0, -1.7484556e-08, -1.5, 0, 0.4, -6.556708e-08, 0, 0, 0)
@@ -913,6 +928,57 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16, 0, 8)
 
 [node name="road-straight82" parent="Map/straten" unique_id=1496039989 instance=ExtResource("6_kl032")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17, 0, 8)
+
+[node name="road-straight83" parent="Map/straten" unique_id=520318665 instance=ExtResource("6_kl032")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -11, 0.5, -8)
+
+[node name="road-straight84" parent="Map/straten" unique_id=425099561 instance=ExtResource("6_kl032")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -12, 0.5, -8)
+
+[node name="road-straight-barrier32" parent="Map/straten" unique_id=1177352061 instance=ExtResource("14_ytbs1")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -12, 0.5, -8)
+
+[node name="road-straight-barrier33" parent="Map/straten" unique_id=2105859387 instance=ExtResource("14_ytbs1")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -11, 0.5, -8)
+
+[node name="road-straight85" parent="Map/straten" unique_id=1228278108 instance=ExtResource("6_kl032")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -11, 0.5, -9)
+
+[node name="road-straight86" parent="Map/straten" unique_id=642443846 instance=ExtResource("6_kl032")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -12, 0.5, -9)
+
+[node name="road-straight-barrier34" parent="Map/straten" unique_id=134159020 instance=ExtResource("14_ytbs1")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -12, 0.5, -9)
+
+[node name="road-straight-barrier35" parent="Map/straten" unique_id=840004316 instance=ExtResource("14_ytbs1")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -11, 0.5, -9)
+
+[node name="light-square-double12" parent="Map/straten" unique_id=1155960980 instance=ExtResource("52_772py")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -11.5, 0.5, -9)
+
+[node name="road-straight87" parent="Map/straten" unique_id=1470809117 instance=ExtResource("6_kl032")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -11, 0.5, 12)
+
+[node name="road-straight88" parent="Map/straten" unique_id=443850755 instance=ExtResource("6_kl032")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -12, 0.5, 12)
+
+[node name="road-straight-barrier18" parent="Map/straten" unique_id=205263010 instance=ExtResource("14_ytbs1")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -12, 0.5, 12)
+
+[node name="road-straight-barrier19" parent="Map/straten" unique_id=1231570100 instance=ExtResource("14_ytbs1")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -11, 0.5, 12)
+
+[node name="road-straight89" parent="Map/straten" unique_id=1863137784 instance=ExtResource("6_kl032")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -11, 0.5, 13)
+
+[node name="road-straight90" parent="Map/straten" unique_id=147659464 instance=ExtResource("6_kl032")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -12, 0.5, 13)
+
+[node name="road-straight-barrier20" parent="Map/straten" unique_id=1793757783 instance=ExtResource("14_ytbs1")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -12, 0.5, 13)
+
+[node name="road-straight-barrier21" parent="Map/straten" unique_id=532809694 instance=ExtResource("14_ytbs1")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -11, 0.5, 13)
 
 [node name="gebouwen" type="Node3D" parent="Map" unique_id=1862852335]
 
@@ -4061,5 +4127,14 @@ shape = SubResource("BoxShape3D_kjtvk")
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -19.156681, 1.7020874, -0.13949013)
 shape = SubResource("BoxShape3D_kjtvk")
 
-[editable path="Control"]
+[node name="autowegen" type="Node3D" parent="." unique_id=44236102]
+
+[node name="Path3D" type="Path3D" parent="autowegen" unique_id=2103346160]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 0.6, -9)
+curve = SubResource("Curve3D_kjtvk")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="autowegen/Path3D" unique_id=12966143]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 22)
+
+[editable path="UI"]
 [editable path="player"]

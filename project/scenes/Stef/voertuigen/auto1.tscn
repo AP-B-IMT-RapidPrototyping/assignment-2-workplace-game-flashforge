@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://dyu1f8vo2qvys"]
+
+[ext_resource type="PackedScene" uid="uid://buxh1grdd22ew" path="res://Models/Stef/kenney_car-kit/Models/GLB format/hatchback-sports.glb" id="1_awnm6"]
+[ext_resource type="Script" uid="uid://522bxbycd1m4" path="res://scripts/Stef/Snelwegauto.cs" id="1_ehdyh"]
+
+[node name="auto1" type="Node3D" unique_id=327083097]
+script = ExtResource("1_ehdyh")
+
+[node name="model" parent="." unique_id=1348171189 instance=ExtResource("1_awnm6")]

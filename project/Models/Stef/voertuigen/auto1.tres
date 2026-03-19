@@ -1,0 +1,6 @@
+[gd_resource type="Resource" format=3 uid="uid://6txi6ysaup61"]
+
+[ext_resource type="Script" uid="uid://522bxbycd1m4" path="res://scripts/Stef/Snelwegauto.cs" id="1_38rvu"]
+
+[resource]
+script = ExtResource("1_38rvu")
