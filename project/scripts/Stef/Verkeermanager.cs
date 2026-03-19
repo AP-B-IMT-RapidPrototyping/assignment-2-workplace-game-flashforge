@@ -3,15 +3,16 @@ using System;
 
 public partial class Verkeermanager : Node
 {
-    [Export] public PackedScene AutoScene;
+    [Export] public Godot.Collections.Array<PackedScene> AutoVariaties;
+
     [Export] public Node3D PathParent;
-    [Export] public float SpawnInterval = 2.0f;
+    private RandomNumberGenerator _rng = new RandomNumberGenerator();
+    [Export] public float MinWachttijd = 1.0f;
+    [Export] public float MaxWachttijd = 4.0f;
 
     public override void _Ready()
     {
-		GD.Print("timer werkt");
         Timer spawnTimer = new Timer();
-        spawnTimer.WaitTime = SpawnInterval;
         spawnTimer.Autostart = true;
         spawnTimer.Timeout += OnSpawnTimeout;
         AddChild(spawnTimer);
@@ -19,23 +20,27 @@ public partial class Verkeermanager : Node
 
     private void OnSpawnTimeout()
     {
-		GD.Print("auto gespawned");
-        if (PathParent == null || AutoScene == null) return;
+        if (PathParent == null || AutoVariaties == null || AutoVariaties.Count == 0) return;
 
-        var paden = PathParent.GetChildren();
-        if (paden.Count == 0) return;
+        var alleNodes = PathParent.FindChildren("*", "Path3D", true);
+        if (alleNodes.Count == 0) return;
 
-        var gekozenPad = paden[GD.RandRange(0, paden.Count - 1)] as Path3D;
+        var gekozenPad = alleNodes[GD.RandRange(0, alleNodes.Count - 1)] as Path3D;
 
         if (gekozenPad != null)
         {
-            var nieuweAuto = AutoScene.Instantiate<Node3D>(); 
-            gekozenPad.AddChild(nieuweAuto);
-            
-            if (nieuweAuto is Snelwegauto autoScript)
+            int randomIndex = GD.RandRange(0, AutoVariaties.Count - 1);
+            PackedScene gekozenScene = AutoVariaties[randomIndex];
+
+            var nieuweAutoNode = gekozenScene.Instantiate<Node3D>();
+
+            if (nieuweAutoNode is Snelwegauto autoScript)
             {
+                gekozenPad.AddChild(autoScript);
                 autoScript.Progress = 0;
             }
         }
+        float nieuweTijd = _rng.RandfRange(MinWachttijd, MaxWachttijd);
+        GetNode<Timer>("SpawnTimer").WaitTime = nieuweTijd;
     }
 }

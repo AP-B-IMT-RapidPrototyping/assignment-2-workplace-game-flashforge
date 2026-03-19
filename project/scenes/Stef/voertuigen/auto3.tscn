@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://krwnh3j5j2sp"]
+
+[ext_resource type="Script" uid="uid://522bxbycd1m4" path="res://scripts/Stef/Snelwegauto.cs" id="1_75578"]
+[ext_resource type="PackedScene" uid="uid://bcrccojj48g3q" path="res://Models/Stef/kenney_car-kit/Models/GLB format/truck.glb" id="2_75578"]
+
+[node name="Snelwegauto" type="PathFollow3D" unique_id=437296970]
+transform = Transform3D(-0.25, 0, -2.1855694e-08, 0, 0.25, 0, 2.1855694e-08, 0, -0.25, 0, 0, 0)
+script = ExtResource("1_75578")
+Speed = 12.5
+
+[node name="truck" parent="." unique_id=791433370 instance=ExtResource("2_75578")]
+transform = Transform3D(-1, 0, 1.509958e-07, 0, 1, 0, -1.509958e-07, 0, -1, 0, 0, 0)

@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://dlnrtju0y4j8h"]
+
+[ext_resource type="Script" uid="uid://522bxbycd1m4" path="res://scripts/Stef/Snelwegauto.cs" id="1_w434n"]
+[ext_resource type="PackedScene" uid="uid://dvndggsl2hrnf" path="res://Models/Stef/kenney_car-kit/Models/GLB format/delivery-flat.glb" id="2_vqkpl"]
+
+[node name="Snelwegauto" type="PathFollow3D" unique_id=437296970]
+transform = Transform3D(-0.25, 0, -2.1855694e-08, 0, 0.25, 0, 2.1855694e-08, 0, -0.25, 0, 0, 0)
+script = ExtResource("1_w434n")
+Speed = 12.5
+
+[node name="delivery-flat" parent="." unique_id=836278462 instance=ExtResource("2_vqkpl")]
+transform = Transform3D(-1, 0, 1.509958e-07, 0, 1, 0, -1.509958e-07, 0, -1, 0, 0, 0)

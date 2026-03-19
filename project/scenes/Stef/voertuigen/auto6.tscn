@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://i07i15rdgdq2"]
+
+[ext_resource type="Script" uid="uid://522bxbycd1m4" path="res://scripts/Stef/Snelwegauto.cs" id="1_y3rmf"]
+[ext_resource type="PackedScene" uid="uid://buxh1grdd22ew" path="res://Models/Stef/kenney_car-kit/Models/GLB format/hatchback-sports.glb" id="2_7dqsq"]
+
+[node name="Snelwegauto" type="PathFollow3D" unique_id=437296970]
+transform = Transform3D(-0.25, 0, -2.1855694e-08, 0, 0.25, 0, 2.1855694e-08, 0, -0.25, 0, 0, 0)
+script = ExtResource("1_y3rmf")
+Speed = 12.5
+
+[node name="hatchback-sports" parent="." unique_id=1902971676 instance=ExtResource("2_7dqsq")]
+transform = Transform3D(-1, 0, 1.509958e-07, 0, 1, 0, -1.509958e-07, 0, -1, 0, 0, 0)

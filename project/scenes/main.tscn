@@ -13,14 +13,22 @@
 [ext_resource type="PackedScene" uid="uid://2e36y6xdrx0r" path="res://Models/Stef/kenney_city-kit-roads (1)/Models/GLB format/road-straight.glb" id="6_kl032"]
 [ext_resource type="Script" uid="uid://c636tqw8oj48t" path="res://scripts/Stef/Verkeermanager.cs" id="6_xrs0c"]
 [ext_resource type="PackedScene" uid="uid://bw1a1amw74wee" path="res://Models/Stef/kenney_city-kit-roads (1)/Models/GLB format/road-intersection-line.glb" id="7_c3xhk"]
-[ext_resource type="PackedScene" uid="uid://dyu1f8vo2qvys" path="res://scenes/Stef/voertuigen/auto1.tscn" id="7_xljpf"]
+[ext_resource type="PackedScene" uid="uid://61i41p5eg3lf" path="res://scenes/Stef/voertuigen/auto1.tscn" id="7_xljpf"]
 [ext_resource type="PackedScene" uid="uid://be48op54sq5eh" path="res://Models/Stef/kenney_city-kit-roads (1)/Models/GLB format/road-end-round.glb" id="8_1cri0"]
+[ext_resource type="PackedScene" uid="uid://b1v41ub0e515j" path="res://scenes/Stef/voertuigen/auto2.tscn" id="8_11yus"]
+[ext_resource type="PackedScene" uid="uid://krwnh3j5j2sp" path="res://scenes/Stef/voertuigen/auto3.tscn" id="9_b6ruc"]
 [ext_resource type="PackedScene" uid="uid://fb4ar1cycaqm" path="res://Models/Stef/kenney_city-kit-roads (1)/Models/GLB format/road-roundabout-barrier.glb" id="9_dtar0"]
+[ext_resource type="PackedScene" uid="uid://bh5uw8gobprvl" path="res://scenes/Stef/voertuigen/auto4.tscn" id="10_155or"]
 [ext_resource type="PackedScene" uid="uid://f65hypa3jjy2" path="res://Models/Stef/kenney_city-kit-roads (1)/Models/GLB format/road-curve-intersection.glb" id="10_q8u6p"]
 [ext_resource type="PackedScene" uid="uid://b2gp5knw8yvry" path="res://Models/Stef/kenney_city-kit-roads (1)/Models/GLB format/road-curve.glb" id="11_ot556"]
+[ext_resource type="PackedScene" uid="uid://best8odsy5ugy" path="res://scenes/Stef/voertuigen/auto5.tscn" id="11_vtx2l"]
 [ext_resource type="PackedScene" uid="uid://bednrdvq3jret" path="res://Models/Stef/kenney_city-kit-roads (1)/Models/GLB format/road-curve-barrier.glb" id="12_16k2v"]
+[ext_resource type="PackedScene" uid="uid://i07i15rdgdq2" path="res://scenes/Stef/voertuigen/auto6.tscn" id="12_63lxy"]
+[ext_resource type="PackedScene" uid="uid://cj7aq6bh8ieln" path="res://scenes/Stef/voertuigen/auto7.tscn" id="13_fjhjs"]
 [ext_resource type="PackedScene" uid="uid://is033g28p3lt" path="res://Models/Stef/kenney_city-kit-roads (1)/Models/GLB format/road-curve-intersection-barrier.glb" id="13_ss7in"]
+[ext_resource type="PackedScene" uid="uid://dlnrtju0y4j8h" path="res://scenes/Stef/voertuigen/auto8.tscn" id="14_bfu41"]
 [ext_resource type="PackedScene" uid="uid://tt2e1apjgfmq" path="res://Models/Stef/kenney_city-kit-roads (1)/Models/GLB format/road-straight-barrier.glb" id="14_ytbs1"]
+[ext_resource type="PackedScene" uid="uid://c2qs30lq2uv5b" path="res://scenes/Stef/voertuigen/auto9.tscn" id="15_r4ag1"]
 [ext_resource type="PackedScene" uid="uid://xfgomrlt7xtk" path="res://Models/Stef/kenney_city-kit-roads (1)/Models/GLB format/road-slant-curve-barrier.glb" id="15_s5r3q"]
 [ext_resource type="PackedScene" uid="uid://cs3puyme8kfe6" path="res://scenes/Stef/ondergrond.tscn" id="16_dtar0"]
 [ext_resource type="PackedScene" uid="uid://2uisbl6y4aru" path="res://Models/Stef/kenny_city-kit-suburban/GLB format/tree-large.glb" id="17_q8u6p"]
@@ -87,7 +95,7 @@ size = Vector3(27.216003, 4.404175, 1)
 
 [sub_resource type="Curve3D" id="Curve3D_kjtvk"]
 _data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 22, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 22, 0, 0, 20),
 "tilts": PackedFloat32Array(0, 0)
 }
 point_count = 2
@@ -118,11 +126,10 @@ script = ExtResource("1_1epgm")
 AutoScene = ExtResource("65_1epgm")
 MoneySystem = NodePath("../UI/MoneyManager")
 
-[node name="verkeermanager" type="Node3D" parent="." unique_id=1621237053 node_paths=PackedStringArray("PathParent")]
+[node name="Verkeermanager" type="Node3D" parent="." unique_id=1621237053 node_paths=PackedStringArray("PathParent")]
 script = ExtResource("6_xrs0c")
-AutoScene = ExtResource("7_xljpf")
-PathParent = NodePath("../autowegen/Path3D")
-SpawnInterval = 1.0
+AutoVariaties = Array[PackedScene]([ExtResource("7_xljpf"), ExtResource("8_11yus"), ExtResource("9_b6ruc"), ExtResource("10_155or"), ExtResource("11_vtx2l"), ExtResource("12_63lxy"), ExtResource("13_fjhjs"), ExtResource("14_bfu41"), ExtResource("15_r4ag1")])
+PathParent = NodePath("../autowegen")
 
 [node name="Garage" parent="." unique_id=1939525001 instance=ExtResource("64_od4ux")]
 transform = Transform3D(-4.371139e-09, 0, 0.1, 0, 0.1, 0, -0.1, 0, -4.371139e-09, -4.0206156, 0, 1.907978)
@@ -4130,11 +4137,12 @@ shape = SubResource("BoxShape3D_kjtvk")
 [node name="autowegen" type="Node3D" parent="." unique_id=44236102]
 
 [node name="Path3D" type="Path3D" parent="autowegen" unique_id=2103346160]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 0.6, -9)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 0.5, -9)
 curve = SubResource("Curve3D_kjtvk")
 
-[node name="PathFollow3D" type="PathFollow3D" parent="autowegen/Path3D" unique_id=12966143]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 22)
+[node name="Path3D2" type="Path3D" parent="autowegen" unique_id=317789031]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -11, 0.5, 13)
+curve = SubResource("Curve3D_kjtvk")
 
 [editable path="UI"]
 [editable path="player"]
