@@ -4,7 +4,7 @@ using System;
 public partial class Carmanager : Node3D
 {
 	[Export] public PackedScene AutoScene;
-	[Export] public float WachttijdSeconden = 10.0f;
+	[Export] public float WachttijdSeconden = 0.0f;
 	[Export] public Vector3 SpawnPositie = new Vector3(-4, 0, 2);
 	[Export] public Vector3 SpawnRotatie = new Vector3(0, -90, 0);
 	[Export] public Vector3 SpawnSchaal = new Vector3(0.2f, 0.2f, 0.2f);
@@ -54,11 +54,13 @@ public partial class Carmanager : Node3D
 			script.AutoVoltooid -= OnAutoVoltooid;
 		}
 		GD.Print("Auto wordt over 2 seconden weggehaald...");
+		var anim = _huidigeAuto.GetNode<AnimationPlayer>("AnimationPlayer");
+		anim.Play("despawnanimation");
 		if (MoneySystem != null)
 		{
 			MoneySystem.AddMoney(BeloningPerAuto);
 		}
-		await ToSignal(GetTree().CreateTimer(2.0f), "timeout");
+		await ToSignal(GetTree().CreateTimer(6.0f), "timeout");
 
 		if (IsInstanceValid(_huidigeAuto))
 		{
