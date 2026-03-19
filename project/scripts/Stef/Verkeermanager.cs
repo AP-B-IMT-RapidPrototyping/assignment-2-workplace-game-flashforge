@@ -6,6 +6,7 @@ public partial class Verkeermanager : Node
     [Export] public Godot.Collections.Array<PackedScene> AutoVariaties;
 
     [Export] public Node3D PathParent;
+    private Timer _spawnTimer;
     private RandomNumberGenerator _rng = new RandomNumberGenerator();
     [Export] public float MinWachttijd = 1.0f;
     [Export] public float MaxWachttijd = 4.0f;
@@ -41,6 +42,6 @@ public partial class Verkeermanager : Node
             }
         }
         float nieuweTijd = _rng.RandfRange(MinWachttijd, MaxWachttijd);
-        GetNode<Timer>("SpawnTimer").WaitTime = nieuweTijd;
+        _spawnTimer.WaitTime = nieuweTijd;
     }
 }

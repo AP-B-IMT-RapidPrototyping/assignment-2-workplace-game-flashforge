@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://dyu1f8vo2qvys"]
+[gd_scene format=3 uid="uid://bdod1lafuvjr"]
 
 [ext_resource type="Script" uid="uid://522bxbycd1m4" path="res://scripts/Stef/Snelwegauto.cs" id="1_0ssfk"]
 [ext_resource type="PackedScene" uid="uid://buxh1grdd22ew" path="res://Models/Stef/kenney_car-kit/Models/GLB format/hatchback-sports.glb" id="2_illon"]

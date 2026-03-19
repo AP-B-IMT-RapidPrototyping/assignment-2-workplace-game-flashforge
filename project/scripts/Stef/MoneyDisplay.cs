@@ -31,7 +31,7 @@ public partial class MoneyDisplay : Label
 		UpdateLabel(newAmount);
 	}
 
-	private void UpdateLabel(int amount)
+	public void UpdateLabel(int amount)
 	{
 		Text = $"{amount}$";
 		GD.Print($"Label geüpdatet naar: {Text}");

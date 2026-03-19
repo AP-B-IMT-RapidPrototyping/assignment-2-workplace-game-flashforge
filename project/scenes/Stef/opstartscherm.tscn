@@ -1,14 +1,161 @@
 [gd_scene format=3 uid="uid://g5dledr1woi4"]
 
-[node name="menu" type="Control" unique_id=758131288]
+[ext_resource type="Script" uid="uid://bgo3e2iwi8wqr" path="res://scripts/Stef/Opstartscherm.cs" id="1_wc04i"]
+[ext_resource type="PackedScene" uid="uid://cidyb2628hrdk" path="res://scenes/main.tscn" id="2_8gtub"]
+[ext_resource type="PackedScene" uid="uid://ojmip6empsa7" path="res://scenes/Stef/achtergrondanimatie.tscn" id="3_8gtub"]
+
+[sub_resource type="Animation" id="Animation_8gtub"]
+resource_name = "NaarInstellingen"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("instellingen:size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(524, 232), Vector2(524, 232)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("instellingen:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1158, 261), Vector2(319, 261)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("VBoxContainer:size")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(410, 255), Vector2(410, 255)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("VBoxContainer:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(371, 268), Vector2(-418, 268)]
+}
+
+[sub_resource type="Animation" id="Animation_tu3uk"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("instellingen:size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(524, 232)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("instellingen:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1156, 261)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("VBoxContainer:size")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(410, 255)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("VBoxContainer:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(371, 268)]
+}
+
+[sub_resource type="Animation" id="Animation_dxj03"]
+resource_name = "TerugNaarHoofdmenu"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("instellingen:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(319, 261), Vector2(1199, 261)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("VBoxContainer:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-418, 268), Vector2(371, 268)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dxj03"]
+_data = {
+&"NaarInstellingen": SubResource("Animation_8gtub"),
+&"RESET": SubResource("Animation_tu3uk"),
+&"TerugNaarHoofdmenu": SubResource("Animation_dxj03")
+}
+
+[node name="menu" type="CanvasLayer" unique_id=1582478898]
+
+[node name="achtergrond" parent="." unique_id=1942566677 instance=ExtResource("3_8gtub")]
+
+[node name="knoppen" type="Control" parent="." unique_id=1035765154 node_paths=PackedStringArray("MenuAnimator")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_wc04i")
+StartScene = ExtResource("2_8gtub")
+MenuAnimator = NodePath("../AnimationPlayer")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1897307173]
+[node name="VBoxContainer" type="VBoxContainer" parent="knoppen" unique_id=1897307173]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -16,21 +163,82 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -205.0
-offset_top = -127.5
+offset_top = -56.0
 offset_right = 205.0
-offset_bottom = 127.5
+offset_bottom = 199.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 50
 
-[node name="start" type="Button" parent="VBoxContainer" unique_id=1866749153]
+[node name="start" type="Button" parent="knoppen/VBoxContainer" unique_id=1866749153]
 layout_mode = 2
 text = "start"
 
-[node name="instellingen" type="Button" parent="VBoxContainer" unique_id=1901495432]
+[node name="instellingen" type="Button" parent="knoppen/VBoxContainer" unique_id=1901495432]
 layout_mode = 2
 text = "settigns"
 
-[node name="afsluiten" type="Button" parent="VBoxContainer" unique_id=1266664476]
+[node name="afsluiten" type="Button" parent="knoppen/VBoxContainer" unique_id=1266664476]
 layout_mode = 2
 text = "quit"
+
+[node name="instellingen" type="Panel" parent="knoppen" unique_id=1879423071]
+layout_mode = 0
+offset_left = 1156.0
+offset_top = 261.0
+offset_right = 1680.0
+offset_bottom = 493.0
+
+[node name="Control" type="Control" parent="knoppen/instellingen" unique_id=160324815]
+anchors_preset = 0
+offset_left = 150.0
+offset_top = 23.0
+offset_right = 381.0
+offset_bottom = 111.0
+
+[node name="Label" type="Label" parent="knoppen/instellingen/Control" unique_id=1162578345]
+layout_mode = 0
+offset_left = 47.0
+offset_top = 29.0
+offset_right = 93.0
+offset_bottom = 52.0
+text = "NPCs"
+
+[node name="CheckButton" type="CheckButton" parent="knoppen/instellingen/Control" unique_id=413029799]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 21.5
+offset_top = -17.0
+offset_right = 76.5
+offset_bottom = 15.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="terug" type="Button" parent="knoppen/instellingen" unique_id=766683399]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -111.0
+offset_top = -52.0
+offset_right = 111.0
+offset_bottom = -18.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "back
+"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1614490119]
+root_node = NodePath("../knoppen")
+libraries/ = SubResource("AnimationLibrary_dxj03")
+
+[connection signal="pressed" from="knoppen/VBoxContainer/start" to="knoppen" method="_on_start_pressed"]
+[connection signal="pressed" from="knoppen/VBoxContainer/instellingen" to="knoppen" method="_on_instellingen_pressed"]
+[connection signal="pressed" from="knoppen/VBoxContainer/afsluiten" to="knoppen" method="_on_afsluiten_pressed"]
+[connection signal="pressed" from="knoppen/instellingen/terug" to="knoppen" method="_on_terug_pressed"]

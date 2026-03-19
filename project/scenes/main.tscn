@@ -83,6 +83,7 @@
 [ext_resource type="PackedScene" uid="uid://b2b081k6di2rq" path="res://scenes/Stef/winkeluitlaat.tscn" id="71_kjtvk"]
 [ext_resource type="PackedScene" uid="uid://cujky4kee11s2" path="res://scenes/Stef/winkelwiel.tscn" id="72_xrs0c"]
 [ext_resource type="PackedScene" uid="uid://brhtw7doxdyq8" path="res://Models/Stef/kenny_city-kit-suburban/GLB format/fence.glb" id="73_kjtvk"]
+[ext_resource type="Script" uid="uid://ca8gr7ululke4" path="res://scripts/Stef/Pauzemenu.cs" id="84_b6ruc"]
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_od4ux"]
 data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
@@ -4143,6 +4144,65 @@ curve = SubResource("Curve3D_kjtvk")
 [node name="Path3D2" type="Path3D" parent="autowegen" unique_id=317789031]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -11, 0.5, 13)
 curve = SubResource("Curve3D_kjtvk")
+
+[node name="pausemanager" type="Node3D" parent="." unique_id=861536165 node_paths=PackedStringArray("PauzePaneel", "GeldBeheerder")]
+script = ExtResource("84_b6ruc")
+PauzePaneel = NodePath("pauzemenu")
+GeldBeheerder = NodePath("../UI/MoneyManager")
+
+[node name="pauzemenu" type="CanvasLayer" parent="pausemanager" unique_id=1464733028]
+process_mode = 2
+visible = false
+
+[node name="overlay" type="ColorRect" parent="pausemanager/pauzemenu" unique_id=1151802101]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.65000004)
+
+[node name="knoppen" type="Control" parent="pausemanager/pauzemenu" unique_id=1169838786]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -94.25
+offset_top = -81.25
+offset_right = 94.25
+offset_bottom = 81.25
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="hervatten" type="Button" parent="pausemanager/pauzemenu/knoppen" unique_id=62786272]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -33.5
+offset_right = 33.5
+offset_bottom = 31.0
+grow_horizontal = 2
+text = "resume"
+
+[node name="hoofdmenu" type="Button" parent="pausemanager/pauzemenu/knoppen" unique_id=751753687]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -76.0
+offset_top = -31.0
+offset_right = 76.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "quit to main menu"
+
+[connection signal="pressed" from="pausemanager/pauzemenu/knoppen/hervatten" to="pausemanager" method="_on_hervatten_pressed"]
+[connection signal="pressed" from="pausemanager/pauzemenu/knoppen/hoofdmenu" to="pausemanager" method="_on_hoofdmenu_pressed"]
 
 [editable path="UI"]
 [editable path="player"]

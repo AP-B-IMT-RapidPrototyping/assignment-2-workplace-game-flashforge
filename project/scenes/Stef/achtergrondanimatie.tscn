@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://ojmip6empsa7"]
+
+[ext_resource type="PackedScene" uid="uid://cv7urgi1x0vx1" path="res://Models/Jens/sign.fbx" id="1_mmp07"]
+
+[node name="root" type="Node3D" unique_id=76324984]
+
+[node name="camera" type="Camera3D" parent="." unique_id=310965563]
+current = true
+
+[node name="sign" parent="." unique_id=1313433121 instance=ExtResource("1_mmp07")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -6)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1597648777]
+transform = Transform3D(0.9396926, -0.2198463, 0.26200262, 0, 0.76604444, 0.6427876, -0.34202012, -0.60402274, 0.7198463, 0, 2, 0)

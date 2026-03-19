@@ -9,8 +9,9 @@ public partial class MoneyManager : Node
 	[Signal] public delegate void MoneyChangedEventHandler(int newAmount);
 	public override void _Ready()
 	{
-		CurrentMoney = StartingMoney;
-		EmitSignal(SignalName.MoneyChanged, CurrentMoney);
+		int geladenGeld = Gamedata.LoadGame();
+		CurrentMoney = (geladenGeld > 0) ? geladenGeld : StartingMoney;
+		UpdateUI();
 	}
 	public bool CanAfford(int cost) => CurrentMoney >= cost;
 	public bool TrySpend(int amount)
@@ -31,4 +32,8 @@ public partial class MoneyManager : Node
 		EmitSignal(SignalName.MoneyChanged, CurrentMoney);
 		GD.Print($"Earned {amount}. Total: {CurrentMoney}");
 	}
+	public void UpdateUI()
+{
+    EmitSignal(SignalName.MoneyChanged, CurrentMoney);
+}
 }
