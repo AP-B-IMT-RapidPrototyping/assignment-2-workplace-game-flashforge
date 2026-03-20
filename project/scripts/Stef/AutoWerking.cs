@@ -11,6 +11,7 @@ public partial class AutoWerking : Node
     [Export] public Godot.Collections.Array<Marker3D> OnderdeelSlots;
     [Export] public Godot.Collections.Array<AutoResource> BeschikbareOnderdelen;
     [Export, Range(0, 1)] public float SpawnKans = 0.5f;
+    private int AantalOnderdelen = 0;
 
     public override void _Ready()
     {
@@ -56,6 +57,9 @@ public partial class AutoWerking : Node
                     var gekozen = passendeOpties[random.Next(passendeOpties.Count)];
                     InstalleerOnderdeel(slot, gekozen);
                     slotFysica.OnderdeelData = gekozen;
+                    GD.Print("autoonderdeel geplaatst op de auto.");
+                    AantalOnderdelen ++;
+                    GD.Print(AantalOnderdelen);
                 }
             }
             else
@@ -82,8 +86,8 @@ public partial class AutoWerking : Node
         if (isCompleet)
         {
             GD.Print("Auto is compleet! Signaal verzenden...");
+            AantalOnderdelen =0;
             EmitSignal(SignalName.AutoVoltooid);
-
         }
     }
     public void InteractieMetOnderdeel(Node3D collider, AutoResource nieuwOnderdeel)

@@ -4138,10 +4138,12 @@ curve = SubResource("Curve3D_kjtvk")
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -11, 0.5, 13)
 curve = SubResource("Curve3D_kjtvk")
 
-[node name="pausemanager" type="Node3D" parent="." unique_id=861536165 node_paths=PackedStringArray("PauzePaneel", "GeldBeheerder")]
+[node name="pausemanager" type="Node3D" parent="." unique_id=861536165 node_paths=PackedStringArray("PauzePaneel", "GeldBeheerder", "GameContinue", "MainMenu")]
 script = ExtResource("84_b6ruc")
 PauzePaneel = NodePath("pauzemenu")
 GeldBeheerder = NodePath("../UI/MoneyManager")
+GameContinue = NodePath("pauzemenu/knoppen/hervatten")
+MainMenu = NodePath("pauzemenu/knoppen/hoofdmenu")
 
 [node name="pauzemenu" type="CanvasLayer" parent="pausemanager" unique_id=1464733028]
 process_mode = 2

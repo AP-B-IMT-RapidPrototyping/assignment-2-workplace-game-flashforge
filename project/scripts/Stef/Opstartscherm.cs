@@ -5,6 +5,66 @@ public partial class Opstartscherm : Control
     [Export] public PackedScene StartScene;
     [Export] public PackedScene Tutorial;
     [Export] public AnimationPlayer MenuAnimator;
+    [Export] public MenuButton SelectedLanguage;
+    private int _currentLanguageId = 0;
+
+    [Export] public Button start;
+    [Export] public Button settings;
+    [Export] public Button quit;
+    [Export] public Button tutorial;
+    [Export] public Label Language; 
+    
+    public override void _Ready()
+    {
+        PopupMenu popup = SelectedLanguage.GetPopup();
+        popup.IdPressed += OnMenuItemPressed;
+        Gamedata.SaveData data = Gamedata.LoadGame();
+        _currentLanguageId = data.SelectedLanguage;
+        OnMenuItemPressed(_currentLanguageId);
+        GD.Print($"Taal: {SelectedLanguage}");
+    }
+    private void OnMenuItemPressed(long id)
+    {
+        _currentLanguageId = (int)id;
+        var data = Gamedata.LoadGame();
+        Gamedata.SaveGame(data.Money, _currentLanguageId);
+
+        switch (id)
+        {
+            case 0:
+                start.Text = "start";
+                settings.Text = "settings";
+                quit.Text ="quit";
+                tutorial.Text ="tutorial";
+                Language.Text="language";
+                SelectedLanguage.Text ="English";
+                break;
+            case 1:
+                start.Text = "starten";
+                settings.Text = "instellingen";
+                quit.Text ="afluiten";
+                tutorial.Text ="voorbeeld";
+                Language.Text="taal";
+                SelectedLanguage.Text ="Nederlands";
+                break;
+            case 2:
+                start.Text = "commencer";
+                settings.Text = "paramètres";
+                quit.Text ="quitter";
+                tutorial.Text ="tutoriel";
+                Language.Text="langue";
+                SelectedLanguage.Text ="Francais";
+                break;
+            case 3:
+                start.Text = "start";
+                settings.Text = "einstellungen";
+                quit.Text ="aufhoren";
+                tutorial.Text ="tutorial";
+                Language.Text="sprache";
+                SelectedLanguage.Text ="Deutch";
+            break;
+        }
+    }
     public void _on_start_pressed()
     {
         if (StartScene != null)
@@ -26,7 +86,7 @@ public partial class Opstartscherm : Control
             MenuAnimator.Play("TerugNaarHoofdmenu");
         }
     }
-    public void _on_check_button_button_toggled()
+    public void _on_check_button_toggled()
     {
         GD.Print("NPCs aan");
     }

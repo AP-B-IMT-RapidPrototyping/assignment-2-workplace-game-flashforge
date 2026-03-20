@@ -9,8 +9,8 @@ public partial class MoneyManager : Node
 	[Signal] public delegate void MoneyChangedEventHandler(int newAmount);
 	public override void _Ready()
 	{
-		int geladenGeld = Gamedata.LoadGame();
-		CurrentMoney = (geladenGeld > 0) ? geladenGeld : StartingMoney;
+		Gamedata.SaveData data = Gamedata.LoadGame();
+		CurrentMoney = (data.Money > 0) ? data.Money : StartingMoney;
 		UpdateUI();
 	}
 	public bool CanAfford(int cost) => CurrentMoney >= cost;
