@@ -2,7 +2,8 @@ using Godot;
 using System;
 public partial class Opstartscherm : Control
 {
-	[Export] public PackedScene StartScene;
+    [Export] public PackedScene StartScene;
+    [Export] public PackedScene Tutorial;
     [Export] public AnimationPlayer MenuAnimator;
     public void _on_start_pressed()
     {
@@ -18,23 +19,27 @@ public partial class Opstartscherm : Control
             MenuAnimator.Play("NaarInstellingen");
         }
     }
-	public void _on_terug_pressed()
+    public void _on_terug_pressed()
     {
         if (MenuAnimator != null)
         {
             MenuAnimator.Play("TerugNaarHoofdmenu");
         }
     }
-	public void _on_check_button_button_toggled()
-	{
-		GD.Print ("NPCs aan");
-	}
-	public void _on_check_button_button_up()
-	{
-		GD.Print ("NPCs uit");
-	}
+    public void _on_check_button_button_toggled()
+    {
+        GD.Print("NPCs aan");
+    }
+    public void _on_check_button_button_up()
+    {
+        GD.Print("NPCs uit");
+    }
     public void _on_afsluiten_pressed()
     {
         GetTree().Quit();
+    }
+    public void _on_tutorial_pressed()
+    {
+        GetTree().ChangeSceneToPacked(Tutorial);
     }
 }

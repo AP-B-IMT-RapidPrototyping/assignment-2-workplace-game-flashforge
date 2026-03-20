@@ -1,0 +1,131 @@
+[gd_scene format=3 uid="uid://cqecbrexcf0kr"]
+
+[ext_resource type="PackedScene" uid="uid://dgb8cyo6jw56y" path="res://scenes/Alen/player.tscn" id="1_swky1"]
+[ext_resource type="PackedScene" uid="uid://cowi41l254e4f" path="res://scenes/Stef/winkelmotor.tscn" id="2_y3wvt"]
+[ext_resource type="PackedScene" uid="uid://b2b081k6di2rq" path="res://scenes/Stef/winkeluitlaat.tscn" id="3_c5sok"]
+[ext_resource type="PackedScene" uid="uid://cujky4kee11s2" path="res://scenes/Stef/winkelwiel.tscn" id="4_t47te"]
+[ext_resource type="Script" uid="uid://ca8gr7ululke4" path="res://scripts/Stef/Pauzemenu.cs" id="5_c5sok"]
+[ext_resource type="PackedScene" uid="uid://r3mcq2g8pnjo" path="res://scenes/Stef/UI.tscn" id="6_t47te"]
+[ext_resource type="Script" uid="uid://ddgpy1j8fxjii" path="res://scripts/Stef/TutorialCarManager.cs" id="7_5xrhq"]
+[ext_resource type="PackedScene" uid="uid://q11s8iy82nys" path="res://scenes/Stef/auto.tscn" id="8_redhr"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_b3he2"]
+size = Vector3(10, 0.5, 10)
+
+[node name="Root" type="Node3D" unique_id=1002120286]
+
+[node name="player" parent="." unique_id=1728694951 node_paths=PackedStringArray("InteractieLabel") instance=ExtResource("1_swky1")]
+transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, 0, 0, 1.5)
+InteractieLabel = NodePath("../Control/interact")
+
+[node name="RayCast3D" parent="player/Camera3D" parent_id_path=PackedInt32Array(1728694951, 1031425661) index="0" unique_id=1003440602]
+transform = Transform3D(1.5, 0, 0, 0, -1.7484556e-08, -1.5, 0, 0.4, -6.556708e-08, 0, 0, 0)
+
+[node name="HoldPosition" parent="player/Camera3D" parent_id_path=PackedInt32Array(1728694951, 1031425661) index="1" unique_id=584969109]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.22908649, -0.13352191, -0.41812837)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=764317814]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=676226413]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, 0)
+shape = SubResource("BoxShape3D_b3he2")
+
+[node name="pausemanager" type="Node3D" parent="." unique_id=412714730 node_paths=PackedStringArray("PauzePaneel", "GeldBeheerder")]
+script = ExtResource("5_c5sok")
+PauzePaneel = NodePath("pauzemenu")
+GeldBeheerder = NodePath("../Control/geld")
+
+[node name="pauzemenu" type="CanvasLayer" parent="pausemanager" unique_id=1487152643]
+process_mode = 2
+visible = false
+
+[node name="overlay" type="ColorRect" parent="pausemanager/pauzemenu" unique_id=1712056691]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.65000004)
+
+[node name="knoppen" type="Control" parent="pausemanager/pauzemenu" unique_id=1826145788]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -94.25
+offset_top = -81.25
+offset_right = 94.25
+offset_bottom = 81.25
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="hervatten" type="Button" parent="pausemanager/pauzemenu/knoppen" unique_id=3247466]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -33.5
+offset_right = 33.5
+offset_bottom = 31.0
+grow_horizontal = 2
+text = "resume"
+
+[node name="hoofdmenu" type="Button" parent="pausemanager/pauzemenu/knoppen" unique_id=965853860]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -76.0
+offset_top = -31.0
+offset_right = 76.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "quit to main menu"
+
+[node name="winkel" type="Node3D" parent="." unique_id=1966642784]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0, -1)
+
+[node name="motor" parent="winkel" unique_id=517227715 node_paths=PackedStringArray("MoneySystem") instance=ExtResource("2_y3wvt")]
+transform = Transform3D(0.875, 0, 0, 0, 0.875, 0, 0, 0, 0.875, 0, 0, 0)
+Prijs = 0
+MoneySystem = NodePath("../../Control/MoneyManager")
+
+[node name="uitlaat" parent="winkel" unique_id=20600438 node_paths=PackedStringArray("MoneySystem") instance=ExtResource("3_c5sok")]
+transform = Transform3D(-5.4639237e-08, 0, 1.25, 0, 1.25, 0, -1.25, 0, -5.4639237e-08, 1, 0, 0)
+collision_layer = 2
+Prijs = 0
+MoneySystem = NodePath("../../Control/MoneyManager")
+
+[node name="wiel" parent="winkel" unique_id=1912805640 node_paths=PackedStringArray("MoneySystem") instance=ExtResource("4_t47te")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 0)
+collision_layer = 2
+Prijs = 0
+MoneySystem = NodePath("../../Control/MoneyManager")
+
+[node name="Control" parent="." unique_id=532778834 instance=ExtResource("6_t47te")]
+
+[node name="geld" parent="Control" index="0" unique_id=1552737992]
+visible = false
+
+[node name="interact" parent="Control" index="1" unique_id=128546596 node_paths=PackedStringArray("_tekstLabel")]
+_tekstLabel = NodePath(".")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=600988393]
+transform = Transform3D(0.9848077, -0.11161889, 0.13302222, 0, 0.76604444, 0.6427876, -0.17364818, -0.6330222, 0.7544065, 0, 0, 0)
+
+[node name="TutorialCarManager" type="Node3D" parent="." unique_id=1873484745 node_paths=PackedStringArray("MoneySystem")]
+script = ExtResource("7_5xrhq")
+AutoScene = ExtResource("8_redhr")
+SpawnPositie = Vector3(0, 0, 0)
+MoneySystem = NodePath("../Control/MoneyManager")
+BeloningPerAuto = 0
+
+[connection signal="pressed" from="pausemanager/pauzemenu/knoppen/hervatten" to="pausemanager" method="_on_hervatten_pressed"]
+[connection signal="pressed" from="pausemanager/pauzemenu/knoppen/hoofdmenu" to="pausemanager" method="_on_hoofdmenu_pressed"]
+
+[editable path="player"]
+[editable path="Control"]

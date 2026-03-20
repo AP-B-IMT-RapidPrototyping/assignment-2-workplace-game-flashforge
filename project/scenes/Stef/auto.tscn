@@ -291,4 +291,3 @@ shape = SubResource("BoxShape3D_job14")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1621445915]
 libraries/ = SubResource("AnimationLibrary_cn6kn")
-autoplay = &"spawnanimation"
