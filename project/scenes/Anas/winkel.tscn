@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://ucb0kohigc7i"]
+
+[ext_resource type="PackedScene" uid="uid://olho0j7v4nfl" path="res://Models/Anas/Winkel.glb" id="1_02whi"]
+[ext_resource type="PackedScene" uid="uid://c64fhkkq4bbuc" path="res://Models/Anas/kenney_mini-market/Models/GLB format/cash-register.glb" id="2_y6b5f"]
+[ext_resource type="PackedScene" uid="uid://xqmtpyn0aicb" path="res://Models/Anas/kenney_mini-market/Models/GLB format/character-employee.glb" id="3_b8v3y"]
+[ext_resource type="PackedScene" uid="uid://b0ahg1qllvdkn" path="res://Models/Anas/kenney_mini-market/Models/GLB format/floor.glb" id="4_sdjjo"]
+
+[node name="Node3D" type="Node3D" unique_id=390292694]
+
+[node name="Winkel" parent="." unique_id=2052959549 instance=ExtResource("1_02whi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.054913938, 0, 0.007246971)
+
+[node name="cash-register2" parent="Winkel" unique_id=1101481720 instance=ExtResource("2_y6b5f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.62336105, 0, 0.5108174)
+
+[node name="character-employee2" parent="Winkel" unique_id=2035386178 instance=ExtResource("3_b8v3y")]
+transform = Transform3D(0.7757201, 0, 0, 0, 0.8812868, 0, 0, 0, 1, -0.38521636, 0, 0.23979086)
+
+[node name="floor2" parent="Winkel" unique_id=1269379760 instance=ExtResource("4_sdjjo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5096815, 0.04853463, 0.49639034)
+
+[node name="floor3" parent="Winkel/floor2" unique_id=1606516568 instance=ExtResource("4_sdjjo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.006518841, 0, 0.99822664)
+
+[node name="floor4" parent="Winkel/floor2" unique_id=1258827480 instance=ExtResource("4_sdjjo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9956043, 0, 0)
+
+[node name="floor5" parent="Winkel/floor2" unique_id=928205515 instance=ExtResource("4_sdjjo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.99596906, 0, 1.0009992)
