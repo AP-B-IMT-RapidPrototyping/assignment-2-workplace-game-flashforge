@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://cd6qoib80ml81"
+path="res://.godot/imported/wall-detail-horizontal.obj-3f7880fb6ff1f1c25a66621bc729a4ab.mesh"
+
+[deps]
+
+files=["res://.godot/imported/wall-detail-horizontal.obj-3f7880fb6ff1f1c25a66621bc729a4ab.mesh"]
+
+source_file="res://Models/Jorgan/kenney_fantasy-town-kit_2.0/Models/OBJ format/wall-detail-horizontal.obj"
+dest_files=["res://.godot/imported/wall-detail-horizontal.obj-3f7880fb6ff1f1c25a66621bc729a4ab.mesh", "res://.godot/imported/wall-detail-horizontal.obj-3f7880fb6ff1f1c25a66621bc729a4ab.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false

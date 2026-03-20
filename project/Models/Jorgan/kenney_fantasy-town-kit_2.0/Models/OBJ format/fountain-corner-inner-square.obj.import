@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://c7vynmlixvj5m"
+path="res://.godot/imported/fountain-corner-inner-square.obj-53b1c009ddf1db6bd8f8db232f1aceee.mesh"
+
+[deps]
+
+files=["res://.godot/imported/fountain-corner-inner-square.obj-53b1c009ddf1db6bd8f8db232f1aceee.mesh"]
+
+source_file="res://Models/Jorgan/kenney_fantasy-town-kit_2.0/Models/OBJ format/fountain-corner-inner-square.obj"
+dest_files=["res://.godot/imported/fountain-corner-inner-square.obj-53b1c009ddf1db6bd8f8db232f1aceee.mesh", "res://.godot/imported/fountain-corner-inner-square.obj-53b1c009ddf1db6bd8f8db232f1aceee.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false
