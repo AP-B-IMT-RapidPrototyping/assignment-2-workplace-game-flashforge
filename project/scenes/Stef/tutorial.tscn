@@ -30,10 +30,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.22908649, -0.13352191, -0.4
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, 0)
 shape = SubResource("BoxShape3D_b3he2")
 
-[node name="pausemanager" type="Node3D" parent="." unique_id=412714730 node_paths=PackedStringArray("PauzePaneel", "GeldBeheerder")]
+[node name="pausemanager" type="Node3D" parent="." unique_id=412714730 node_paths=PackedStringArray("PauzePaneel", "GeldBeheerder", "GameContinue", "MainMenu")]
 script = ExtResource("5_c5sok")
 PauzePaneel = NodePath("pauzemenu")
 GeldBeheerder = NodePath("../Control/geld")
+GameContinue = NodePath("pauzemenu/knoppen/hervatten")
+MainMenu = NodePath("pauzemenu/knoppen/hoofdmenu")
 
 [node name="pauzemenu" type="CanvasLayer" parent="pausemanager" unique_id=1487152643]
 process_mode = 2
@@ -110,9 +112,6 @@ MoneySystem = NodePath("../../Control/MoneyManager")
 
 [node name="geld" parent="Control" index="0" unique_id=1552737992]
 visible = false
-
-[node name="interact" parent="Control" index="1" unique_id=128546596 node_paths=PackedStringArray("_tekstLabel")]
-_tekstLabel = NodePath(".")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=600988393]
 transform = Transform3D(0.9848077, -0.11161889, 0.13302222, 0, 0.76604444, 0.6427876, -0.17364818, -0.6330222, 0.7544065, 0, 0, 0)

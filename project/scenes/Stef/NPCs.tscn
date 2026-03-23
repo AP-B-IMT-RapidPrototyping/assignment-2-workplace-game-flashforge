@@ -1,3 +1,68 @@
 [gd_scene format=3 uid="uid://brkwf5qgpsmg"]
 
-[node name="Node3D" type="Node3D" unique_id=278607736]
+[ext_resource type="Script" uid="uid://f2x1qee2qmf1" path="res://scripts/Stef/NPCManager.cs" id="1_xq7co"]
+[ext_resource type="PackedScene" uid="uid://cmf3388g7twg1" path="res://Models/Stef/kenney_mini-characters/Models/GLB format/character-male-a.glb" id="2_omk77"]
+[ext_resource type="PackedScene" uid="uid://cackjmo0v66x7" path="res://Models/Stef/kenney_mini-characters/Models/GLB format/character-male-b.glb" id="3_uah8j"]
+[ext_resource type="PackedScene" uid="uid://cf78pyxbde047" path="res://Models/Stef/kenney_mini-characters/Models/GLB format/character-male-c.glb" id="4_gyecg"]
+[ext_resource type="PackedScene" uid="uid://beqfkhw3bgf4p" path="res://Models/Stef/kenney_mini-characters/Models/GLB format/character-male-d.glb" id="5_rvt52"]
+[ext_resource type="PackedScene" uid="uid://bmb3n87yxeojg" path="res://Models/Stef/kenney_mini-characters/Models/GLB format/character-male-e.glb" id="6_gdh2t"]
+[ext_resource type="PackedScene" uid="uid://cytwfix528i5q" path="res://Models/Stef/kenney_mini-characters/Models/GLB format/character-male-f.glb" id="7_y4ua3"]
+[ext_resource type="PackedScene" uid="uid://1l5wc8n177fh" path="res://Models/Stef/kenney_mini-characters/Models/GLB format/character-female-a.glb" id="8_xpt6j"]
+[ext_resource type="PackedScene" uid="uid://cqk0nlrvdl8l7" path="res://Models/Stef/kenney_mini-characters/Models/GLB format/character-female-b.glb" id="9_0d6jq"]
+[ext_resource type="PackedScene" uid="uid://xoumkv0hcert" path="res://Models/Stef/kenney_mini-characters/Models/GLB format/character-female-c.glb" id="10_4kmds"]
+[ext_resource type="PackedScene" uid="uid://6h2s54nub80v" path="res://Models/Stef/kenney_mini-characters/Models/GLB format/character-female-d.glb" id="11_in4dq"]
+[ext_resource type="PackedScene" uid="uid://yw73m2fwrxff" path="res://Models/Stef/kenney_mini-characters/Models/GLB format/character-female-e.glb" id="12_bxn41"]
+[ext_resource type="PackedScene" uid="uid://bxe53t6hhgdgw" path="res://Models/Stef/kenney_mini-characters/Models/GLB format/character-female-f.glb" id="13_ov3cw"]
+
+[node name="root" type="Node3D" unique_id=278607736 node_paths=PackedStringArray("MaleCharacters", "FemaleCharacters", "VoicePlayer")]
+script = ExtResource("1_xq7co")
+MaleCharacters = [NodePath("models/men/character-male-a2"), NodePath("models/men/character-male-b2"), NodePath("models/men/character-male-c2"), NodePath("models/men/character-male-d2"), NodePath("models/men/character-male-e2"), NodePath("models/men/character-male-f2")]
+FemaleCharacters = [NodePath("models/women/character-female-a2"), NodePath("models/women/character-female-b2"), NodePath("models/women/character-female-c2"), NodePath("models/women/character-female-d2"), NodePath("models/women/character-female-e2"), NodePath("models/women/character-female-f2")]
+VoicePlayer = NodePath("AudioStreamPlayer3D")
+
+[node name="models" type="Node3D" parent="." unique_id=303708964]
+
+[node name="men" type="Node3D" parent="models" unique_id=1834580814]
+
+[node name="character-male-a2" parent="models/men" unique_id=846084546 instance=ExtResource("2_omk77")]
+transform = Transform3D(0.35, 0, 0, 0, 0.35, 0, 0, 0, 0.35, 0, 0, 0)
+
+[node name="character-male-b2" parent="models/men" unique_id=1919260665 instance=ExtResource("3_uah8j")]
+transform = Transform3D(0.35, 0, 0, 0, 0.35, 0, 0, 0, 0.35, 0, 0, 0)
+
+[node name="character-male-c2" parent="models/men" unique_id=1881504090 instance=ExtResource("4_gyecg")]
+transform = Transform3D(0.35, 0, 0, 0, 0.35, 0, 0, 0, 0.35, 0, 0, 0)
+
+[node name="character-male-d2" parent="models/men" unique_id=1902678376 instance=ExtResource("5_rvt52")]
+transform = Transform3D(0.35, 0, 0, 0, 0.35, 0, 0, 0, 0.35, 0, 0, 0)
+
+[node name="character-male-e2" parent="models/men" unique_id=344401034 instance=ExtResource("6_gdh2t")]
+transform = Transform3D(0.35, 0, 0, 0, 0.35, 0, 0, 0, 0.35, 0, 0, 0)
+
+[node name="character-male-f2" parent="models/men" unique_id=1723441745 instance=ExtResource("7_y4ua3")]
+transform = Transform3D(0.35, 0, 0, 0, 0.35, 0, 0, 0, 0.35, 0, 0, 0)
+
+[node name="women" type="Node3D" parent="models" unique_id=347945260]
+
+[node name="character-female-a2" parent="models/women" unique_id=1926220514 instance=ExtResource("8_xpt6j")]
+transform = Transform3D(0.35, 0, 0, 0, 0.35, 0, 0, 0, 0.35, 0, 0, 0)
+
+[node name="character-female-b2" parent="models/women" unique_id=734256074 instance=ExtResource("9_0d6jq")]
+transform = Transform3D(0.35, 0, 0, 0, 0.35, 0, 0, 0, 0.35, 0, 0, 0)
+
+[node name="character-female-c2" parent="models/women" unique_id=1401180649 instance=ExtResource("10_4kmds")]
+transform = Transform3D(0.35, 0, 0, 0, 0.35, 0, 0, 0, 0.35, 0, 0, 0)
+
+[node name="character-female-d2" parent="models/women" unique_id=923467391 instance=ExtResource("11_in4dq")]
+transform = Transform3D(0.35, 0, 0, 0, 0.35, 0, 0, 0, 0.35, 0, 0, 0)
+
+[node name="character-female-e2" parent="models/women" unique_id=429210345 instance=ExtResource("12_bxn41")]
+transform = Transform3D(0.35, 0, 0, 0, 0.35, 0, 0, 0, 0.35, 0, 0, 0)
+
+[node name="character-female-f2" parent="models/women" unique_id=178866368 instance=ExtResource("13_ov3cw")]
+transform = Transform3D(0.35, 0, 0, 0, 0.35, 0, 0, 0, 0.35, 0, 0, 0)
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=1257547981]
+volume_db = -5.0
+max_db = 1.0
+max_distance = 4.0

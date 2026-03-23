@@ -70,7 +70,7 @@ public partial class TutorialCarManager : Node3D
 			GD.Print($"Wachten op volgende auto ({WachttijdSeconden}s)...");
 			await ToSignal(GetTree().CreateTimer(WachttijdSeconden), "timeout");
 		}
-
+		await ToSignal(GetTree().CreateTimer(3.0f), "timeout");
 		SpawnNieuweAuto();
 	}
 }
