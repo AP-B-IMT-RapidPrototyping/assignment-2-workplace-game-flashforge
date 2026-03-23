@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://dfsrag4dbkwtf" path="res://Models/Stef/kenney_city-kit-roads (1)/Models/GLB format/road-bend-sidewalk.glb" id="2_ygkv6"]
 [ext_resource type="PackedScene" uid="uid://ckh2rixagmr50" path="res://Models/Stef/kenney_city-kit-roads (1)/Models/GLB format/road-bridge.glb" id="3_t2ac2"]
 [ext_resource type="PackedScene" uid="uid://bmg7rkm0xbvgr" path="res://Models/Stef/kenney_city-kit-roads (1)/Models/GLB format/road-slant-flat-curve.glb" id="4_y0rjb"]
+[ext_resource type="PackedScene" uid="uid://brkwf5qgpsmg" path="res://scenes/Stef/NPCs.tscn" id="5_b6ruc"]
 [ext_resource type="PackedScene" uid="uid://basfqjhb1b4yl" path="res://Models/Stef/kenney_city-kit-roads (1)/Models/GLB format/road-roundabout.glb" id="5_r50oh"]
 [ext_resource type="PackedScene" uid="uid://2e36y6xdrx0r" path="res://Models/Stef/kenney_city-kit-roads (1)/Models/GLB format/road-straight.glb" id="6_kl032"]
 [ext_resource type="Script" uid="uid://c636tqw8oj48t" path="res://scripts/Stef/Verkeermanager.cs" id="6_xrs0c"]
@@ -31,6 +32,7 @@
 [ext_resource type="PackedScene" uid="uid://xfgomrlt7xtk" path="res://Models/Stef/kenney_city-kit-roads (1)/Models/GLB format/road-slant-curve-barrier.glb" id="15_s5r3q"]
 [ext_resource type="PackedScene" uid="uid://cs3puyme8kfe6" path="res://scenes/Stef/ondergrond.tscn" id="16_dtar0"]
 [ext_resource type="PackedScene" uid="uid://2uisbl6y4aru" path="res://Models/Stef/kenny_city-kit-suburban/GLB format/tree-large.glb" id="17_q8u6p"]
+[ext_resource type="PackedScene" uid="uid://ucb0kohigc7i" path="res://scenes/Anas/winkel.tscn" id="18_155or"]
 [ext_resource type="PackedScene" uid="uid://b1bmengxgxuvn" path="res://Models/Stef/kenney_city-kit-roads (1)/Models/GLB format/sign-highway.glb" id="19_16k2v"]
 [ext_resource type="PackedScene" uid="uid://beq758y4yax6d" path="res://Models/Stef/kenny_city-kit-suburban/GLB format/building-type-o.glb" id="20_lqcw1"]
 [ext_resource type="PackedScene" uid="uid://c5gppj5ymarwv" path="res://Models/Stef/kenny_city-kit-suburban/GLB format/building-type-e.glb" id="21_3wo1a"]
@@ -112,13 +114,14 @@ offset_bottom = 12.99939
 script = ExtResource("2_y57op")
 MoneyManagerNode = NodePath("../MoneyManager")
 
-[node name="interact" parent="UI" index="1" unique_id=128546596 node_paths=PackedStringArray("_tekstLabel")]
+[node name="interact" parent="UI" index="2" unique_id=652394151 node_paths=PackedStringArray("_tekstLabel")]
 _tekstLabel = NodePath(".")
 
-[node name="Carmanager" type="Node3D" parent="." unique_id=1519753772 node_paths=PackedStringArray("MoneySystem")]
+[node name="Carmanager" type="Node3D" parent="." unique_id=1519753772 node_paths=PackedStringArray("MoneySystem", "NPCManager")]
 script = ExtResource("1_1epgm")
 AutoScene = ExtResource("65_1epgm")
 MoneySystem = NodePath("../UI/MoneyManager")
+NPCManager = NodePath("../NPCManager")
 
 [node name="Verkeermanager" type="Node3D" parent="." unique_id=1621237053 node_paths=PackedStringArray("PathParent")]
 script = ExtResource("6_xrs0c")
@@ -127,6 +130,71 @@ PathParent = NodePath("../autowegen")
 
 [node name="Garage" parent="." unique_id=1939525001 instance=ExtResource("64_od4ux")]
 transform = Transform3D(-4.371139e-09, 0, 0.1, 0, 0.1, 0, -0.1, 0, -4.371139e-09, -4.0206156, 0, 1.907978)
+
+[node name="pausemanager" type="Node3D" parent="." unique_id=861536165 node_paths=PackedStringArray("PauzePaneel", "GeldBeheerder", "GameContinue", "MainMenu")]
+script = ExtResource("84_b6ruc")
+PauzePaneel = NodePath("pauzemenu")
+GeldBeheerder = NodePath("../UI/MoneyManager")
+GameContinue = NodePath("pauzemenu/knoppen/hervatten")
+MainMenu = NodePath("pauzemenu/knoppen/hoofdmenu")
+
+[node name="pauzemenu" type="CanvasLayer" parent="pausemanager" unique_id=1464733028]
+process_mode = 2
+visible = false
+
+[node name="overlay" type="ColorRect" parent="pausemanager/pauzemenu" unique_id=1151802101]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.65000004)
+
+[node name="knoppen" type="Control" parent="pausemanager/pauzemenu" unique_id=1169838786]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -94.25
+offset_top = -81.25
+offset_right = 94.25
+offset_bottom = 81.25
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="hervatten" type="Button" parent="pausemanager/pauzemenu/knoppen" unique_id=62786272]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -33.5
+offset_right = 33.5
+offset_bottom = 31.0
+grow_horizontal = 2
+text = "resume"
+
+[node name="hoofdmenu" type="Button" parent="pausemanager/pauzemenu/knoppen" unique_id=751753687]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -76.0
+offset_top = -31.0
+offset_right = 76.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "quit to main menu"
+
+[node name="NPCManager" parent="." unique_id=278607736 node_paths=PackedStringArray("PlayerToFollow") instance=ExtResource("5_b6ruc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.2564917, 0, 1.6052606)
+PlayerToFollow = NodePath("../player")
+
+[node name="Winkel" parent="." unique_id=390292694 instance=ExtResource("18_155or")]
+transform = Transform3D(-1.7484556e-08, 0, -0.4, 0, 0.4, 0, 0.4, 0, -1.7484556e-08, 2.9853895, 0, 9.328417)
 
 [node name="winkel" type="Node3D" parent="." unique_id=1247544496]
 transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -3.5980082, 0.1111421, 2.8073006)
@@ -1083,7 +1151,7 @@ transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -0.8
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.15781128, 0, 8.877552)
 
 [node name="building-a3" parent="Map/gebouwen" unique_id=1608502536 instance=ExtResource("27_2srak")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.1268854, 0, 8.867694)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.193254, 0, 8.867694)
 
 [node name="decoratie" type="Node3D" parent="Map" unique_id=618117752]
 
@@ -4138,66 +4206,9 @@ curve = SubResource("Curve3D_kjtvk")
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -11, 0.5, 13)
 curve = SubResource("Curve3D_kjtvk")
 
-[node name="pausemanager" type="Node3D" parent="." unique_id=861536165 node_paths=PackedStringArray("PauzePaneel", "GeldBeheerder", "GameContinue", "MainMenu")]
-script = ExtResource("84_b6ruc")
-PauzePaneel = NodePath("pauzemenu")
-GeldBeheerder = NodePath("../UI/MoneyManager")
-GameContinue = NodePath("pauzemenu/knoppen/hervatten")
-MainMenu = NodePath("pauzemenu/knoppen/hoofdmenu")
-
-[node name="pauzemenu" type="CanvasLayer" parent="pausemanager" unique_id=1464733028]
-process_mode = 2
-visible = false
-
-[node name="overlay" type="ColorRect" parent="pausemanager/pauzemenu" unique_id=1151802101]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0, 0, 0, 0.65000004)
-
-[node name="knoppen" type="Control" parent="pausemanager/pauzemenu" unique_id=1169838786]
-layout_mode = 3
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -94.25
-offset_top = -81.25
-offset_right = 94.25
-offset_bottom = 81.25
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="hervatten" type="Button" parent="pausemanager/pauzemenu/knoppen" unique_id=62786272]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -33.5
-offset_right = 33.5
-offset_bottom = 31.0
-grow_horizontal = 2
-text = "resume"
-
-[node name="hoofdmenu" type="Button" parent="pausemanager/pauzemenu/knoppen" unique_id=751753687]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -76.0
-offset_top = -31.0
-offset_right = 76.0
-grow_horizontal = 2
-grow_vertical = 0
-text = "quit to main menu"
-
 [connection signal="pressed" from="pausemanager/pauzemenu/knoppen/hervatten" to="pausemanager" method="_on_hervatten_pressed"]
 [connection signal="pressed" from="pausemanager/pauzemenu/knoppen/hoofdmenu" to="pausemanager" method="_on_hoofdmenu_pressed"]
 
 [editable path="UI"]
+[editable path="NPCManager"]
 [editable path="player"]

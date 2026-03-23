@@ -12,7 +12,7 @@ public partial class Carmanager : Node3D
 	private Node3D _huidigeAuto = null;
 	[Export] public MoneyManager MoneySystem;
 	[Export] public int BeloningPerAuto = 250;
-
+	[Export] public NPCManager NPCManager;
 	public override void _Ready()
 	{
 		SpawnNieuweAuto();
@@ -35,6 +35,7 @@ public partial class Carmanager : Node3D
 		{
 			mogelijkeScriptNode = _huidigeAuto.FindChild("*", true, false);
 		}
+		
 		if (mogelijkeScriptNode is AutoWerking script)
 		{
 			script.AutoVoltooid += OnAutoVoltooid;
@@ -42,10 +43,11 @@ public partial class Carmanager : Node3D
 			AnimationPlayer anim = _huidigeAuto.FindChild("AnimationPlayer", true, false) as AnimationPlayer;
 			anim.Play("spawnanimation");
 			GD.Print("Auto succesvol gespawnd en script gekoppeld.");
-		}
-		else
-		{
-			GD.PrintErr("FOUT: CarManager kon geen AutoWerking script vinden op de auto!");
+			if (NPCManager != null)
+            {
+                NPCManager.NPCSpawn();
+				GD.Print("NPC Spawn aangeroepen");
+            }
 		}
 	}
 
@@ -58,12 +60,16 @@ public partial class Carmanager : Node3D
 		{
 			script.AutoVoltooid -= OnAutoVoltooid;
 		}
+		if (NPCManager != null)
+    	{
+        	NPCManager.NPCDespawn();
+    	}
 		GD.Print("Auto voltooid! Beloning uitbetalen...");
 		if (MoneySystem != null) MoneySystem.AddMoney(BeloningPerAuto);
 		AnimationPlayer anim = _huidigeAuto.FindChild("AnimationPlayer", true, false) as AnimationPlayer;
 		if (anim != null)
 		{
-			GD.Print("Despawn animatie starten...");
+			await ToSignal(GetTree().CreateTimer(3.0f), "timeout");
 			anim.Play("despawnanimation");
 			await ToSignal(anim, "animation_finished");
 		}
@@ -74,13 +80,11 @@ public partial class Carmanager : Node3D
 		}
 		if (IsInstanceValid(_huidigeAuto))
 		{
-			GD.Print("Auto wordt nu verwijderd.");
 			_huidigeAuto.QueueFree();
 			_huidigeAuto = null;
 		}
 		if (WachttijdSeconden > 0)
 		{
-			GD.Print($"Wachten op volgende auto ({WachttijdSeconden}s)...");
 			await ToSignal(GetTree().CreateTimer(WachttijdSeconden), "timeout");
 		}
 

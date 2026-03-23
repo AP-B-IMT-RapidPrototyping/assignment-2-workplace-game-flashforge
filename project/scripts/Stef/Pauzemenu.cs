@@ -30,7 +30,7 @@ public partial class Pauzemenu : Node3D
                 MainMenu.Text = "retour au manu principal";
                 break;
             case 3:
-                GameContinue.Text = "setze";
+                GameContinue.Text = "weiterspielen";
                 MainMenu.Text = "zuruck zum hauptmenu";
             break;
         }

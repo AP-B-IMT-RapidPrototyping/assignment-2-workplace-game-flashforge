@@ -1,27 +1,35 @@
 using Godot;
 using System;
 
-public partial class Interact : Label
+public partial class Interact : Control
 {
-	[Export] private Label _tekstLabel;
+    // Verwijder de [Export] hier, we vullen dit alleen via code in
+    private Label _tekstLabel;
 
-	public override void _Ready()
-	{
-		_tekstLabel = GetNode<Label>("InteractLabel"); // Zorg dat de naam klopt
-		Hide(); // Begin onzichtbaar
-	}
+    public override void _Ready()
+    {
+        // Zoek de child node genaamd "InteractLabel"
+        _tekstLabel = GetNodeOrNull<Label>("InteractLabel");
 
-	public void ToonMelding(string tekst)
-	{
-		if (_tekstLabel != null)
-		{
-			_tekstLabel.Text = tekst;
-		}
-		Show(); // Toont zowel het label als het TextureRect kind
-	}
+        if (_tekstLabel == null)
+        {
+            GD.PrintErr("FOUT: Geen node gevonden met de naam 'InteractLabel' onder de Interact node!");
+        }
 
-	public void VerbergMelding()
-	{
-		Hide(); // Verbergt alles tegelijk
-	}
+        Hide();
+    }
+
+    public void ToonMelding(string tekst)
+    {
+        if (_tekstLabel != null)
+        {
+            _tekstLabel.Text = tekst;
+            Show(); // Alleen showen als de label ook echt bestaat
+        }
+    }
+
+    public void VerbergMelding()
+    {
+        Hide();
+    }
 }

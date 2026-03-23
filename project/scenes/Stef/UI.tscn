@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://r3mcq2g8pnjo"]
 
-[ext_resource type="Script" uid="uid://cct7avudtiqpo" path="res://scripts/Stef/Ui.cs" id="1_e2331"]
+[ext_resource type="Script" uid="uid://yyb4kmslbbvk" path="res://scripts/Stef/Ui.cs" id="1_e2331"]
 [ext_resource type="Texture2D" uid="uid://ddw3fspwblgbu" path="res://Models/Stef/kenney_1-bit-input-prompts-pixel-16/Tiles (White)/tile_0087.png" id="2_aef4k"]
 [ext_resource type="Script" uid="uid://cx6mc620ipi1f" path="res://scripts/Stef/Interact.cs" id="2_q0bij"]
 [ext_resource type="Script" uid="uid://qov1tbtbdtqf" path="res://scripts/Stef/MoneyManager.cs" id="4_mmahu"]
@@ -28,23 +28,34 @@ theme_override_font_sizes/font_size = 25
 text = "1000$"
 horizontal_alignment = 2
 
-[node name="interact" type="Label" parent="." unique_id=128546596]
+[node name="MoneyManager" type="Control" parent="." unique_id=1769391432]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("4_mmahu")
+
+[node name="interact" type="Control" parent="." unique_id=652394151]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("2_q0bij")
+
+[node name="InteractLabel" type="Label" parent="interact" unique_id=128546596]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -17.0
-offset_top = -152.0
-offset_right = 23.0
-offset_bottom = -129.0
+offset_left = 528.5
+offset_top = 456.0
+offset_right = 589.5
+offset_bottom = 479.0
 grow_horizontal = 2
 grow_vertical = 0
 text = "interact"
-script = ExtResource("2_q0bij")
 
-[node name="knop" type="TextureRect" parent="interact" unique_id=303883918]
+[node name="knop" type="TextureRect" parent="interact/InteractLabel" unique_id=303883918]
 layout_mode = 0
 offset_left = -43.0
 offset_top = -8.0
@@ -52,8 +63,43 @@ offset_right = -3.0
 offset_bottom = 32.0
 texture = ExtResource("2_aef4k")
 
-[node name="MoneyManager" type="Control" parent="." unique_id=1769391432]
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-script = ExtResource("4_mmahu")
+[node name="text" type="Control" parent="." unique_id=2111136366]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -300.0
+offset_top = -100.0
+offset_right = 300.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="text" unique_id=1956833149]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -295.0
+offset_top = -45.0
+offset_right = 295.0
+offset_bottom = 45.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="text" unique_id=1400166234]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -300.0
+offset_top = -50.0
+offset_right = 300.0
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
