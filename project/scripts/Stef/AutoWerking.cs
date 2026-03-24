@@ -57,7 +57,6 @@ public partial class AutoWerking : Node
                     var gekozen = passendeOpties[random.Next(passendeOpties.Count)];
                     InstalleerOnderdeel(slot, gekozen);
                     slotFysica.OnderdeelData = gekozen;
-                    GD.Print("autoonderdeel geplaatst op de auto.");
                     AantalOnderdelen ++;
                     GD.Print(AantalOnderdelen);
                 }

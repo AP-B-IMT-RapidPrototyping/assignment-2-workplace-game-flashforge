@@ -9,6 +9,7 @@ public partial class Pauzemenu : Node3D
     public int SelectedLanguage;
     [Export] public Button GameContinue;
     [Export] public Button MainMenu;
+    private int NPCSetting;
 
     public override void _Ready()
     {
@@ -39,7 +40,7 @@ public partial class Pauzemenu : Node3D
     {
         if (GeldBeheerder != null)
         {
-            Gamedata.SaveGame(GeldBeheerder.CurrentMoney, SelectedLanguage);
+            Gamedata.SaveGame(GeldBeheerder.CurrentMoney, SelectedLanguage, NPCSetting);
             GD.Print("Spel opgeslagen voor afsluiten.");
         }
 
