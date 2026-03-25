@@ -10,10 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://q11s8iy82nys" path="res://scenes/Stef/auto.tscn" id="8_redhr"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_b3he2"]
-size = Vector3(50, 0.5, 50)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_redhr"]
-size = Vector3(16.94043, 4.9418335, 0.8946533)
+size = Vector3(10, 0.5, 10)
 
 [node name="Root" type="Node3D" unique_id=1002120286]
 
@@ -33,28 +30,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.22908649, -0.13352191, -0.4
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, 0)
 shape = SubResource("BoxShape3D_b3he2")
 
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="StaticBody3D" unique_id=1119041869]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0435791, 2.4768982, -8.449518)
-shape = SubResource("BoxShape3D_redhr")
-
-[node name="CollisionShape3D3" type="CollisionShape3D" parent="StaticBody3D" unique_id=518764904]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0435791, 2.4768982, 8.453922)
-shape = SubResource("BoxShape3D_redhr")
-
-[node name="CollisionShape3D4" type="CollisionShape3D" parent="StaticBody3D" unique_id=616980280]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 8.468545, 2.4768982, 0.021081924)
-shape = SubResource("BoxShape3D_redhr")
-
-[node name="CollisionShape3D5" type="CollisionShape3D" parent="StaticBody3D" unique_id=1637763832]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -8.451431, 2.4768982, -0.4033558)
-shape = SubResource("BoxShape3D_redhr")
-
-[node name="pausemanager" type="Node3D" parent="." unique_id=412714730 node_paths=PackedStringArray("PauzePaneel", "GeldBeheerder", "GameContinue", "MainMenu")]
+[node name="pausemanager" type="Node3D" parent="." unique_id=412714730 node_paths=PackedStringArray("PauzePaneel", "GeldBeheerder")]
 script = ExtResource("5_c5sok")
 PauzePaneel = NodePath("pauzemenu")
 GeldBeheerder = NodePath("../Control/geld")
-GameContinue = NodePath("pauzemenu/knoppen/hervatten")
-MainMenu = NodePath("pauzemenu/knoppen/hoofdmenu")
 
 [node name="pauzemenu" type="CanvasLayer" parent="pausemanager" unique_id=1487152643]
 process_mode = 2
@@ -131,6 +110,9 @@ MoneySystem = NodePath("../../Control/MoneyManager")
 
 [node name="geld" parent="Control" index="0" unique_id=1552737992]
 visible = false
+
+[node name="interact" parent="Control" index="1" unique_id=128546596 node_paths=PackedStringArray("_tekstLabel")]
+_tekstLabel = NodePath(".")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=600988393]
 transform = Transform3D(0.9848077, -0.11161889, 0.13302222, 0, 0.76604444, 0.6427876, -0.17364818, -0.6330222, 0.7544065, 0, 0, 0)

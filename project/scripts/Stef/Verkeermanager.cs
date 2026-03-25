@@ -13,7 +13,7 @@ public partial class Verkeermanager : Node
 
     public override void _Ready()
     {
-        spawnTimer = new Timer();
+        Timer spawnTimer = new Timer();
         spawnTimer.Autostart = true;
         spawnTimer.Timeout += OnSpawnTimeout;
         AddChild(spawnTimer);

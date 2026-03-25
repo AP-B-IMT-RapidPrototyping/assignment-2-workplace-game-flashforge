@@ -2,13 +2,8 @@
 
 [ext_resource type="Script" uid="uid://bgo3e2iwi8wqr" path="res://scripts/Stef/Opstartscherm.cs" id="1_wc04i"]
 [ext_resource type="PackedScene" uid="uid://cidyb2628hrdk" path="res://scenes/main.tscn" id="2_8gtub"]
-[ext_resource type="Script" uid="uid://boddua6h23kl4" path="res://scripts/Stef/MenuInteractable.cs" id="2_dxj03"]
 [ext_resource type="PackedScene" uid="uid://ojmip6empsa7" path="res://scenes/Stef/achtergrondanimatie.tscn" id="3_8gtub"]
-[ext_resource type="AudioStream" uid="uid://ili464jwf3t4" path="res://objects/Stef/voicelines/Xander/ABBA2.ogg" id="3_ums0q"]
 [ext_resource type="PackedScene" uid="uid://cqecbrexcf0kr" path="res://scenes/Stef/tutorial.tscn" id="4_tu3uk"]
-
-[sub_resource type="SphereShape3D" id="SphereShape3D_dxj03"]
-radius = 0.10147324
 
 [sub_resource type="Animation" id="Animation_8gtub"]
 resource_name = "NaarInstellingen"
@@ -150,39 +145,23 @@ _data = {
 
 [node name="achtergrond" parent="." unique_id=1942566677 instance=ExtResource("3_8gtub")]
 
-[node name="Area3D" type="Area3D" parent="achtergrond" unique_id=95696399 node_paths=PackedStringArray("Audio")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.23262598, 4.092864, -5.852756)
-script = ExtResource("2_dxj03")
-Audio = NodePath("../AudioStreamPlayer3D")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="achtergrond/Area3D" unique_id=1579223292]
-shape = SubResource("SphereShape3D_dxj03")
-
-[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="achtergrond" unique_id=981803105]
-stream = ExtResource("3_ums0q")
-volume_db = -64.57
-max_db = 1.0
-
-[node name="knoppen" type="Control" parent="." unique_id=1035765154 node_paths=PackedStringArray("MenuAnimator", "SelectedLanguage", "start", "settings", "quit", "tutorial", "Language", "credits", "NPCKnop")]
+[node name="knoppen" type="Control" parent="." unique_id=1035765154 node_paths=PackedStringArray("MenuAnimator", "SelectedLanguage", "start", "settings", "quit", "tutorial", "Language")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-mouse_filter = 1
 script = ExtResource("1_wc04i")
 StartScene = ExtResource("2_8gtub")
 Tutorial = ExtResource("4_tu3uk")
-MenuAnimator = NodePath("../settingsanimation")
+MenuAnimator = NodePath("../AnimationPlayer")
 SelectedLanguage = NodePath("instellingen/languages/MenuButton")
 start = NodePath("VBoxContainer/start")
 settings = NodePath("VBoxContainer/instellingen")
 quit = NodePath("VBoxContainer/afsluiten")
 tutorial = NodePath("VBoxContainer/tutorial")
 Language = NodePath("instellingen/languages/Label")
-credits = NodePath("VBoxContainer/credits")
-NPCKnop = NodePath("instellingen/Control/CheckButton")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="knoppen" unique_id=1897307173]
 layout_mode = 1
@@ -214,11 +193,6 @@ text = "quit"
 [node name="tutorial" type="Button" parent="knoppen/VBoxContainer" unique_id=1987237198]
 layout_mode = 2
 text = "tutorial"
-
-[node name="credits" type="Button" parent="knoppen/VBoxContainer" unique_id=291262104]
-visible = false
-layout_mode = 2
-text = "credits"
 
 [node name="instellingen" type="Panel" parent="knoppen" unique_id=1879423071]
 layout_mode = 0
@@ -304,16 +278,12 @@ offset_right = 101.0
 offset_bottom = 34.0
 text = "Language"
 
-[node name="settingsanimation" type="AnimationPlayer" parent="." unique_id=1614490119]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1614490119]
 root_node = NodePath("../knoppen")
 libraries/ = SubResource("AnimationLibrary_dxj03")
-
-[node name="creditsannimation" type="AnimationPlayer" parent="." unique_id=676811705]
 
 [connection signal="pressed" from="knoppen/VBoxContainer/start" to="knoppen" method="_on_start_pressed"]
 [connection signal="pressed" from="knoppen/VBoxContainer/instellingen" to="knoppen" method="_on_instellingen_pressed"]
 [connection signal="pressed" from="knoppen/VBoxContainer/afsluiten" to="knoppen" method="_on_afsluiten_pressed"]
 [connection signal="pressed" from="knoppen/VBoxContainer/tutorial" to="knoppen" method="_on_tutorial_pressed"]
-[connection signal="pressed" from="knoppen/VBoxContainer/credits" to="knoppen" method="_on_credits_pressed"]
-[connection signal="pressed" from="knoppen/instellingen/Control/CheckButton" to="knoppen" method="_on_check_button_pressed"]
 [connection signal="pressed" from="knoppen/instellingen/terug" to="knoppen" method="_on_terug_pressed"]

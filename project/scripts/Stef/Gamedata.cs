@@ -10,18 +10,17 @@ public partial class Gamedata : Node
     {
         public int Money;
         public int SelectedLanguage;
-        public int NPCSetting;
     }
 
-    public static void SaveGame( int currentMoney, int SelectedLanguage, int NPCSetting)
+    public static void SaveGame( int currentMoney, int SelectedLanguage)
     {
         using var file = FileAccess.Open(SavePath, FileAccess.ModeFlags.Write);
         if (file == null) return;
         var data = new Godot.Collections.Dictionary<string, int>
         {
-            {"Money", currentMoney},
-            {"Language", SelectedLanguage},
-            {"NPC Setting", NPCSetting}
+            {
+                "Money", currentMoney},
+                {"Language", SelectedLanguage}
         };
         string jsonString = Json.Stringify(data);
         file.StoreString(jsonString);
@@ -30,7 +29,7 @@ public partial class Gamedata : Node
 
     public static SaveData LoadGame()
     {
-        SaveData loadedData = new SaveData { Money = 1000, SelectedLanguage = 0, NPCSetting = 0 };
+        SaveData loadedData = new SaveData { Money = 1000, SelectedLanguage = 0 };
 
         if (!FileAccess.FileExists(SavePath)) return loadedData;
 
@@ -49,8 +48,6 @@ public partial class Gamedata : Node
             
             if (data.ContainsKey("Language")) 
                 loadedData.SelectedLanguage = (int)data["Language"];
-                if (data.ContainsKey("NPC Setting")) 
-                loadedData.NPCSetting = (int)data["NPC Setting"];
         }
 
         return loadedData;;

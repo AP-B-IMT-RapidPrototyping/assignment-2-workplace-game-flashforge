@@ -8,7 +8,6 @@
 [ext_resource type="PackedScene" uid="uid://dfsrag4dbkwtf" path="res://Models/Stef/kenney_city-kit-roads (1)/Models/GLB format/road-bend-sidewalk.glb" id="2_ygkv6"]
 [ext_resource type="PackedScene" uid="uid://ckh2rixagmr50" path="res://Models/Stef/kenney_city-kit-roads (1)/Models/GLB format/road-bridge.glb" id="3_t2ac2"]
 [ext_resource type="PackedScene" uid="uid://bmg7rkm0xbvgr" path="res://Models/Stef/kenney_city-kit-roads (1)/Models/GLB format/road-slant-flat-curve.glb" id="4_y0rjb"]
-[ext_resource type="PackedScene" uid="uid://brkwf5qgpsmg" path="res://scenes/Stef/NPCs.tscn" id="5_b6ruc"]
 [ext_resource type="PackedScene" uid="uid://basfqjhb1b4yl" path="res://Models/Stef/kenney_city-kit-roads (1)/Models/GLB format/road-roundabout.glb" id="5_r50oh"]
 [ext_resource type="PackedScene" uid="uid://2e36y6xdrx0r" path="res://Models/Stef/kenney_city-kit-roads (1)/Models/GLB format/road-straight.glb" id="6_kl032"]
 [ext_resource type="Script" uid="uid://c636tqw8oj48t" path="res://scripts/Stef/Verkeermanager.cs" id="6_xrs0c"]
@@ -32,7 +31,6 @@
 [ext_resource type="PackedScene" uid="uid://xfgomrlt7xtk" path="res://Models/Stef/kenney_city-kit-roads (1)/Models/GLB format/road-slant-curve-barrier.glb" id="15_s5r3q"]
 [ext_resource type="PackedScene" uid="uid://cs3puyme8kfe6" path="res://scenes/Stef/ondergrond.tscn" id="16_dtar0"]
 [ext_resource type="PackedScene" uid="uid://2uisbl6y4aru" path="res://Models/Stef/kenny_city-kit-suburban/GLB format/tree-large.glb" id="17_q8u6p"]
-[ext_resource type="PackedScene" uid="uid://ucb0kohigc7i" path="res://scenes/Anas/winkel.tscn" id="18_155or"]
 [ext_resource type="PackedScene" uid="uid://b1bmengxgxuvn" path="res://Models/Stef/kenney_city-kit-roads (1)/Models/GLB format/sign-highway.glb" id="19_16k2v"]
 [ext_resource type="PackedScene" uid="uid://beq758y4yax6d" path="res://Models/Stef/kenny_city-kit-suburban/GLB format/building-type-o.glb" id="20_lqcw1"]
 [ext_resource type="PackedScene" uid="uid://c5gppj5ymarwv" path="res://Models/Stef/kenny_city-kit-suburban/GLB format/building-type-e.glb" id="21_3wo1a"]
@@ -77,6 +75,7 @@
 [ext_resource type="PackedScene" uid="uid://cb1ii1r7t0bpx" path="res://Models/Stef/kenny_city-kit-suburban/GLB format/planter.glb" id="61_mfiwv"]
 [ext_resource type="PackedScene" uid="uid://rh4577081jq1" path="res://Models/Stef/kenny_city-kit-suburban/GLB format/path-long.glb" id="62_606ol"]
 [ext_resource type="PackedScene" uid="uid://bqvcg6vb220v3" path="res://Models/Stef/kenny_city-kit-suburban/GLB format/path-short.glb" id="63_vawrf"]
+[ext_resource type="PackedScene" uid="uid://b4osx45685d3g" path="res://scenes/Stef/garage.tscn" id="64_od4ux"]
 [ext_resource type="PackedScene" uid="uid://q11s8iy82nys" path="res://scenes/Stef/auto.tscn" id="65_1epgm"]
 [ext_resource type="PackedScene" uid="uid://dgb8cyo6jw56y" path="res://scenes/Alen/player.tscn" id="65_152kg"]
 [ext_resource type="PackedScene" uid="uid://cowi41l254e4f" path="res://scenes/Stef/winkelmotor.tscn" id="70_gdvew"]
@@ -84,7 +83,6 @@
 [ext_resource type="PackedScene" uid="uid://cujky4kee11s2" path="res://scenes/Stef/winkelwiel.tscn" id="72_xrs0c"]
 [ext_resource type="PackedScene" uid="uid://brhtw7doxdyq8" path="res://Models/Stef/kenny_city-kit-suburban/GLB format/fence.glb" id="73_kjtvk"]
 [ext_resource type="Script" uid="uid://ca8gr7ululke4" path="res://scripts/Stef/Pauzemenu.cs" id="84_b6ruc"]
-[ext_resource type="PackedScene" uid="uid://dulabeve11wh6" path="res://scenes/Jorgan/Garage.tscn" id="85_155or"]
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_od4ux"]
 data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
@@ -114,102 +112,40 @@ offset_bottom = 12.99939
 script = ExtResource("2_y57op")
 MoneyManagerNode = NodePath("../MoneyManager")
 
-[node name="Carmanager" type="Node3D" parent="." unique_id=1519753772 node_paths=PackedStringArray("MoneySystem", "NPCManager")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.689014, 0, 1.7374219)
+[node name="interact" parent="UI" index="1" unique_id=128546596 node_paths=PackedStringArray("_tekstLabel")]
+_tekstLabel = NodePath(".")
+
+[node name="Carmanager" type="Node3D" parent="." unique_id=1519753772 node_paths=PackedStringArray("MoneySystem")]
 script = ExtResource("1_1epgm")
 AutoScene = ExtResource("65_1epgm")
 MoneySystem = NodePath("../UI/MoneyManager")
-NPCManager = NodePath("../NPCManager")
 
 [node name="Verkeermanager" type="Node3D" parent="." unique_id=1621237053 node_paths=PackedStringArray("PathParent")]
 script = ExtResource("6_xrs0c")
 AutoVariaties = Array[PackedScene]([ExtResource("7_xljpf"), ExtResource("8_11yus"), ExtResource("9_b6ruc"), ExtResource("10_155or"), ExtResource("11_vtx2l"), ExtResource("12_63lxy"), ExtResource("13_fjhjs"), ExtResource("14_bfu41"), ExtResource("15_r4ag1")])
 PathParent = NodePath("../autowegen")
 
-[node name="pausemanager" type="Node3D" parent="." unique_id=861536165 node_paths=PackedStringArray("PauzePaneel", "GeldBeheerder", "GameContinue", "MainMenu")]
-script = ExtResource("84_b6ruc")
-PauzePaneel = NodePath("pauzemenu")
-GeldBeheerder = NodePath("../UI/MoneyManager")
-GameContinue = NodePath("pauzemenu/knoppen/hervatten")
-MainMenu = NodePath("pauzemenu/knoppen/hoofdmenu")
+[node name="Garage" parent="." unique_id=1939525001 instance=ExtResource("64_od4ux")]
+transform = Transform3D(-4.371139e-09, 0, 0.1, 0, 0.1, 0, -0.1, 0, -4.371139e-09, -4.0206156, 0, 1.907978)
 
-[node name="pauzemenu" type="CanvasLayer" parent="pausemanager" unique_id=1464733028]
-process_mode = 2
-visible = false
-
-[node name="overlay" type="ColorRect" parent="pausemanager/pauzemenu" unique_id=1151802101]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0, 0, 0, 0.65000004)
-
-[node name="knoppen" type="Control" parent="pausemanager/pauzemenu" unique_id=1169838786]
-layout_mode = 3
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -94.25
-offset_top = -81.25
-offset_right = 94.25
-offset_bottom = 81.25
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="hervatten" type="Button" parent="pausemanager/pauzemenu/knoppen" unique_id=62786272]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -33.5
-offset_right = 33.5
-offset_bottom = 31.0
-grow_horizontal = 2
-text = "resume"
-
-[node name="hoofdmenu" type="Button" parent="pausemanager/pauzemenu/knoppen" unique_id=751753687]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -76.0
-offset_top = -31.0
-offset_right = 76.0
-grow_horizontal = 2
-grow_vertical = 0
-text = "quit to main menu"
-
-[node name="NPCManager" parent="." unique_id=278607736 node_paths=PackedStringArray("PlayerToFollow") instance=ExtResource("5_b6ruc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.2530246, 2.9802322e-08, 2.6411726)
-PlayerToFollow = NodePath("../player")
-
-[node name="Winkel" parent="." unique_id=390292694 instance=ExtResource("18_155or")]
-transform = Transform3D(-1.7484556e-08, 0, -0.4, 0, 0.4, 0, 0.4, 0, -1.7484556e-08, 2.9853895, 0, 9.328417)
-
-[node name="items" type="Node3D" parent="." unique_id=1247544496]
+[node name="winkel" type="Node3D" parent="." unique_id=1247544496]
 transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -3.5980082, 0.1111421, 2.8073006)
 
-[node name="motor" parent="items" unique_id=422099097 node_paths=PackedStringArray("MoneySystem") instance=ExtResource("70_gdvew")]
-transform = Transform3D(0.875, 0, 0, 0, 0.875, 0, 0, 0, 0.875, -2.4474316, -0.27785525, 0.9076066)
+[node name="motor" parent="winkel" unique_id=422099097 node_paths=PackedStringArray("MoneySystem") instance=ExtResource("70_gdvew")]
+transform = Transform3D(0.875, 0, 0, 0, 0.875, 0, 0, 0, 0.875, -0.6153431, -0.27785525, 1.2037153)
 MoneySystem = NodePath("../../UI/MoneyManager")
 
-[node name="uitlaat" parent="items" unique_id=1670136933 node_paths=PackedStringArray("MoneySystem") instance=ExtResource("71_kjtvk")]
-transform = Transform3D(1.25, 0, 0, 0, 1.25, 0, 0, 0, 1.25, -1.8644457, -0.27785525, 0.92111063)
+[node name="uitlaat" parent="winkel" unique_id=1670136933 node_paths=PackedStringArray("MoneySystem") instance=ExtResource("71_kjtvk")]
+transform = Transform3D(1.25, 0, 0, 0, 1.25, 0, 0, 0, 1.25, -1.1226597, -0.27785525, -0.37951756)
 collision_layer = 2
 MoneySystem = NodePath("../../UI/MoneyManager")
 
-[node name="wiel" parent="items" unique_id=413077558 node_paths=PackedStringArray("MoneySystem") instance=ExtResource("72_xrs0c")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.191164, 0, 0.8779917)
+[node name="wiel" parent="winkel" unique_id=413077558 node_paths=PackedStringArray("MoneySystem") instance=ExtResource("72_xrs0c")]
 collision_layer = 2
 MoneySystem = NodePath("../../UI/MoneyManager")
 
 [node name="player" parent="." unique_id=1728694951 node_paths=PackedStringArray("InteractieLabel") instance=ExtResource("65_152kg")]
-transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, -3.924501, 0, 3.1788409)
+transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, -3.7248201, 0, 2.3294902)
 InteractieLabel = NodePath("../UI/interact")
 
 [node name="RayCast3D" parent="player/Camera3D" parent_id_path=PackedInt32Array(1728694951, 1031425661) index="0" unique_id=1003440602]
@@ -1147,7 +1083,7 @@ transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -0.8
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.15781128, 0, 8.877552)
 
 [node name="building-a3" parent="Map/gebouwen" unique_id=1608502536 instance=ExtResource("27_2srak")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.193254, 0, 8.867694)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.1268854, 0, 8.867694)
 
 [node name="decoratie" type="Node3D" parent="Map" unique_id=618117752]
 
@@ -2262,10 +2198,13 @@ transform = Transform3D(-0.9659258, 0, -0.25881913, 0, 1, 0, 0.25881913, 0, -0.9
 transform = Transform3D(-0.9659258, 0, -0.25881913, 0, 1, 0, 0.25881913, 0, -0.9659258, -6.575432, 0, 1.3150183)
 
 [node name="tree-large167" parent="Map/decoratie" unique_id=1628960658 instance=ExtResource("17_q8u6p")]
-transform = Transform3D(-0.9659258, 0, -0.25881913, 0, 1, 0, 0.25881913, 0, -0.9659258, -6.458274, 0, 0.91835773)
+transform = Transform3D(-0.9659258, 0, -0.25881913, 0, 1, 0, 0.25881913, 0, -0.9659258, -6.1017466, 0, 1.0159461)
 
 [node name="tree-large170" parent="Map/decoratie" unique_id=206928397 instance=ExtResource("17_q8u6p")]
 transform = Transform3D(0.25881916, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, 0.25881916, -6.9648905, 0, 0.8674409)
+
+[node name="tree-small122" parent="Map/decoratie" unique_id=922226717 instance=ExtResource("60_df326")]
+transform = Transform3D(0.25881916, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, 0.25881916, -5.8896565, 0, 0.99231625)
 
 [node name="tree-large174" parent="Map/decoratie" unique_id=633375340 instance=ExtResource("17_q8u6p")]
 transform = Transform3D(0.25881916, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, 0.25881916, -6.4912043, 0, 0.5683681)
@@ -2571,7 +2510,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.851373, -9.536743e-07, 1.2
 transform = Transform3D(-0.9659258, 0, -0.25881913, 0, 1, 0, 0.25881913, 0, -0.9659258, -5.229213, -9.536743e-07, -2.262628)
 
 [node name="tree-large149" parent="Map/decoratie" unique_id=336204057 instance=ExtResource("17_q8u6p")]
-transform = Transform3D(-0.9659258, 0, -0.25881913, 0, 1, 0, 0.25881913, 0, -0.9659258, -6.8217835, -1.4305115e-06, 3.0108802)
+transform = Transform3D(-0.9659258, 0, -0.25881913, 0, 1, 0, 0.25881913, 0, -0.9659258, -6.12741, -1.4305115e-06, 1.5550023)
 
 [node name="tree-large156" parent="Map/decoratie" unique_id=1029542072 instance=ExtResource("17_q8u6p")]
 transform = Transform3D(-0.9659258, 0, -0.25881913, 0, 1, 0, 0.25881913, 0, -0.9659258, -7.302467, -1.9073486e-06, 2.8688436)
@@ -2579,20 +2518,32 @@ transform = Transform3D(-0.9659258, 0, -0.25881913, 0, 1, 0, 0.25881913, 0, -0.9
 [node name="tree-small112" parent="Map/decoratie" unique_id=1182546311 instance=ExtResource("60_df326")]
 transform = Transform3D(-0.9659258, 0, -0.25881913, 0, 1, 0, 0.25881913, 0, -0.9659258, -8.105133, 0, 1.700305)
 
+[node name="tree-small114" parent="Map/decoratie" unique_id=199017973 instance=ExtResource("60_df326")]
+transform = Transform3D(-0.9659258, 0, -0.25881913, 0, 1, 0, 0.25881913, 0, -0.9659258, -6.0206513, -1.9073486e-06, 1.4128019)
+
 [node name="tree-large160" parent="Map/decoratie" unique_id=164559882 instance=ExtResource("17_q8u6p")]
 transform = Transform3D(-0.9659258, 0, -0.25881913, 0, 1, 0, 0.25881913, 0, -0.9659258, -7.2870154, 0, 1.7556261)
 
 [node name="tree-large164" parent="Map/decoratie" unique_id=1919666087 instance=ExtResource("17_q8u6p")]
-transform = Transform3D(-0.9659258, 0, -0.25881913, 0, 1, 0, 0.25881913, 0, -0.9659258, -6.4325333, 9.536743e-07, 2.646941)
+transform = Transform3D(-0.9659258, 0, -0.25881913, 0, 1, 0, 0.25881913, 0, -0.9659258, -6.1587667, 9.536743e-07, 2.6576762)
 
 [node name="tree-large165" parent="Map/decoratie" unique_id=1495462689 instance=ExtResource("17_q8u6p")]
 transform = Transform3D(-0.9659258, 0, -0.25881913, 0, 1, 0, 0.25881913, 0, -0.9659258, -5.191549, -9.536743e-07, 0.5913533)
 
 [node name="tree-small117" parent="Map/decoratie" unique_id=582987209 instance=ExtResource("60_df326")]
-transform = Transform3D(-0.9659258, 0, -0.25881913, 0, 1, 0, 0.25881913, 0, -0.9659258, -7.029879, 9.536743e-07, 2.579944)
+transform = Transform3D(-0.9659258, 0, -0.25881913, 0, 1, 0, 0.25881913, 0, -0.9659258, -5.785459, 9.536743e-07, 2.6160505)
+
+[node name="tree-small118" parent="Map/decoratie" unique_id=1183191991 instance=ExtResource("60_df326")]
+transform = Transform3D(-0.9659258, 0, -0.25881913, 0, 1, 0, 0.25881913, 0, -0.9659258, -5.500199, 0, 1.4398938)
+
+[node name="tree-large166" parent="Map/decoratie" unique_id=770625965 instance=ExtResource("17_q8u6p")]
+transform = Transform3D(-0.9659258, 0, -0.25881913, 0, 1, 0, 0.25881913, 0, -0.9659258, -4.9673395, 9.536743e-07, 2.6713712)
 
 [node name="tree-large168" parent="Map/decoratie" unique_id=1746264956 instance=ExtResource("17_q8u6p")]
-transform = Transform3D(-0.9659258, 0, -0.25881913, 0, 1, 0, 0.25881913, 0, -0.9659258, -6.692601, 0, 1.7416679)
+transform = Transform3D(-0.9659258, 0, -0.25881913, 0, 1, 0, 0.25881913, 0, -0.9659258, -5.1724644, 0, 1.0492134)
+
+[node name="tree-large169" parent="Map/decoratie" unique_id=1574544156 instance=ExtResource("17_q8u6p")]
+transform = Transform3D(0.25881916, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, 0.25881916, -5.372249, -9.536743e-07, 3.337011)
 
 [node name="tree-large171" parent="Map/decoratie" unique_id=159171732 instance=ExtResource("17_q8u6p")]
 transform = Transform3D(0.25881916, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, 0.25881916, -6.548223, 9.536743e-07, 2.2100983)
@@ -2601,10 +2552,13 @@ transform = Transform3D(0.25881916, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, 0.2588
 transform = Transform3D(0.25881916, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, 0.25881916, -5.2179055, -9.536743e-07, 0.045744926)
 
 [node name="tree-small120" parent="Map/decoratie" unique_id=289995909 instance=ExtResource("60_df326")]
-transform = Transform3D(0.25881916, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, 0.25881916, -4.902908, -9.536743e-07, 0.79290015)
+transform = Transform3D(0.25881916, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, 0.25881916, -4.6338677, -9.536743e-07, 0.8657873)
 
 [node name="tree-small121" parent="Map/decoratie" unique_id=627456890 instance=ExtResource("60_df326")]
-transform = Transform3D(0.25881916, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, 0.25881916, -7.328872, 9.536743e-07, 2.1353972)
+transform = Transform3D(0.25881916, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, 0.25881916, -6.1749167, 9.536743e-07, 2.1684728)
+
+[node name="tree-large173" parent="Map/decoratie" unique_id=170724851 instance=ExtResource("17_q8u6p")]
+transform = Transform3D(0.25881916, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, 0.25881916, -5.356797, 9.536743e-07, 2.2237935)
 
 [node name="tree-large178" parent="Map/decoratie" unique_id=1046142797 instance=ExtResource("17_q8u6p")]
 transform = Transform3D(-0.9659258, 0, -0.25881913, 0, 1, 0, 0.25881913, 0, -0.9659258, -4.8771324, 0, -0.7294344)
@@ -4184,12 +4138,66 @@ curve = SubResource("Curve3D_kjtvk")
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -11, 0.5, 13)
 curve = SubResource("Curve3D_kjtvk")
 
-[node name="Garage" parent="." unique_id=242806572 instance=ExtResource("85_155or")]
-transform = Transform3D(0.13, 0, 0, 0, 0.13, 0, 0, 0, 0.13, -4.312922, 1.7484555e-07, 3.4261918)
+[node name="pausemanager" type="Node3D" parent="." unique_id=861536165 node_paths=PackedStringArray("PauzePaneel", "GeldBeheerder", "GameContinue", "MainMenu")]
+script = ExtResource("84_b6ruc")
+PauzePaneel = NodePath("pauzemenu")
+GeldBeheerder = NodePath("../UI/MoneyManager")
+GameContinue = NodePath("pauzemenu/knoppen/hervatten")
+MainMenu = NodePath("pauzemenu/knoppen/hoofdmenu")
+
+[node name="pauzemenu" type="CanvasLayer" parent="pausemanager" unique_id=1464733028]
+process_mode = 2
+visible = false
+
+[node name="overlay" type="ColorRect" parent="pausemanager/pauzemenu" unique_id=1151802101]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.65000004)
+
+[node name="knoppen" type="Control" parent="pausemanager/pauzemenu" unique_id=1169838786]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -94.25
+offset_top = -81.25
+offset_right = 94.25
+offset_bottom = 81.25
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="hervatten" type="Button" parent="pausemanager/pauzemenu/knoppen" unique_id=62786272]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -33.5
+offset_right = 33.5
+offset_bottom = 31.0
+grow_horizontal = 2
+text = "resume"
+
+[node name="hoofdmenu" type="Button" parent="pausemanager/pauzemenu/knoppen" unique_id=751753687]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -76.0
+offset_top = -31.0
+offset_right = 76.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "quit to main menu"
 
 [connection signal="pressed" from="pausemanager/pauzemenu/knoppen/hervatten" to="pausemanager" method="_on_hervatten_pressed"]
 [connection signal="pressed" from="pausemanager/pauzemenu/knoppen/hoofdmenu" to="pausemanager" method="_on_hoofdmenu_pressed"]
 
 [editable path="UI"]
-[editable path="NPCManager"]
 [editable path="player"]

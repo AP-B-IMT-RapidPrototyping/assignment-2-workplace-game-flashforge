@@ -6,13 +6,13 @@ public partial class Carmanager : Node3D
 {
 	[Export] public PackedScene AutoScene;
 	[Export] public float WachttijdSeconden = 0.0f;
-	[Export] public Vector3 SpawnPositie = new Vector3(-4, 0, 1.75f);
+	[Export] public Vector3 SpawnPositie = new Vector3(-4, 0, 2);
 	[Export] public Vector3 SpawnRotatie = new Vector3(0, -90, 0);
 	[Export] public Vector3 SpawnSchaal = new Vector3(0.2f, 0.2f, 0.2f);
 	private Node3D _huidigeAuto = null;
 	[Export] public MoneyManager MoneySystem;
 	[Export] public int BeloningPerAuto = 250;
-	[Export] public NPCManager NPCManager;
+
 	public override void _Ready()
 	{
 		SpawnNieuweAuto();
@@ -35,17 +35,17 @@ public partial class Carmanager : Node3D
 		{
 			mogelijkeScriptNode = _huidigeAuto.FindChild("*", true, false);
 		}
-		
 		if (mogelijkeScriptNode is AutoWerking script)
 		{
 			script.AutoVoltooid += OnAutoVoltooid;
 			script.RandomizeAuto();
 			AnimationPlayer anim = _huidigeAuto.FindChild("AnimationPlayer", true, false) as AnimationPlayer;
 			anim.Play("spawnanimation");
-			if (NPCManager != null)
-            {
-                NPCManager.NPCSpawn();
-            }
+			GD.Print("Auto succesvol gespawnd en script gekoppeld.");
+		}
+		else
+		{
+			GD.PrintErr("FOUT: CarManager kon geen AutoWerking script vinden op de auto!");
 		}
 	}
 
@@ -58,29 +58,29 @@ public partial class Carmanager : Node3D
 		{
 			script.AutoVoltooid -= OnAutoVoltooid;
 		}
-		if (NPCManager != null)
-    	{
-        	NPCManager.NPCDespawn();
-    	}
+		GD.Print("Auto voltooid! Beloning uitbetalen...");
 		if (MoneySystem != null) MoneySystem.AddMoney(BeloningPerAuto);
 		AnimationPlayer anim = _huidigeAuto.FindChild("AnimationPlayer", true, false) as AnimationPlayer;
 		if (anim != null)
 		{
-			await ToSignal(GetTree().CreateTimer(3.0f), "timeout");
+			GD.Print("Despawn animatie starten...");
 			anim.Play("despawnanimation");
 			await ToSignal(anim, "animation_finished");
 		}
 		else
 		{
+			GD.PrintErr("FOUT: AnimationPlayer niet gevonden op de auto!");
 			await ToSignal(GetTree().CreateTimer(1.0f), "timeout");
 		}
 		if (IsInstanceValid(_huidigeAuto))
 		{
+			GD.Print("Auto wordt nu verwijderd.");
 			_huidigeAuto.QueueFree();
 			_huidigeAuto = null;
 		}
 		if (WachttijdSeconden > 0)
 		{
+			GD.Print($"Wachten op volgende auto ({WachttijdSeconden}s)...");
 			await ToSignal(GetTree().CreateTimer(WachttijdSeconden), "timeout");
 		}
 
