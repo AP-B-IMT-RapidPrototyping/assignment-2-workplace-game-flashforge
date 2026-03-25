@@ -37,7 +37,7 @@ MaleVoicelines_English_1 = Array[AudioStream]([ExtResource("2_gdh2t"), ExtResour
 MaleVoicelines_English_2 = Array[AudioStream]([ExtResource("7_bxn41"), ExtResource("8_ov3cw"), ExtResource("9_3hoc3"), ExtResource("10_jqqtr"), ExtResource("11_ovtkn"), ExtResource("12_l7e7y")])
 MaleVoicelines_English_3 = Array[AudioStream]([])
 FemaleVoicelines_English_1 = Array[AudioStream]([ExtResource("13_ovtkn"), ExtResource("14_l7e7y"), ExtResource("15_mpv4x"), ExtResource("16_mqfll")])
-VoicePlayer = NodePath("AudioStreamPlayer3D")
+VoicePlayer = NodePath("")
 
 [node name="models" type="Node3D" parent="." unique_id=303708964]
 
@@ -80,8 +80,3 @@ transform = Transform3D(0.35, 0, 0, 0, 0.35, 0, 0, 0, 0.35, 0, 0, 0)
 
 [node name="character-female-f2" parent="models/women" unique_id=178866368 instance=ExtResource("13_ov3cw")]
 transform = Transform3D(0.35, 0, 0, 0, 0.35, 0, 0, 0, 0.35, 0, 0, 0)
-
-[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=1257547981]
-volume_db = -5.0
-max_db = 1.0
-max_distance = 4.0

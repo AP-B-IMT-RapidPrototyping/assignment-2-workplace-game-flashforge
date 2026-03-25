@@ -38,6 +38,7 @@ public partial class TutorialCarManager : Node3D
 		{
 			script.AutoVoltooid += OnAutoVoltooid;
 			script.RandomizeAuto();
+			script.SetTutorialVisuals(true);
 			GD.Print("Auto succesvol gespawnd en script gekoppeld.");
 		}
 		else

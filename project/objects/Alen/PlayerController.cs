@@ -62,7 +62,6 @@ public partial class PlayerController : CharacterBody3D
     {
         if (@event.IsActionPressed("interact"))
         {
-            GD.Print("Input gedetecteerd! De knop werkt.");
             HandleInteraction();
         }
         if (@event is InputEventMouseMotion mouseMotion)
@@ -92,7 +91,6 @@ public partial class PlayerController : CharacterBody3D
                 {
                     if (_vastgehoudenObject.OnderdeelData.Type != targetFysica.PastHierIn)
                     {
-                        GD.Print($"FOUT: Past niet! Dit slot verwacht: {targetFysica.PastHierIn}");
                         return;
                     }
 
@@ -108,7 +106,6 @@ public partial class PlayerController : CharacterBody3D
             {
                 if (targetFysica.OnderdeelData != null)
                 {
-                    GD.Print($"Oppakken: {targetFysica.OnderdeelData.PartName}");
                     AutoResource data = targetFysica.OnderdeelData;
 
                     if (autoLogica != null && targetFysica.GetParent() is Marker3D slot)
@@ -121,14 +118,12 @@ public partial class PlayerController : CharacterBody3D
                 }
                 else
                 {
-                    GD.Print("Dit slot is leeg, er valt niets op te pakken.");
                 }
                 return;
             }
         }
         else if (collider is GrondstoffenWinkel bron)
         {
-            GD.Print("Winkel geraakt! Koop-functie aanroepen...");
             bron.KoopOnderdeel(this);
         }
     }
@@ -179,7 +174,6 @@ public partial class PlayerController : CharacterBody3D
         _vastgehoudenObject.Position = Vector3.Zero;
         _vastgehoudenObject.Rotation = Vector3.Zero;
 
-        GD.Print($"Opgepakt: {_vastgehoudenObject.OnderdeelData?.PartName}");
     }
 
     public override void _Process(double delta)
@@ -200,10 +194,6 @@ public partial class PlayerController : CharacterBody3D
         if (collider is AutoOnderdeel target && target != _lastLookedAt)
         {
             _lastLookedAt = target;
-            if (!_isHolding && target.OnderdeelData != null)
-                GD.Print($"Kijk naar: {target.OnderdeelData.PartName} [E]");
-            else if (_isHolding)
-                GD.Print("Klik om hier te plaatsen [E]");
         }
     }
     private void CheckInteractieDisplay()
@@ -217,18 +207,24 @@ public partial class PlayerController : CharacterBody3D
             if (collider is AutoOnderdeel onderdeel)
             {
                 if (onderdeel.OnderdeelData != null)
-                    InteractieLabel.ToonMelding($"Pak {onderdeel.OnderdeelData.PartName} [E]");
+                {
+                    InteractieLabel.ToonMelding(onderdeel.OnderdeelData.PartName, "pick");
+                }
                 else if (_isHolding)
-                    InteractieLabel.ToonMelding($"Plaats {_vastgehoudenObject.OnderdeelData.PartName} [E]");
+                {
+                    InteractieLabel.ToonMelding(_vastgehoudenObject.OnderdeelData.PartName, "place");
+                }
                 else
+                {
                     InteractieLabel.VerbergMelding();
+                }
 
                 return;
             }
 
             if (collider is GrondstoffenWinkel winkel)
             {
-                InteractieLabel.ToonMelding($"Koop {winkel.OnderdeelData.PartName} voor €{winkel.Prijs} [E]");
+                InteractieLabel.ToonMelding(winkel.OnderdeelData.PartName, "buy", winkel.Prijs);
                 return;
             }
         }

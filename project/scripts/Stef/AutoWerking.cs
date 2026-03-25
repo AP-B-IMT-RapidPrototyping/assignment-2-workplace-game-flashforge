@@ -57,7 +57,7 @@ public partial class AutoWerking : Node
                     var gekozen = passendeOpties[random.Next(passendeOpties.Count)];
                     InstalleerOnderdeel(slot, gekozen);
                     slotFysica.OnderdeelData = gekozen;
-                    AantalOnderdelen ++;
+                    AantalOnderdelen++;
                     GD.Print(AantalOnderdelen);
                 }
             }
@@ -85,7 +85,7 @@ public partial class AutoWerking : Node
         if (isCompleet)
         {
             GD.Print("Auto is compleet! Signaal verzenden...");
-            AantalOnderdelen =0;
+            AantalOnderdelen = 0;
             EmitSignal(SignalName.AutoVoltooid);
         }
     }
@@ -117,7 +117,26 @@ public partial class AutoWerking : Node
             nieuwModel.Position = Vector3.Zero;
             nieuwModel.Rotation = Vector3.Zero;
             nieuwModel.Scale = Vector3.One;
-            GD.Print($"Visueel model geplaatst voor: {data.PartName} in slot {slot.Name}");
+        }
+    }
+
+
+
+    public void SetTutorialVisuals(bool active)
+    {
+        var alleMeshes = FindChildren("*", "MeshInstance3D", true);
+
+        foreach (Node node in alleMeshes)
+        {
+            if (node.Name.ToString().Contains("Placeholder"))
+            {
+                if (node is MeshInstance3D p)
+                {
+                    p.Visible = active;
+
+                    if (active) GD.Print("Placeholder gevonden en geactiveerd: " + p.GetPath());
+                }
+            }
         }
     }
 }
