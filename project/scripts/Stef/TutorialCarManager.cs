@@ -38,6 +38,7 @@ public partial class TutorialCarManager : Node3D
 		{
 			script.AutoVoltooid += OnAutoVoltooid;
 			script.RandomizeAuto();
+			script.SetTutorialVisuals(true);
 			GD.Print("Auto succesvol gespawnd en script gekoppeld.");
 		}
 		else
@@ -70,7 +71,7 @@ public partial class TutorialCarManager : Node3D
 			GD.Print($"Wachten op volgende auto ({WachttijdSeconden}s)...");
 			await ToSignal(GetTree().CreateTimer(WachttijdSeconden), "timeout");
 		}
-
+		await ToSignal(GetTree().CreateTimer(3.0f), "timeout");
 		SpawnNieuweAuto();
 	}
 }

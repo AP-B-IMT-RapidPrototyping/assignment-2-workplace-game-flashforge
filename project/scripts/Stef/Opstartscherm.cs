@@ -12,10 +12,15 @@ public partial class Opstartscherm : Control
     [Export] public Button settings;
     [Export] public Button quit;
     [Export] public Button tutorial;
-    [Export] public Label Language; 
+    [Export] public Label Language;
+    [Export] public Button credits;
+    [Export] public CheckButton NPCKnop;
+    public bool NPCSwitch = false;
+    private int NPCSetting;
     
     public override void _Ready()
     {
+        NPCKnop.ButtonPressed =false;
         PopupMenu popup = SelectedLanguage.GetPopup();
         popup.IdPressed += OnMenuItemPressed;
         Gamedata.SaveData data = Gamedata.LoadGame();
@@ -26,8 +31,16 @@ public partial class Opstartscherm : Control
     private void OnMenuItemPressed(long id)
     {
         _currentLanguageId = (int)id;
+        if (NPCSwitch == true)
+        {
+           NPCSetting = 1;
+        }
+        else
+        {
+            NPCSetting = 0;
+        }
         var data = Gamedata.LoadGame();
-        Gamedata.SaveGame(data.Money, _currentLanguageId);
+        Gamedata.SaveGame(data.Money, _currentLanguageId, NPCSetting);
 
         switch (id)
         {
@@ -101,5 +114,22 @@ public partial class Opstartscherm : Control
     public void _on_tutorial_pressed()
     {
         GetTree().ChangeSceneToPacked(Tutorial);
+    }
+    public void _on_check_button_pressed()
+    {
+        if (NPCSwitch == true)
+        {
+            NPCSwitch = false;
+            GD.Print("NPC's uit");
+        }
+        else if (NPCSwitch == false)
+        {
+            NPCSwitch = true;
+            GD.Print("NPC's aan");
+        }
+    }
+    public void _on_credits_pressed()
+    {
+        GD.Print("credits geactiveerd");
     }
 }

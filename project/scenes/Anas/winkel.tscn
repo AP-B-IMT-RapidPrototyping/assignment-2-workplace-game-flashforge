@@ -5,111 +5,25 @@
 [ext_resource type="PackedScene" uid="uid://xqmtpyn0aicb" path="res://Models/Anas/kenney_mini-market/Models/GLB format/character-employee.glb" id="3_b8v3y"]
 [ext_resource type="PackedScene" uid="uid://b0ahg1qllvdkn" path="res://Models/Anas/kenney_mini-market/Models/GLB format/floor.glb" id="4_sdjjo"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_y6b5f"]
-size = Vector3(0.001, 0.74883443, 1.9598389)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_b8v3y"]
-size = Vector3(1.994873, 0.7628174, 0.001)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_sdjjo"]
-size = Vector3(0.001, 0.9529953, 0.51519775)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_y1teh"]
-size = Vector3(0.001, 0.74365234, 1.9725342)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_phgwt"]
-size = Vector3(1.9746094, 1.2358398, 0.001)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_hhsv5"]
-size = Vector3(1.9754639, 1.2712402, 0.001)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_51t3k"]
-size = Vector3(1.9921875, 0.35992432, 0.001)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_3wd8q"]
-size = Vector3(0.001, 0.62960815, 0.7761841)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_02whi"]
-size = Vector3(0.001, 0.63183594, 0.7766113)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_jphrl"]
-size = Vector3(1.9976807, 0.97143555, 0.001)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_7ddy7"]
-size = Vector3(0.001, 0.9594879, 1.998291)
-
 [node name="Node3D" type="Node3D" unique_id=390292694]
 
 [node name="Winkel" parent="." unique_id=2052959549 instance=ExtResource("1_02whi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.054913938, 0, 0.007246971)
 
 [node name="cash-register2" parent="Winkel" unique_id=1101481720 instance=ExtResource("2_y6b5f")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.62336105, 0.063040406, 0.5108174)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.62336105, 0, 0.5108174)
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Winkel/cash-register2" unique_id=857366073]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0762319, 0)
-
-[node name="character-employee2" parent="Winkel/cash-register2/StaticBody3D" unique_id=2035386178 instance=ExtResource("3_b8v3y")]
-transform = Transform3D(0.881, 0, 0, 0, 1, 0, 0, 0, 1.135, 0.2381447, 0, -0.27102655)
+[node name="character-employee2" parent="Winkel" unique_id=2035386178 instance=ExtResource("3_b8v3y")]
+transform = Transform3D(0.7757201, 0, 0, 0, 0.8812868, 0, 0, 0, 1, -0.38521636, 0, 0.23979086)
 
 [node name="floor2" parent="Winkel" unique_id=1269379760 instance=ExtResource("4_sdjjo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5096815, 0.04853463, 0.49639034)
 
 [node name="floor3" parent="Winkel/floor2" unique_id=1606516568 instance=ExtResource("4_sdjjo")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.006518841, 0, 0.98729753)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.006518841, 0, 0.99822664)
 
 [node name="floor4" parent="Winkel/floor2" unique_id=1258827480 instance=ExtResource("4_sdjjo")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9835938, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9956043, 0, 0)
 
 [node name="floor5" parent="Winkel/floor2" unique_id=928205515 instance=ExtResource("4_sdjjo")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.98452175, 0, 0.990147)
-
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="Winkel" unique_id=1752759729]
-transform = Transform3D(0.88861734, 0.70994586, 0, -0.4586496, 1.375495, 0, 0, 0, 1.0184897, -1.7523661, 1.5010443, 0.9931115)
-shape = SubResource("BoxShape3D_y6b5f")
-
-[node name="CollisionShape3D5" type="CollisionShape3D" parent="Winkel" unique_id=37952361]
-transform = Transform3D(1, 0, 0, 0, 1.2616191, 0, 0, 0, 1, -1.0207717, 0.5205688, 1.9913309)
-shape = SubResource("BoxShape3D_b8v3y")
-debug_color = Color(0.9752125, 0, 0.4245811, 0.41960785)
-
-[node name="CollisionShape3D6" type="CollisionShape3D" parent="Winkel" unique_id=1285007299]
-transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, -1.0219979, 1.9939778, 0.9924003)
-shape = SubResource("BoxShape3D_sdjjo")
-debug_color = Color(0.69205534, 0.28651524, 1, 0.41960785)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Winkel" unique_id=493892258]
-transform = Transform3D(0.8886172, -0.7063203, 0, 0.45864955, 1.3684704, 0, 0, 0, 1.01, -0.28085056, 1.4970407, 0.9913157)
-shape = SubResource("BoxShape3D_y1teh")
-
-[node name="CollisionShape3D3" type="CollisionShape3D" parent="Winkel" unique_id=1282431758]
-transform = Transform3D(1, 0, 0, 0, 0.80385673, -0.5948227, 0, 0.5948227, 0.80385673, -1.0220296, 1.5113896, 0.3606459)
-shape = SubResource("BoxShape3D_phgwt")
-
-[node name="CollisionShape3D4" type="CollisionShape3D" parent="Winkel" unique_id=1543457005]
-transform = Transform3D(1, 0, 0, 0, 0.80385685, 0.5948228, 0, -0.5948228, 0.80385685, -1.0256476, 1.5057471, 1.6234192)
-shape = SubResource("BoxShape3D_hhsv5")
-
-[node name="CollisionShape3D7" type="CollisionShape3D" parent="Winkel" unique_id=2033548473]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -2.0208466, 0.8435974, 0.9950645)
-shape = SubResource("BoxShape3D_51t3k")
-debug_color = Color(0.9999997, 0.012436264, 0.048550397, 0.41960785)
-
-[node name="CollisionShape3D8" type="CollisionShape3D" parent="Winkel" unique_id=862865654]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.0237257, 0.34649676, 0.38064647)
-shape = SubResource("BoxShape3D_3wd8q")
-debug_color = Color(0.95468014, 0.21564871, 3.85046e-07, 0.41960785)
-
-[node name="CollisionShape3D9" type="CollisionShape3D" parent="Winkel" unique_id=328267172]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.0183825, 0.34762084, 1.6059403)
-shape = SubResource("BoxShape3D_02whi")
-debug_color = Color(0.96837956, 0.1803756, 3.85046e-07, 0.41960785)
-
-[node name="CollisionShape3D10" type="CollisionShape3D" parent="Winkel" unique_id=723296452]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0177612, 0.5196533, -0.003887415)
-shape = SubResource("BoxShape3D_jphrl")
-
-[node name="CollisionShape3D11" type="CollisionShape3D" parent="Winkel" unique_id=1835012342]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.023646146, 0.5223007, 0.9935303)
-shape = SubResource("BoxShape3D_7ddy7")
-debug_color = Color(0.9372147, 0.25227058, 0, 0.41960785)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.99596906, 0, 1.0009992)

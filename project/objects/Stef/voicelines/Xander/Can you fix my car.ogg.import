@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://bcjdfinwkuh0q"
+path="res://.godot/imported/Can you fix my car.ogg-631699b3b267df5a783d5d5749570313.oggvorbisstr"
+
+[deps]
+
+source_file="res://objects/Stef/voicelines/Xander/Can you fix my car.ogg"
+dest_files=["res://.godot/imported/Can you fix my car.ogg-631699b3b267df5a783d5d5749570313.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
