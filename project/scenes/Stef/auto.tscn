@@ -13,8 +13,20 @@
 height = 0.2459259
 radius = 0.2709961
 
+[sub_resource type="CylinderMesh" id="CylinderMesh_yg51h"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yg51h"]
+transparency = 1
+albedo_color = Color(0, 0.58431375, 1, 0.3019608)
+emission_enabled = true
+emission = Color(0, 0.58431375, 1, 1)
+emission_energy_multiplier = 1.5
+emission_on_uv2 = true
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_yg51h"]
 size = Vector3(0.45715332, 0.5854492, 0.11923218)
+
+[sub_resource type="BoxMesh" id="BoxMesh_yg51h"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_cn6kn"]
 height = 0.44415283
@@ -176,6 +188,11 @@ OnderdeelData = ExtResource("4_yg51h")
 transform = Transform3D(-1, 4.3711392e-08, -4.3711385e-08, 4.3711392e-08, 4.3711378e-08, -1, -4.371139e-08, -1, -4.3711385e-08, 0, 0, 0)
 shape = SubResource("CylinderShape3D_r8ws1")
 
+[node name="Placeholder" type="MeshInstance3D" parent="animatie/item slots/wielen/linker voor wiel" unique_id=1733020173]
+transform = Transform3D(-2.1855694e-08, -0.1, 0, 0.5, -4.371139e-09, 0, 0, 0, 0.5, 0, 0, 0)
+mesh = SubResource("CylinderMesh_yg51h")
+surface_material_override/0 = SubResource("StandardMaterial3D_yg51h")
+
 [node name="rechter voor wiel" type="Marker3D" parent="animatie/item slots/wielen" unique_id=512864763]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0.3, 0.65)
 
@@ -189,6 +206,11 @@ OnderdeelData = ExtResource("4_yg51h")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="animatie/item slots/wielen/rechter voor wiel/StaticBody3D" unique_id=2048810926]
 transform = Transform3D(1, 4.371139e-08, -4.371139e-08, -4.371139e-08, -4.371139e-08, -1, -4.371139e-08, 1, -4.3711385e-08, 0, 0, 0)
 shape = SubResource("CylinderShape3D_r8ws1")
+
+[node name="Placeholder" type="MeshInstance3D" parent="animatie/item slots/wielen/rechter voor wiel" unique_id=709421034]
+transform = Transform3D(-2.1855694e-08, -0.1, 0, 0.5, -4.371139e-09, 0, 0, 0, 0.5, 0, 0, 0)
+mesh = SubResource("CylinderMesh_yg51h")
+surface_material_override/0 = SubResource("StandardMaterial3D_yg51h")
 
 [node name="linker achter wiel" type="Marker3D" parent="animatie/item slots/wielen" unique_id=686365149]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0.5, 0.3, -0.65)
@@ -204,6 +226,11 @@ OnderdeelData = ExtResource("4_yg51h")
 transform = Transform3D(1, 4.371139e-08, -4.371139e-08, -4.371139e-08, -4.371139e-08, -1, -4.371139e-08, 1, -4.3711385e-08, 0, 0, 0)
 shape = SubResource("CylinderShape3D_r8ws1")
 
+[node name="Placeholder" type="MeshInstance3D" parent="animatie/item slots/wielen/linker achter wiel" unique_id=793074309]
+transform = Transform3D(-2.1855694e-08, -0.1, 0, 0.5, -4.371139e-09, 0, 0, 0, 0.5, 0, 0, 0)
+mesh = SubResource("CylinderMesh_yg51h")
+surface_material_override/0 = SubResource("StandardMaterial3D_yg51h")
+
 [node name="rechter achter wiel" type="Marker3D" parent="animatie/item slots/wielen" unique_id=246151581]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0.3, -0.65)
 
@@ -217,6 +244,11 @@ OnderdeelData = ExtResource("4_yg51h")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="animatie/item slots/wielen/rechter achter wiel/StaticBody3D" unique_id=1454155233]
 transform = Transform3D(1, 4.371139e-08, -4.371139e-08, -4.371139e-08, -4.371139e-08, -1, -4.371139e-08, 1, -4.3711385e-08, 0, 0, 0)
 shape = SubResource("CylinderShape3D_r8ws1")
+
+[node name="Placeholder" type="MeshInstance3D" parent="animatie/item slots/wielen/rechter achter wiel" unique_id=350407133]
+transform = Transform3D(-2.1855694e-08, -0.1, 0, 0.5, -4.371139e-09, 0, 0, 0, 0.5, 0, 0, 0)
+mesh = SubResource("CylinderMesh_yg51h")
+surface_material_override/0 = SubResource("StandardMaterial3D_yg51h")
 
 [node name="motor" type="Marker3D" parent="animatie/item slots" unique_id=1734485773]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4730475, 0.8461527)
@@ -233,6 +265,11 @@ PastHierIn = 2
 transform = Transform3D(1, 4.371139e-08, -4.371139e-08, -4.371139e-08, -4.371139e-08, -1, -4.371139e-08, 1, -4.3711385e-08, 0, 0, 0)
 shape = SubResource("BoxShape3D_yg51h")
 
+[node name="Placeholder" type="MeshInstance3D" parent="animatie/item slots/motor" unique_id=1982033836]
+transform = Transform3D(-2.1855694e-08, -0.7110701, 0, 0.5, -3.1081864e-08, 0, 0, 0, 0.4716067, 0, 0, 0)
+mesh = SubResource("BoxMesh_yg51h")
+surface_material_override/0 = SubResource("StandardMaterial3D_yg51h")
+
 [node name="uitlaat" type="Marker3D" parent="animatie/item slots" unique_id=786506876]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0.3852616, 0.22402225, -1.2341548)
 
@@ -247,6 +284,11 @@ PastHierIn = 1
 [node name="CollisionShape3D" type="CollisionShape3D" parent="animatie/item slots/uitlaat/StaticBody3D" unique_id=292368102]
 transform = Transform3D(4.3711513e-08, -3.5527137e-15, 1, -8.754432e-08, -1, -4.2632564e-14, 1, -8.754432e-08, -4.3711623e-08, 0, 0.017669678, 0)
 shape = SubResource("CylinderShape3D_cn6kn")
+
+[node name="Placeholder" type="MeshInstance3D" parent="animatie/item slots/uitlaat" unique_id=507628947]
+transform = Transform3D(-0.1, 6.039832e-08, 0, -1.509958e-08, -0.4, 0, 0, 0, 0.1, 0, 0, 0)
+mesh = SubResource("CylinderMesh_yg51h")
+surface_material_override/0 = SubResource("StandardMaterial3D_yg51h")
 
 [node name="deuren" type="Node3D" parent="animatie/item slots" unique_id=757668240]
 visible = false

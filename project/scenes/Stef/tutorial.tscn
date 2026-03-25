@@ -10,7 +10,10 @@
 [ext_resource type="PackedScene" uid="uid://q11s8iy82nys" path="res://scenes/Stef/auto.tscn" id="8_redhr"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_b3he2"]
-size = Vector3(10, 0.5, 10)
+size = Vector3(50, 0.5, 50)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_redhr"]
+size = Vector3(16.94043, 4.9418335, 0.8946533)
 
 [node name="Root" type="Node3D" unique_id=1002120286]
 
@@ -29,6 +32,22 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.22908649, -0.13352191, -0.4
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=676226413]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, 0)
 shape = SubResource("BoxShape3D_b3he2")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="StaticBody3D" unique_id=1119041869]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0435791, 2.4768982, -8.449518)
+shape = SubResource("BoxShape3D_redhr")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="StaticBody3D" unique_id=518764904]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0435791, 2.4768982, 8.453922)
+shape = SubResource("BoxShape3D_redhr")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="StaticBody3D" unique_id=616980280]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 8.468545, 2.4768982, 0.021081924)
+shape = SubResource("BoxShape3D_redhr")
+
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="StaticBody3D" unique_id=1637763832]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -8.451431, 2.4768982, -0.4033558)
+shape = SubResource("BoxShape3D_redhr")
 
 [node name="pausemanager" type="Node3D" parent="." unique_id=412714730 node_paths=PackedStringArray("PauzePaneel", "GeldBeheerder", "GameContinue", "MainMenu")]
 script = ExtResource("5_c5sok")
