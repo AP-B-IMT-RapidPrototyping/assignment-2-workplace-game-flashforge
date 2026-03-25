@@ -6,7 +6,7 @@ public partial class Carmanager : Node3D
 {
 	[Export] public PackedScene AutoScene;
 	[Export] public float WachttijdSeconden = 0.0f;
-	[Export] public Vector3 SpawnPositie = new Vector3(-4, 0, 2);
+	[Export] public Vector3 SpawnPositie = new Vector3(-4, 0, 1.75f);
 	[Export] public Vector3 SpawnRotatie = new Vector3(0, -90, 0);
 	[Export] public Vector3 SpawnSchaal = new Vector3(0.2f, 0.2f, 0.2f);
 	private Node3D _huidigeAuto = null;
@@ -42,11 +42,9 @@ public partial class Carmanager : Node3D
 			script.RandomizeAuto();
 			AnimationPlayer anim = _huidigeAuto.FindChild("AnimationPlayer", true, false) as AnimationPlayer;
 			anim.Play("spawnanimation");
-			GD.Print("Auto succesvol gespawnd en script gekoppeld.");
 			if (NPCManager != null)
             {
                 NPCManager.NPCSpawn();
-				GD.Print("NPC Spawn aangeroepen");
             }
 		}
 	}
@@ -64,7 +62,6 @@ public partial class Carmanager : Node3D
     	{
         	NPCManager.NPCDespawn();
     	}
-		GD.Print("Auto voltooid! Beloning uitbetalen...");
 		if (MoneySystem != null) MoneySystem.AddMoney(BeloningPerAuto);
 		AnimationPlayer anim = _huidigeAuto.FindChild("AnimationPlayer", true, false) as AnimationPlayer;
 		if (anim != null)
@@ -75,7 +72,6 @@ public partial class Carmanager : Node3D
 		}
 		else
 		{
-			GD.PrintErr("FOUT: AnimationPlayer niet gevonden op de auto!");
 			await ToSignal(GetTree().CreateTimer(1.0f), "timeout");
 		}
 		if (IsInstanceValid(_huidigeAuto))
