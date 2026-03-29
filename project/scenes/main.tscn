@@ -184,9 +184,10 @@ grow_horizontal = 2
 grow_vertical = 0
 text = "quit to main menu"
 
-[node name="NPCManager" parent="." unique_id=278607736 node_paths=PackedStringArray("PlayerToFollow") instance=ExtResource("5_b6ruc")]
+[node name="NPCManager" parent="." unique_id=278607736 node_paths=PackedStringArray("PlayerToFollow", "PrijsLabel") instance=ExtResource("5_b6ruc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.2530246, 2.9802322e-08, 2.6411726)
 PlayerToFollow = NodePath("../player")
+PrijsLabel = NodePath("../UI/geld")
 
 [node name="Winkel" parent="." unique_id=390292694 instance=ExtResource("18_155or")]
 transform = Transform3D(-1.7484556e-08, 0, -0.4, 0, 0.4, 0, 0.4, 0, -1.7484556e-08, 2.9853895, 0, 9.328417)

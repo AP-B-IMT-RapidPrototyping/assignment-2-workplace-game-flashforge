@@ -99,14 +99,6 @@ public partial class Opstartscherm : Control
             MenuAnimator.Play("TerugNaarHoofdmenu");
         }
     }
-    public void _on_check_button_toggled()
-    {
-        GD.Print("NPCs aan");
-    }
-    public void _on_check_button_button_up()
-    {
-        GD.Print("NPCs uit");
-    }
     public void _on_afsluiten_pressed()
     {
         GetTree().Quit();

@@ -12,6 +12,7 @@ public partial class AutoWerking : Node
     [Export] public Godot.Collections.Array<AutoResource> BeschikbareOnderdelen;
     [Export, Range(0, 1)] public float SpawnKans = 0.5f;
     private int AantalOnderdelen = 0;
+    public int AutoBeloning { get; private set; }
 
     public override void _Ready()
     {
@@ -35,6 +36,7 @@ public partial class AutoWerking : Node
         Random random = new Random();
 
         int verplichtLeegSlotIndex = random.Next(OnderdeelSlots.Count);
+        AutoBeloning = random.Next(50, 151);
 
         for (int i = 0; i < OnderdeelSlots.Count; i++)
         {

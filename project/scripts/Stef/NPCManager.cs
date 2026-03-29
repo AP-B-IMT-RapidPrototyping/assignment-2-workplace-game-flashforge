@@ -16,6 +16,8 @@ public partial class NPCManager : Node3D
 
     [Export] public AudioStreamPlayer3D VoicePlayer;
     [Export] public Node3D PlayerToFollow;
+	[Export] public Label PrijsLabel;
+	private int _huidigeAutoPrijs = 0;
 
     private Random _random = new Random();
 	private bool _isAutoBezig = false;
@@ -37,6 +39,20 @@ public partial class NPCManager : Node3D
             _huidigeZichtbareModel.RotateY(Mathf.DegToRad(180));
         }
     }
+	public void StelPrijsIn(int prijs)
+	{
+    _huidigeAutoPrijs = prijs;
+    if (PrijsLabel != null) PrijsLabel.Hide();
+	}
+	public void ToonPrijsOpUI()
+	{
+    	if (PrijsLabel != null && _huidigeZichtbareModel != null && _huidigeZichtbareModel.Visible)
+    	{
+        	PrijsLabel.Text = $"Deze reparatie kost: ${_huidigeAutoPrijs}";
+        	PrijsLabel.Show();
+        	GetTree().CreateTimer(3.0f).Connect("timeout", Callable.From(() => PrijsLabel.Hide()));
+    	}
+	}
 	private void VerbergAlleModellen(Godot.Collections.Array<Node3D> lijst)
     {
         if (lijst == null) return;
@@ -47,12 +63,6 @@ public partial class NPCManager : Node3D
     }
 	public async void NPCSpawn()
     {
-        var data = Gamedata.LoadGame();
-        if (data.NPCSetting == 0) 
-        {
-        GD.Print("NPC Spawn geannuleerd: NPCSetting staat op UIT.");
-        return; // Stop de functie hier
-        }
         _isAutoBezig = false;
 		_huidigeSessieId++;
 		int mijnSessieId = _huidigeSessieId;
@@ -65,18 +75,19 @@ public partial class NPCManager : Node3D
     if (geslacht == 0)
     {
         gekozenLijstModels = MaleCharacters;
-        
+
         int setKeuze = _random.Next(0, 2);
         switch (setKeuze)
         {
             case 0: gekozenLijst = MaleVoicelines_English_1; break;
             case 1: gekozenLijst = MaleVoicelines_English_2; break;
             case 2: gekozenLijst = MaleVoicelines_English_3; break;
-        }
+		}
     }
     else if (geslacht == 1)
     {
         gekozenLijstModels = FemaleCharacters;
+
         int setKeuze = _random.Next(0, 1);
         switch (setKeuze)
         {
@@ -84,6 +95,7 @@ public partial class NPCManager : Node3D
             case 1: gekozenLijst = FemaleVoicelines_English_2; break;
             case 2: gekozenLijst = FemaleVoicelines_English_3; break;
         }
+		
     }
 		if (gekozenLijstModels != null && gekozenLijstModels.Count > 0)
 		{
@@ -138,16 +150,30 @@ public partial class NPCManager : Node3D
 
 	private void SpeeleersteVoiceline(Godot.Collections.Array<AudioStream> lijst)
 	{
+		var data = Gamedata.LoadGame();
+		if (data.NPCSetting == 0) 
+        {
+        	return; 
+        }
+		else{
 		if (lijst == null || lijst.Count == 0 || VoicePlayer == null) return;
 		VoicePlayer.Stream = lijst[0];
 		VoicePlayer.Play();
+		}	
 	}
 
 	private void SpeelVoiceline(Godot.Collections.Array<AudioStream> lijst)
 	{
-		if (lijst == null || lijst.Count <= 1 || VoicePlayer == null) return;
-		int index = _random.Next(1, lijst.Count);
-		VoicePlayer.Stream = lijst[index];
-		VoicePlayer.Play();
+		var data = Gamedata.LoadGame();
+		if (data.NPCSetting == 0) 
+        {
+        	return; 
+        }
+		else{
+			if (lijst == null || lijst.Count <= 1 || VoicePlayer == null) return;
+			int index = _random.Next(1, lijst.Count);
+			VoicePlayer.Stream = lijst[index];
+			VoicePlayer.Play();
+		}
 	}
 }

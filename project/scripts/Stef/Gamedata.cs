@@ -21,7 +21,7 @@ public partial class Gamedata : Node
         {
             {"Money", currentMoney},
             {"Language", SelectedLanguage},
-            {"NPC Setting", NPCSetting}
+            {"NPCSetting", NPCSetting}
         };
         string jsonString = Json.Stringify(data);
         file.StoreString(jsonString);

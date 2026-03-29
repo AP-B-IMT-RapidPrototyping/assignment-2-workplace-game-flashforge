@@ -13,6 +13,7 @@ public partial class PlayerController : CharacterBody3D
     private bool _isHolding = false;
     private Node3D _lastLookedAt = null;
     [Export] public Interact InteractieLabel;
+    [Export] public NPCManager NPCManager;
     public bool IsHoldingSomething()
     {
         return _isHolding;
@@ -79,6 +80,14 @@ public partial class PlayerController : CharacterBody3D
         if (AimRayCast == null || !AimRayCast.IsColliding()) return;
 
         var collider = AimRayCast.GetCollider();
+        if (collider is Node3D hitNode)
+        {
+            if (NPCManager != null && (hitNode.IsInGroup("NPC") || hitNode.GetParent() is NPCManager))
+            {
+                NPCManager.ToonPrijsOpUI();
+                return;
+            }
+        }
         if (collider is AutoOnderdeel targetFysica)
         {
             var autoLogica = targetFysica.Owner as AutoWerking;
