@@ -11,6 +11,7 @@ public partial class Carmanager : Node3D
 	[Export] public Vector3 SpawnSchaal = new Vector3(0.2f, 0.2f, 0.2f);
 	private Node3D _huidigeAuto = null;
 	[Export] public MoneyManager MoneySystem;
+	[Export] public int BeloningPerAuto = 250;
 	[Export] public NPCManager NPCManager;
 	public override void _Ready()
 	{
@@ -34,7 +35,7 @@ public partial class Carmanager : Node3D
 		{
 			mogelijkeScriptNode = _huidigeAuto.FindChild("*", true, false);
 		}
-
+		
 		if (mogelijkeScriptNode is AutoWerking script)
 		{
 			script.AutoVoltooid += OnAutoVoltooid;
@@ -42,10 +43,9 @@ public partial class Carmanager : Node3D
 			AnimationPlayer anim = _huidigeAuto.FindChild("AnimationPlayer", true, false) as AnimationPlayer;
 			anim.Play("spawnanimation");
 			if (NPCManager != null)
-			{
-				NPCManager.StelPrijsIn(script.AutoBeloning);
-				NPCManager.NPCSpawn();
-			}
+            {
+                NPCManager.NPCSpawn();
+            }
 		}
 	}
 
@@ -57,15 +57,12 @@ public partial class Carmanager : Node3D
 		if (scriptNode is AutoWerking script)
 		{
 			script.AutoVoltooid -= OnAutoVoltooid;
-			int finaleBeloning = script.AutoBeloning;
-
-			if (MoneySystem != null) MoneySystem.AddMoney(finaleBeloning);
-			GD.Print($"Auto voltooid! Beloning van ${finaleBeloning} uitbetaald.");
 		}
 		if (NPCManager != null)
-		{
-			NPCManager.NPCDespawn();
-		}
+    	{
+        	NPCManager.NPCDespawn();
+    	}
+		if (MoneySystem != null) MoneySystem.AddMoney(BeloningPerAuto);
 		AnimationPlayer anim = _huidigeAuto.FindChild("AnimationPlayer", true, false) as AnimationPlayer;
 		if (anim != null)
 		{

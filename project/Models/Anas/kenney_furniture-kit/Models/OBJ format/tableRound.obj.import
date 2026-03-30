@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://c1um0osrrxce4"
+path="res://.godot/imported/tableRound.obj-97fca1f41e986b49a8f161d7f9078c04.mesh"
+
+[deps]
+
+files=["res://.godot/imported/tableRound.obj-97fca1f41e986b49a8f161d7f9078c04.mesh"]
+
+source_file="res://Models/Anas/kenney_furniture-kit/Models/OBJ format/tableRound.obj"
+dest_files=["res://.godot/imported/tableRound.obj-97fca1f41e986b49a8f161d7f9078c04.mesh", "res://.godot/imported/tableRound.obj-97fca1f41e986b49a8f161d7f9078c04.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false

@@ -150,9 +150,10 @@ _data = {
 
 [node name="achtergrond" parent="." unique_id=1942566677 instance=ExtResource("3_8gtub")]
 
-[node name="Area3D" type="Area3D" parent="achtergrond" unique_id=95696399]
+[node name="Area3D" type="Area3D" parent="achtergrond" unique_id=95696399 node_paths=PackedStringArray("Audio")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.23262598, 4.092864, -5.852756)
 script = ExtResource("2_dxj03")
+Audio = NodePath("../AudioStreamPlayer3D")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="achtergrond/Area3D" unique_id=1579223292]
 shape = SubResource("SphereShape3D_dxj03")

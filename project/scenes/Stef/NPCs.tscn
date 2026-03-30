@@ -29,12 +29,7 @@
 [ext_resource type="AudioStream" uid="uid://d2ss2xhk50cvv" path="res://objects/Stef/voicelines/Tam/Gurl.ogg" id="15_mpv4x"]
 [ext_resource type="AudioStream" uid="uid://cknwhxjmwh6mk" path="res://objects/Stef/voicelines/Tam/Hit by a car.ogg" id="16_mqfll"]
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ovtkn"]
-radius = 0.09326172
-height = 0.2824707
-
-[node name="root" type="CharacterBody3D" unique_id=1228724257 node_paths=PackedStringArray("MaleCharacters", "FemaleCharacters", "NPCInteractie")]
-collision_layer = 2
+[node name="root" type="Node3D" unique_id=278607736 node_paths=PackedStringArray("MaleCharacters", "FemaleCharacters", "VoicePlayer")]
 script = ExtResource("1_xq7co")
 MaleCharacters = [NodePath("models/men/character-male-a2"), NodePath("models/men/character-male-b2"), NodePath("models/men/character-male-c2"), NodePath("models/men/character-male-d2"), NodePath("models/men/character-male-e2"), NodePath("models/men/character-male-f2")]
 FemaleCharacters = [NodePath("models/women/character-female-a2"), NodePath("models/women/character-female-b2"), NodePath("models/women/character-female-c2"), NodePath("models/women/character-female-d2"), NodePath("models/women/character-female-e2"), NodePath("models/women/character-female-f2")]
@@ -42,7 +37,7 @@ MaleVoicelines_English_1 = Array[AudioStream]([ExtResource("2_gdh2t"), ExtResour
 MaleVoicelines_English_2 = Array[AudioStream]([ExtResource("7_bxn41"), ExtResource("8_ov3cw"), ExtResource("9_3hoc3"), ExtResource("10_jqqtr"), ExtResource("11_ovtkn"), ExtResource("12_l7e7y")])
 MaleVoicelines_English_3 = Array[AudioStream]([])
 FemaleVoicelines_English_1 = Array[AudioStream]([ExtResource("13_ovtkn"), ExtResource("14_l7e7y"), ExtResource("15_mpv4x"), ExtResource("16_mqfll")])
-NPCInteractie = NodePath("CollisionShape3D")
+VoicePlayer = NodePath("")
 
 [node name="models" type="Node3D" parent="." unique_id=303708964]
 
@@ -85,7 +80,3 @@ transform = Transform3D(0.35, 0, 0, 0, 0.35, 0, 0, 0, 0.35, 0, 0, 0)
 
 [node name="character-female-f2" parent="models/women" unique_id=178866368 instance=ExtResource("13_ov3cw")]
 transform = Transform3D(0.35, 0, 0, 0, 0.35, 0, 0, 0, 0.35, 0, 0, 0)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=362615296]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1463623, 0)
-shape = SubResource("CapsuleShape3D_ovtkn")
