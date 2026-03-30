@@ -14,6 +14,7 @@ public partial class PlayerController : CharacterBody3D
     private Node3D _lastLookedAt = null;
     [Export] public Interact InteractieLabel;
     [Export] public NPCManager NPCManager;
+    private bool _isPausedInMenu = false;
     public bool IsHoldingSomething()
     {
         return _isHolding;
@@ -21,9 +22,6 @@ public partial class PlayerController : CharacterBody3D
     public override void _Ready()
     {
         Input.MouseMode = Input.MouseModeEnum.Captured;
-
-        if (HoldPosition == null)
-            GD.PrintErr("HoldPosition is niet toegewezen! Voeg een Marker3D toe aan de player.");
     }
 
     public override void _PhysicsProcess(double delta)
@@ -80,14 +78,18 @@ public partial class PlayerController : CharacterBody3D
         if (AimRayCast == null || !AimRayCast.IsColliding()) return;
 
         var collider = AimRayCast.GetCollider();
-        if (collider is Node3D hitNode)
+
+        NPCManager manager = null;
+        if (collider is NPCManager direct) manager = direct;
+        else if (collider is Node n && n.GetParent() is NPCManager parent) manager = parent;
+
+        if (manager != null)
         {
-            if (NPCManager != null && (hitNode.IsInGroup("NPC") || hitNode.GetParent() is NPCManager))
-            {
-                NPCManager.ToonPrijsOpUI();
-                return;
-            }
+            GD.Print("Interactie met NPC geslaagd!");
+            manager.ToonPrijsOpUI();
+            return;
         }
+
         if (collider is AutoOnderdeel targetFysica)
         {
             var autoLogica = targetFysica.Owner as AutoWerking;
@@ -131,6 +133,7 @@ public partial class PlayerController : CharacterBody3D
                 return;
             }
         }
+
         else if (collider is GrondstoffenWinkel bron)
         {
             bron.KoopOnderdeel(this);

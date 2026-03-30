@@ -164,7 +164,7 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0
 [node name="autowerking" type="Node3D" parent="." unique_id=2104136576 node_paths=PackedStringArray("OnderdeelSlots")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 0)
 script = ExtResource("1_vqxhv")
-OnderdeelSlots = [NodePath("../animatie/item slots/wielen/linker voor wiel"), NodePath("../animatie/item slots/wielen/rechter voor wiel"), NodePath("../animatie/item slots/wielen/linker achter wiel"), NodePath("../animatie/item slots/wielen/rechter achter wiel"), NodePath("../animatie/item slots/motor"), NodePath("../animatie/item slots/uitlaat")]
+OnderdeelSlots = []
 BeschikbareOnderdelen = Array[Object]([ExtResource("5_pjuyf"), ExtResource("5_cn6kn"), ExtResource("4_yg51h")])
 SpawnKans = 0.6
 
@@ -295,28 +295,34 @@ visible = false
 
 [node name="linker deur" type="Marker3D" parent="animatie/item slots/deuren" unique_id=1053716411]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6014092, 0.7442894, 0)
+visible = false
 
 [node name="StaticBody3D" type="StaticBody3D" parent="animatie/item slots/deuren/linker deur" unique_id=1642075838]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -0.04295373, -0.0315665, 0.07521242)
+visible = false
 collision_layer = 2
 physics_material_override = SubResource("PhysicsMaterial_6dfp2")
 script = ExtResource("3_txtdd")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="animatie/item slots/deuren/linker deur/StaticBody3D" unique_id=278698693]
 transform = Transform3D(1, 4.371139e-08, -4.371139e-08, -4.371139e-08, -4.371139e-08, -1, -4.371139e-08, 1, -4.3711385e-08, 0.015422866, 0.13007331, 0.09463507)
+visible = false
 shape = SubResource("BoxShape3D_m5a2o")
 
 [node name="rechter deur" type="Marker3D" parent="animatie/item slots/deuren" unique_id=836525833]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.53400075, 0.9007928, 0)
+visible = false
 
 [node name="StaticBody3D" type="StaticBody3D" parent="animatie/item slots/deuren/rechter deur" unique_id=510627830]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0.08671045, -0.03156653, 0.09150118)
+visible = false
 collision_layer = 2
 physics_material_override = SubResource("PhysicsMaterial_6dfp2")
 script = ExtResource("3_txtdd")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="animatie/item slots/deuren/rechter deur/StaticBody3D" unique_id=360900526]
 transform = Transform3D(1, 4.371139e-08, -4.371139e-08, -4.371139e-08, -4.371139e-08, -1, -4.371139e-08, 1, -4.3711385e-08, -0.038013436, 0.012977362, 0.012207091)
+visible = false
 shape = SubResource("BoxShape3D_cn6kn")
 
 [node name="auto_leeg" parent="animatie" unique_id=1567512547 instance=ExtResource("5_m5a2o")]

@@ -34,7 +34,7 @@ public partial class Carmanager : Node3D
 		{
 			mogelijkeScriptNode = _huidigeAuto.FindChild("*", true, false);
 		}
-		
+
 		if (mogelijkeScriptNode is AutoWerking script)
 		{
 			script.AutoVoltooid += OnAutoVoltooid;
@@ -42,9 +42,10 @@ public partial class Carmanager : Node3D
 			AnimationPlayer anim = _huidigeAuto.FindChild("AnimationPlayer", true, false) as AnimationPlayer;
 			anim.Play("spawnanimation");
 			if (NPCManager != null)
-            {
-                NPCManager.NPCSpawn();
-            }
+			{
+				NPCManager.StelPrijsIn(script.AutoBeloning);
+				NPCManager.NPCSpawn();
+			}
 		}
 	}
 
@@ -56,15 +57,15 @@ public partial class Carmanager : Node3D
 		if (scriptNode is AutoWerking script)
 		{
 			script.AutoVoltooid -= OnAutoVoltooid;
-			int finaleBeloning = script.AutoBeloning; 
-        
-        if (MoneySystem != null) MoneySystem.AddMoney(finaleBeloning);
-        GD.Print($"Auto voltooid! Beloning van ${finaleBeloning} uitbetaald.");
+			int finaleBeloning = script.AutoBeloning;
+
+			if (MoneySystem != null) MoneySystem.AddMoney(finaleBeloning);
+			GD.Print($"Auto voltooid! Beloning van ${finaleBeloning} uitbetaald.");
 		}
 		if (NPCManager != null)
-    	{
-        	NPCManager.NPCDespawn();
-    	}
+		{
+			NPCManager.NPCDespawn();
+		}
 		AnimationPlayer anim = _huidigeAuto.FindChild("AnimationPlayer", true, false) as AnimationPlayer;
 		if (anim != null)
 		{
