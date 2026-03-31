@@ -17,7 +17,6 @@ public partial class Opstartscherm : Control
     [Export] public CheckButton NPCKnop;
     public bool NPCSwitch = false;
     private int NPCSetting;
-    public int TutorialCompleted;
 
     public override void _Ready()
     {
@@ -41,7 +40,7 @@ public partial class Opstartscherm : Control
             NPCSetting = 0;
         }
         var data = Gamedata.LoadGame();
-        Gamedata.SaveGame(data.Money, _currentLanguageId, NPCSetting, TutorialCompleted);
+        Gamedata.SaveGame(data.Money, _currentLanguageId, NPCSetting, data.TutorialCompleted, data.TutorialActive);
 
         switch (id)
         {
@@ -81,11 +80,12 @@ public partial class Opstartscherm : Control
     }
     public void _on_start_pressed()
     {
-        if (TutorialCompleted == 1)
+        var data = Gamedata.LoadGame();
+        if (data.TutorialCompleted == 1)
         {
             GetTree().ChangeSceneToPacked(StartScene);
         }
-        else if (TutorialCompleted == 0)
+        else if (data.TutorialCompleted == 0)
         {
             GetTree().ChangeSceneToPacked(Tutorial);
         }
@@ -115,11 +115,13 @@ public partial class Opstartscherm : Control
     public void _on_afsluiten_pressed()
     {
         var data = Gamedata.LoadGame();
-        Gamedata.SaveGame(data.Money, _currentLanguageId, NPCSetting, TutorialCompleted);
+        Gamedata.SaveGame(data.Money, _currentLanguageId, NPCSetting, 0, data.TutorialActive);
         GetTree().Quit();
     }
     public void _on_tutorial_pressed()
     {
+        var data = Gamedata.LoadGame();
+        Gamedata.SaveGame(data.Money, _currentLanguageId, NPCSetting, data.TutorialCompleted, 1);   
         GetTree().ChangeSceneToPacked(Tutorial);
     }
     public void _on_check_button_pressed()

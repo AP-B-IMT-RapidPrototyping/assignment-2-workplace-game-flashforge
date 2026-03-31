@@ -7,7 +7,9 @@
 [ext_resource type="Script" uid="uid://ca8gr7ululke4" path="res://scripts/Stef/Pauzemenu.cs" id="5_c5sok"]
 [ext_resource type="PackedScene" uid="uid://r3mcq2g8pnjo" path="res://scenes/Stef/UI.tscn" id="6_t47te"]
 [ext_resource type="Script" uid="uid://ddgpy1j8fxjii" path="res://scripts/Stef/TutorialCarManager.cs" id="7_5xrhq"]
+[ext_resource type="Script" uid="uid://cs4xppieannfv" path="res://scripts/Stef/TutorialUI.cs" id="7_jqbfc"]
 [ext_resource type="PackedScene" uid="uid://q11s8iy82nys" path="res://scenes/Stef/auto.tscn" id="8_redhr"]
+[ext_resource type="PackedScene" uid="uid://brkwf5qgpsmg" path="res://scenes/Stef/NPCs.tscn" id="10_6urmi"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_b3he2"]
 size = Vector3(50, 0.5, 50)
@@ -17,7 +19,7 @@ size = Vector3(16.94043, 4.9418335, 0.8946533)
 
 [node name="Root" type="Node3D" unique_id=1002120286]
 
-[node name="player" parent="." unique_id=1728694951 node_paths=PackedStringArray("InteractieLabel") instance=ExtResource("1_swky1")]
+[node name="player" parent="." unique_id=1728694951 node_paths=PackedStringArray("InteractieLabel") groups=["Player"] instance=ExtResource("1_swky1")]
 transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, 0, 0, 1.5)
 InteractieLabel = NodePath("../Control/interact")
 
@@ -49,10 +51,9 @@ shape = SubResource("BoxShape3D_redhr")
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -8.451431, 2.4768982, -0.4033558)
 shape = SubResource("BoxShape3D_redhr")
 
-[node name="pausemanager" type="Node3D" parent="." unique_id=412714730 node_paths=PackedStringArray("PauzePaneel", "GeldBeheerder", "GameContinue", "MainMenu")]
+[node name="pausemanager" type="Node3D" parent="." unique_id=412714730 node_paths=PackedStringArray("PauzePaneel", "GameContinue", "MainMenu")]
 script = ExtResource("5_c5sok")
 PauzePaneel = NodePath("pauzemenu")
-GeldBeheerder = NodePath("../Control/geld")
 GameContinue = NodePath("pauzemenu/knoppen/hervatten")
 MainMenu = NodePath("pauzemenu/knoppen/hoofdmenu")
 
@@ -132,18 +133,58 @@ MoneySystem = NodePath("../../Control/MoneyManager")
 [node name="geld" parent="Control" index="0" unique_id=1552737992]
 visible = false
 
+[node name="tutorial" type="Control" parent="Control" unique_id=2006875663 node_paths=PackedStringArray("TutorialLabel", "GeldLabel", "CarManager", "NPCManager", "NPCMenu", "PlayerNode")]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -204.0
+offset_right = 204.0
+offset_bottom = 133.0
+grow_horizontal = 2
+script = ExtResource("7_jqbfc")
+TutorialLabel = NodePath("Label")
+GeldLabel = NodePath("tutorialgeldlabel")
+CarManager = NodePath("../../TutorialCarManager")
+NPCManager = NodePath("../../NPC")
+NPCMenu = NodePath("../../NPC/Control")
+PlayerNode = NodePath("../../player")
+
+[node name="Label" type="Label" parent="Control/tutorial" unique_id=502493401]
+layout_mode = 0
+offset_right = 375.0
+offset_bottom = 54.0
+
+[node name="tutorialgeldlabel" type="Label" parent="Control/tutorial" unique_id=2046196071]
+layout_mode = 0
+offset_left = 710.0
+offset_top = 16.0
+offset_right = 750.0
+offset_bottom = 39.0
+
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=600988393]
 transform = Transform3D(0.9848077, -0.11161889, 0.13302222, 0, 0.76604444, 0.6427876, -0.17364818, -0.6330222, 0.7544065, 0, 0, 0)
 
-[node name="TutorialCarManager" type="Node3D" parent="." unique_id=1873484745 node_paths=PackedStringArray("MoneySystem")]
+[node name="TutorialCarManager" type="Node3D" parent="." unique_id=1873484745 node_paths=PackedStringArray("MoneySystem", "NPCManager")]
 script = ExtResource("7_5xrhq")
 AutoScene = ExtResource("8_redhr")
 SpawnPositie = Vector3(0, 0, 0)
 MoneySystem = NodePath("../Control/MoneyManager")
 BeloningPerAuto = 0
+NPCManager = NodePath("../NPC")
+
+[node name="NPC" parent="." unique_id=253047830 node_paths=PackedStringArray("PlayerToFollow", "InteractieMenu") instance=ExtResource("10_6urmi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0184253, 0, -0.017176598)
+PlayerToFollow = NodePath("../player")
+InteractieMenu = NodePath("Control")
+
+[node name="Control" parent="NPC" index="1" unique_id=311627666 node_paths=PackedStringArray("CarManagerNode", "PlayerNode")]
+CarManagerNode = NodePath("../../TutorialCarManager")
+PlayerNode = NodePath("../../player")
 
 [connection signal="pressed" from="pausemanager/pauzemenu/knoppen/hervatten" to="pausemanager" method="_on_hervatten_pressed"]
 [connection signal="pressed" from="pausemanager/pauzemenu/knoppen/hoofdmenu" to="pausemanager" method="_on_hoofdmenu_pressed"]
 
 [editable path="player"]
 [editable path="Control"]
+[editable path="NPC"]

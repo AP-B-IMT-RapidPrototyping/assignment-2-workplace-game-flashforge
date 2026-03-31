@@ -12,9 +12,10 @@ public partial class Gamedata : Node
         public int SelectedLanguage;
         public int NPCSetting;
         public int TutorialCompleted;
+        public int TutorialActive;
     }
 
-    public static void SaveGame(int currentMoney, int SelectedLanguage, int NPCSetting, int TutorialCompleted)
+    public static void SaveGame(int currentMoney, int SelectedLanguage, int NPCSetting, int TutorialCompleted, int TutorialActive)
     {
         using var file = FileAccess.Open(SavePath, FileAccess.ModeFlags.Write);
         if (file == null) return;
@@ -23,7 +24,8 @@ public partial class Gamedata : Node
             {"Money", currentMoney},
             {"Language", SelectedLanguage},
             {"NPC Setting", NPCSetting},
-            {"TutorialCompleted", TutorialCompleted}
+            {"TutorialCompleted", TutorialCompleted},
+            {"TutorialActive", TutorialActive}
         };
         string jsonString = Json.Stringify(data);
         file.StoreString(jsonString);
@@ -32,7 +34,7 @@ public partial class Gamedata : Node
 
     public static SaveData LoadGame()
     {
-        SaveData loadedData = new SaveData { Money = 1000, SelectedLanguage = 0, NPCSetting = 0, TutorialCompleted = 0 };
+        SaveData loadedData = new SaveData { Money = 1000, SelectedLanguage = 0, NPCSetting = 0, TutorialCompleted = 0, TutorialActive = 0 };
 
         if (!FileAccess.FileExists(SavePath)) return loadedData;
 
@@ -56,7 +58,10 @@ public partial class Gamedata : Node
                 loadedData.NPCSetting = (int)data["NPC Setting"];
 
             if (data.ContainsKey("TutorialCompleted"))
-                loadedData.NPCSetting = (int)data["TutorialCompleted"];
+                loadedData.TutorialCompleted = (int)data["TutorialCompleted"];
+            
+            if (data.ContainsKey("TutorialActive"))
+                loadedData.TutorialActive = (int)data["TutorialActive"];
         }
 
         return loadedData; ;

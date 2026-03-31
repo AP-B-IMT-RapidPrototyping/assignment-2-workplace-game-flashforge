@@ -8,22 +8,16 @@ public partial class NPCInteractie : Control
 	[Export] public Button WaitButton;
 	[Export] public Label TekstLabel;
 
-	private Carmanager _carManager;
-    private PlayerController _player;
+	[Export] public Node CarManagerNode;
+    [Export] public PlayerController PlayerNode;
     private bool _isGeaccepteerd = false;
 
     public override void _Ready()
     {
-        _carManager = GetTree().Root.FindChild("Carmanager", true, false) as Carmanager;
-    
-    // Zoek de speler op een veiligere manier
-    	_player = GetTree().GetFirstNodeInGroup("Player") as PlayerController;
-    
-    // Als de groep niet werkt, probeer dan de oude manier met een extra check
-    	if (_player == null)
-    	{
-        	_player = GetTree().Root.FindChild("Player", true, false) as PlayerController;
-    	}
+        if (PlayerNode == null)
+        {
+            PlayerNode = GetTree().GetFirstNodeInGroup("Player") as PlayerController;
+        }
     }
 
     public void _on_accept_pressed()
@@ -35,53 +29,56 @@ public partial class NPCInteractie : Control
         }
 
         _isGeaccepteerd = true;
-
-        if (TekstLabel != null) 
-            TekstLabel.Text = "Succes met de reparatie!";
-
-        AcceptButton.Hide();
-        RejectButton.Hide();
-
-        SluitMenu(); // <--- Zorgt dat speler weer kan lopen
+        if (TekstLabel != null) TekstLabel.Text = "Succes met de reparatie!";
+        AcceptButton?.Hide();
+        RejectButton?.Hide();
+        SluitMenu();
     }
 
     public void _on_reject_pressed()
     {
-        if (_carManager != null)
+        if (CarManagerNode != null)
         {
-            _carManager.VerwijderAutoDirect();
+            if (CarManagerNode is TutorialCarManager tcm) tcm.VerwijderAutoDirect();
+            else if (CarManagerNode is Carmanager cm) cm.VerwijderAutoDirect();
         }
-
-        SluitMenu(); // <--- Zorgt dat speler weer kan lopen
+        SluitMenu();
     }
 
-    public void _on_wait_pressed()
-    {
-        SluitMenu(); // <--- Zorgt dat speler weer kan lopen
-    }
+    public void _on_wait_pressed() => SluitMenu();
 
     private void SluitMenu()
     {
-        GD.Print("SluitMenu aangeroepen"); // Debug check in je console
-    this.Hide();
-    
-    if (_player != null)
-    {
-        GD.Print("Player gevonden, SetMenuState(false) wordt uitgevoerd");
-        _player.SetMenuState(false);
+        this.Hide();
+        if (PlayerNode != null)
+        {
+            PlayerNode.SetMenuState(false);
+        }
+        else
+        {
+            GD.PrintErr("NPCInteractie: PlayerNode is null!");
+        }
     }
-    else
-    {
-        GD.PrintErr("FOUT: NPCInteractie kan de PlayerController niet vinden!");
-    }
-	}
 
     public void ResetInteractie()
     {
         _isGeaccepteerd = false;
-        if (AcceptButton != null) AcceptButton.Show();
-        if (RejectButton != null) RejectButton.Show();
+        AcceptButton?.Show();
+        RejectButton?.Show();
+        if (TekstLabel != null) TekstLabel.Text = "Wil je deze auto repareren?";
+    }
+
+    public void OverschrijfTekst(string nieuweTekst)
+    {
         if (TekstLabel != null)
-            TekstLabel.Text = "Wil je deze auto repareren?";
+        {
+            TekstLabel.Text = nieuweTekst;
+        }
+    }
+
+    public void ToonKnoppen(bool accept, bool reject)
+    {
+        if (AcceptButton != null) AcceptButton.Visible = accept;
+        if (RejectButton != null) RejectButton.Visible = reject;
     }
 }

@@ -41,7 +41,7 @@ public partial class Pauzemenu : Node3D
         if (GeldBeheerder != null)
         {
              var data = Gamedata.LoadGame();
-            Gamedata.SaveGame(GeldBeheerder.CurrentMoney, SelectedLanguage, NPCSetting, data.TutorialCompleted);
+            Gamedata.SaveGame(GeldBeheerder.CurrentMoney, SelectedLanguage, NPCSetting, data.TutorialCompleted, 0);
             GD.Print("Spel opgeslagen voor afsluiten.");
         }
 

@@ -3,6 +3,8 @@ using System;
 
 public partial class PlayerController : CharacterBody3D
 {
+    [Signal] public delegate void ItemOpgepaktEventHandler();
+    [Signal] public delegate void ItemGeplaatstEventHandler();
     [Export] private float _mouseSensitivity = 0.003f;
     [Export] private Camera3D _camera;
     [Export] private float _speed = 2.0f;
@@ -114,6 +116,7 @@ public partial class PlayerController : CharacterBody3D
                     _vastgehoudenObject.QueueFree();
                     _vastgehoudenObject = null;
                     _isHolding = false;
+                    EmitSignal(SignalName.ItemGeplaatst);
                 }
             }
             else if (!_isHolding && targetFysica.OnderdeelData != null)
@@ -138,6 +141,7 @@ public partial class PlayerController : CharacterBody3D
         _vastgehoudenObject.Scale = new Vector3(0.2f, 0.2f, 0.2f);
         _vastgehoudenObject.CollisionLayer = 0;
         _isHolding = true;
+        EmitSignal(SignalName.ItemOpgepakt);
     }
 
     public override void _Process(double delta) => CheckInteractieDisplay();

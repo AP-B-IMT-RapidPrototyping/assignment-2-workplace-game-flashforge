@@ -6,9 +6,10 @@ public partial class TutorialUI : Control
 {
     [Export] public Label TutorialLabel;
     [Export] public Label GeldLabel;
-    [Export] public Carmanager CarManager;
+    [Export] public TutorialCarManager CarManager;
     [Export] public NPCManager NPCManager;
     [Export] public NPCInteractie NPCMenu;
+	[Export] public PlayerController PlayerNode;
 
     private int _tutorialStap = 0;
     private bool _wachtOpInput = false;
@@ -19,13 +20,12 @@ public partial class TutorialUI : Control
         GeldLabel?.Hide();
         TutorialLabel.Text = "";
         
-        // Start de eerste stap
         tutorial_1();
     }
 
     public override void _Input(InputEvent @event)
     {
-        if (_wachtOpInput && @event.IsActionPressed("ui_accept")) // Enter of Space
+        if (_wachtOpInput && @event.IsActionPressed("ui_accept"))
         {
             _wachtOpInput = false;
         }
@@ -40,6 +40,11 @@ public partial class TutorialUI : Control
         }
     }
 
+    private async Task Wacht(float seconden)
+    {
+        await ToSignal(GetTree().CreateTimer(seconden), "timeout");
+    }
+
     public async void tutorial_1()
     {
         TutorialLabel.Text = "Welkom bij de garage! In dit spel repareer je auto's voor klanten.\n(Druk op ENTER om verder te gaan)";
@@ -51,37 +56,59 @@ public partial class TutorialUI : Control
     }
 
     public async void tutorial_2()
+{
+    TutorialLabel.Text = "Pak een onderdeel op met 'E'.";
+    
+    if (PlayerNode != null)
     {
-        TutorialLabel.Text = "Loop naar de rekken en pak een onderdeel op met 'E'.";
-        
-        // We wachten tot de speler iets vastheeft
-        PlayerController player = GetTree().GetFirstNodeInGroup("Player") as PlayerController;
-        while (player != null && !player.IsHoldingSomething())
-        {
-            await ToSignal(GetTree(), "process_frame");
-        }
-        
+        await ToSignal(PlayerNode, PlayerController.SignalName.ItemOpgepakt);
+        await Wacht(0.5f);
         tutorial_3();
     }
+    else
+    {
+        GD.PrintErr("FOUT: PlayerNode is niet gekoppeld in de Inspector van TutorialUI!");
+        
+        PlayerController backupPlayer = GetTree().GetFirstNodeInGroup("Player") as PlayerController;
+        if (backupPlayer != null)
+        {
+            await ToSignal(backupPlayer, PlayerController.SignalName.ItemOpgepakt);
+            await Wacht(0.5f);
+            tutorial_3();
+        }
+    }
+}
 
     public async void tutorial_3()
+{
+    TutorialLabel.Text = "Plaats het onderdeel nu op de auto.";
+    
+    if (PlayerNode != null)
     {
-        TutorialLabel.Text = "Goed zo! Loop nu naar de auto en plaats het onderdeel op de juiste plek.";
-        
-        // Wacht tot de auto een onderdeel ontvangt (we checken of de speler het loslaat)
-        PlayerController player = GetTree().GetFirstNodeInGroup("Player") as PlayerController;
-        while (player != null && player.IsHoldingSomething())
-        {
-            await ToSignal(GetTree(), "process_frame");
-        }
-
-        TutorialLabel.Text = "Maak de auto nu volledig af door alle missende onderdelen te plaatsen.";
-        
-        // Wacht op signaal van CarManager dat de auto klaar is
-        await ToSignal(CarManager, "AutoKlaar"); // Zorg dat Carmanager dit signaal emit
-        
-        tutorial_4();
+        await ToSignal(PlayerNode, PlayerController.SignalName.ItemGeplaatst);
     }
+    else
+    {
+        PlayerController backupPlayer = GetTree().GetFirstNodeInGroup("Player") as PlayerController;
+        if (backupPlayer != null) await ToSignal(backupPlayer, PlayerController.SignalName.ItemGeplaatst);
+    }
+
+    await Wacht(0.5f);
+    TutorialLabel.Text = "Maak de auto nu volledig af door alle missende onderdelen te plaatsen.";
+    
+    if (CarManager != null)
+    {
+        GD.Print("Tutorial wacht op CarManager signaal...");
+        await ToSignal(CarManager, TutorialCarManager.SignalName.AutoKlaar); 
+        GD.Print("AutoKlaar ontvangen!");
+    }
+    else
+    {
+        GD.PrintErr("FOUT: CarManager is niet gekoppeld in de TutorialUI Inspector!");
+    }
+    
+    tutorial_4();
+}
 
     public async void tutorial_4()
     {
@@ -90,8 +117,7 @@ public partial class TutorialUI : Control
         
         TutorialLabel.Text = "Je krijgt geld voor elke reparatie. In het echte spel kosten onderdelen ook geld.\n(Wachten op volgende klant...)";
         
-        await ToSignal(GetTree().CreateTimer(3f), "timeout");
-        CarManager.SpawnNieuweAuto(); // Forceer een nieuwe spawn
+        await Wacht(3.0f);
         
         tutorial_5();
     }
@@ -99,33 +125,32 @@ public partial class TutorialUI : Control
     public async void tutorial_5()
     {
         TutorialLabel.Text = "Daar is een klant! Praat met de NPC om het bod te bekijken.";
-        
-        // Stap 5a: Reject testen
+    
+        await Wacht(3.0f); 
+
         if (NPCMenu != null)
         {
-            NPCMenu.AcceptButton.Hide();
-            NPCMenu.RejectButton.Show();
-            NPCMenu.TekstLabel.Text = "Ik geef je $5 voor deze hele auto. (Lachwekkend laag bod)";
+            NPCMenu.ResetInteractie();
+            NPCMenu.ToonKnoppen(false, true);
+            NPCMenu.OverschrijfTekst("Ik geef je $5 voor deze hele auto. (Lachwekkend laag bod)");
         }
 
-        // Wacht tot de auto weggestuurd wordt (Reject pressed)
-        // Je moet in Carmanager een signaal 'AutoVerwijderd' maken
-        await ToSignal(CarManager, "AutoVerwijderd");
+        await ToSignal(CarManager, TutorialCarManager.SignalName.AutoVerwijderd);
 
-        TutorialLabel.Text = "Goed gedaan. Sommige biedingen zijn te laag. Wacht op de volgende klant.";
-        await ToSignal(GetTree().CreateTimer(4f), "timeout");
+        TutorialLabel.Text = "Goed gedaan. Wacht op de volgende klant.";
+        await Wacht(4.0f);
         CarManager.SpawnNieuweAuto();
+    
+        await Wacht(12.0f);
 
-        // Stap 5b: Accept testen
         if (NPCMenu != null)
         {
-            NPCMenu.AcceptButton.Show();
-            NPCMenu.RejectButton.Hide();
-            NPCMenu.TekstLabel.Text = "Deze reparatie is belangrijk, ik bied $500!";
+            NPCMenu.ResetInteractie();
+            NPCMenu.ToonKnoppen(true, false);
+            NPCMenu.OverschrijfTekst("Deze reparatie is belangrijk, ik bied $500!");
         }
 
-        // Wacht tot de auto weer voltooid is
-        await ToSignal(CarManager, "AutoKlaar");
+        await ToSignal(CarManager, TutorialCarManager.SignalName.AutoKlaar);
         tutorial_6();
     }
 
@@ -134,9 +159,13 @@ public partial class TutorialUI : Control
         GeldLabel.Text = "Geld: $500";
         TutorialLabel.Text = "Tutorial voltooid! Je bent nu een echte monteur.\nDruk op ESC en ga naar het hoofdmenu om het echte spel te starten.";
         
-        // Opslaan dat tutorial klaar is
         var data = Gamedata.LoadGame();
-        data.TutorialCompleted = 1;
-        Gamedata.SaveGame(data);
+        Gamedata.SaveGame(
+            data.Money,
+            data.NPCSetting,
+            data.SelectedLanguage, 
+            1,
+            data.TutorialActive
+        );
     }
 }

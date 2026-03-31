@@ -3,8 +3,6 @@ using System;
 
 public partial class Carmanager : Node3D
 {
-    [Signal] public delegate void AutoKlaarEventHandler();
-    [Signal] public delegate void AutoVerwijderdEventHandler();
     [Export] public PackedScene AutoScene;
     [Export] public float WachttijdSeconden = 5.0f;
     [Export] public Vector3 SpawnPositie = new Vector3(-4, 0, 1.75f);
@@ -66,22 +64,17 @@ public partial class Carmanager : Node3D
 {
     if (_huidigeAuto == null) return;
 
-    // Stop de NPC en ruim de auto op zonder AddMoney aan te roepen
     if (NPCManager != null) NPCManager.NPCDespawn();
     
     AnimationPlayer anim = _huidigeAuto.FindChild("AnimationPlayer", true, false) as AnimationPlayer;
     if (anim != null)
     {
         anim.Play("despawnanimation");
-        // De rest van de logica (QueueFree) zit waarschijnlijk al in je OnAutoVoltooid timer
     }
     else
     {
         _huidigeAuto.QueueFree();
         _huidigeAuto = null;
     }
-    
-    // Start de timer voor de volgende auto
-    // (Afhankelijk van hoe je Carmanager werkt, kun je hier SpawnNieuweAuto() aanroepen na een timer)
 }
 }

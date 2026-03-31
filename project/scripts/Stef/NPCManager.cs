@@ -77,7 +77,14 @@ public partial class NPCManager : Node3D
 
     public async void NPCSpawn()
     {
-		if (InteractieMenu != null) InteractieMenu.ResetInteractie();
+		if (_huidigeZichtbareModel != null)
+        {
+            _huidigeZichtbareModel.Hide();
+            _huidigeZichtbareModel = null;
+        }
+        if (NPCInteractie != null) NPCInteractie.Disabled = true;
+        
+        if (InteractieMenu != null) InteractieMenu.ResetInteractie();
         _isAutoBezig = false;
         _huidigeSessieId++;
         int mijnSessieId = _huidigeSessieId;
@@ -105,8 +112,10 @@ public partial class NPCManager : Node3D
         if (gekozenLijstModels != null && gekozenLijstModels.Count > 0)
     {
         _huidigeZichtbareModel = gekozenLijstModels[_random.Next(0, gekozenLijstModels.Count)];
-        
+        var data = Gamedata.LoadGame();
+        if (data.TutorialActive == 1){
         await ToSignal(GetTree().CreateTimer(12.0f), "timeout");
+        }
         if (!_isAutoBezig || mijnSessieId != _huidigeSessieId) return;
         
         _huidigeZichtbareModel.Show();

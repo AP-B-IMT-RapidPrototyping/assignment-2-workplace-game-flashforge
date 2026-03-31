@@ -3,75 +3,63 @@ using System;
 
 public partial class TutorialCarManager : Node3D
 {
-	[Export] public PackedScene AutoScene;
-	[Export] public float WachttijdSeconden = 0.0f;
-	[Export] public Vector3 SpawnPositie = new Vector3(-4, 0, 2);
-	[Export] public Vector3 SpawnRotatie = new Vector3(0, -90, 0);
-	[Export] public Vector3 SpawnSchaal = new Vector3(0.2f, 0.2f, 0.2f);
-	private Node3D _huidigeAuto = null;
-	[Export] public MoneyManager MoneySystem;
-	[Export] public int BeloningPerAuto = 250;
+    [Signal] public delegate void AutoKlaarEventHandler();
+    [Signal] public delegate void AutoVerwijderdEventHandler();
+    [Export] public PackedScene AutoScene;
+    [Export] public float WachttijdSeconden = 5.0f;
+    [Export] public Vector3 SpawnPositie = new Vector3(-4, 0, 1.75f);
+    [Export] public Vector3 SpawnRotatie = new Vector3(0, -90, 0);
+    [Export] public Vector3 SpawnSchaal = new Vector3(0.2f, 0.2f, 0.2f);
+    [Export] public MoneyManager MoneySystem;
+    [Export] public int BeloningPerAuto = 250;
+    [Export] public NPCManager NPCManager;
+    
+    private Node3D _huidigeAuto = null;
 
-	public override void _Ready()
-	{
-		SpawnNieuweAuto();
-	}
+    public override void _Ready() => SpawnNieuweAuto();
 
-	private void SpawnNieuweAuto()
-	{
-		if (AutoScene == null) return;
+    public void SpawnNieuweAuto()
+    {
+        if (AutoScene == null) return;
+        _huidigeAuto = AutoScene.Instantiate<Node3D>();
+        AddChild(_huidigeAuto);
+        _huidigeAuto.GlobalPosition = SpawnPositie;
+        _huidigeAuto.RotationDegrees = SpawnRotatie;
+        _huidigeAuto.Scale = SpawnSchaal;
 
-		_huidigeAuto = AutoScene.Instantiate<Node3D>();
-		AddChild(_huidigeAuto);
+        Node scriptNode = _huidigeAuto is AutoWerking ? _huidigeAuto : _huidigeAuto.FindChild("*", true, false);
+        
+        if (scriptNode is AutoWerking script)
+        {
+            script.AutoVoltooid += OnAutoVoltooid;
+            script.RandomizeAuto();
+            
+            if (NPCManager != null)
+            {
+                NPCManager.StelPrijsIn(script.AutoBeloning);
+                NPCManager.NPCSpawn();
+            }
+        }
+    }
 
-		_huidigeAuto.GlobalPosition = SpawnPositie;
-		_huidigeAuto.RotationDegrees = SpawnRotatie;
-		_huidigeAuto.Scale = SpawnSchaal;
+    private async void OnAutoVoltooid()
+    {
+        EmitSignal(SignalName.AutoKlaar);
+        if (NPCManager != null) NPCManager.NPCDespawn();
+        if (MoneySystem != null) MoneySystem.AddMoney(BeloningPerAuto);
 
-		Node mogelijkeScriptNode = _huidigeAuto;
+        if (IsInstanceValid(_huidigeAuto)) _huidigeAuto.QueueFree();
+        if (WachttijdSeconden > 0) await ToSignal(GetTree().CreateTimer(WachttijdSeconden), "timeout");
+        SpawnNieuweAuto();
+    }
+    public void VerwijderAutoDirect()
+{
+    EmitSignal(SignalName.AutoVerwijderd);
+    if (_huidigeAuto == null) return;
 
-		if (!(mogelijkeScriptNode is AutoWerking))
-		{
-			mogelijkeScriptNode = _huidigeAuto.FindChild("*", true, false);
-		}
-		if (mogelijkeScriptNode is AutoWerking script)
-		{
-			script.AutoVoltooid += OnAutoVoltooid;
-			script.RandomizeAuto();
-			script.SetTutorialVisuals(true);
-			GD.Print("Auto succesvol gespawnd en script gekoppeld.");
-		}
-		else
-		{
-			GD.PrintErr("FOUT: CarManager kon geen AutoWerking script vinden op de auto!");
-		}
-	}
-
-	private async void OnAutoVoltooid()
-	{
-		Node scriptNode = _huidigeAuto;
-		if (!(scriptNode is AutoWerking)) scriptNode = _huidigeAuto.FindChild("*", true, false);
-
-		if (scriptNode is AutoWerking script)
-		{
-			script.AutoVoltooid -= OnAutoVoltooid;
-		}
-		GD.Print("Auto voltooid! Beloning uitbetalen...");
-		if (MoneySystem != null) MoneySystem.AddMoney(BeloningPerAuto);
-		GD.PrintErr("FOUT: AnimationPlayer niet gevonden op de auto!");
-		await ToSignal(GetTree().CreateTimer(1.0f), "timeout");
-		if (IsInstanceValid(_huidigeAuto))
-		{
-			GD.Print("Auto wordt nu verwijderd.");
-			_huidigeAuto.QueueFree();
-			_huidigeAuto = null;
-		}
-		if (WachttijdSeconden > 0)
-		{
-			GD.Print($"Wachten op volgende auto ({WachttijdSeconden}s)...");
-			await ToSignal(GetTree().CreateTimer(WachttijdSeconden), "timeout");
-		}
-		await ToSignal(GetTree().CreateTimer(3.0f), "timeout");
-		SpawnNieuweAuto();
-	}
+    if (NPCManager != null) NPCManager.NPCDespawn();
+    
+        _huidigeAuto.QueueFree();
+        _huidigeAuto = null;
+}
 }
