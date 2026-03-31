@@ -42,6 +42,11 @@ public partial class Interact : Control
                         _tekstLabel.Text = $"place {onderdeel}";
                         Show();
                     }
+                    else if (tekst == "NPC")
+                    {
+                        _tekstLabel.Text = $"speak with client";
+                        Show();
+                    }
                     break;
                 case 2:
                     if (tekst == "buy")
@@ -57,6 +62,11 @@ public partial class Interact : Control
                     else if (tekst == "place")
                     {
                         _tekstLabel.Text = $"plaats {onderdeel}";
+                        Show();
+                    }
+                    else if (tekst == "NPC")
+                    {
+                        _tekstLabel.Text = $"praat met client";
                         Show();
                     }
                     break;
@@ -76,6 +86,11 @@ public partial class Interact : Control
                         _tekstLabel.Text = $"plaats {onderdeel}";
                         Show();
                     }
+                    else if (tekst == "NPC")
+                    {
+                        _tekstLabel.Text = $"interact with client";
+                        Show();
+                    }
                     break;
                 case 4:
                     if (tekst == "buy")
@@ -91,6 +106,11 @@ public partial class Interact : Control
                     else if (tekst == "place")
                     {
                         _tekstLabel.Text = $"plaats {onderdeel}";
+                        Show();
+                    }
+                    else if (tekst == "NPC")
+                    {
+                        _tekstLabel.Text = $"interact with client";
                         Show();
                     }
                     break;

@@ -4,14 +4,17 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 
-public partial class AutoWerking : Node
+public partial class AutoWerking : Node3D
 {
     [Signal] public delegate void AutoVoltooidEventHandler();
 
     [Export] public Godot.Collections.Array<Marker3D> OnderdeelSlots;
     [Export] public Godot.Collections.Array<AutoResource> BeschikbareOnderdelen;
     [Export, Range(0, 1)] public float SpawnKans = 0.5f;
+    [Export] public int MinBeloning = 100;
+    [Export] public int MaxBeloning = 200;
     private int AantalOnderdelen = 0;
+    public int AutoBeloning { get; private set; }
 
     public override void _Ready()
     {
@@ -33,6 +36,7 @@ public partial class AutoWerking : Node
     public void RandomizeAuto()
     {
         Random random = new Random();
+        AutoBeloning = random.Next(MinBeloning, MaxBeloning);
 
         int verplichtLeegSlotIndex = random.Next(OnderdeelSlots.Count);
 

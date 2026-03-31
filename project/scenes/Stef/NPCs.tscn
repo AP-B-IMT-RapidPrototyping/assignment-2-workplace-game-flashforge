@@ -28,8 +28,13 @@
 [ext_resource type="AudioStream" uid="uid://cffufik40wjc2" path="res://objects/Stef/voicelines/Tam/Do you even know.ogg" id="14_l7e7y"]
 [ext_resource type="AudioStream" uid="uid://d2ss2xhk50cvv" path="res://objects/Stef/voicelines/Tam/Gurl.ogg" id="15_mpv4x"]
 [ext_resource type="AudioStream" uid="uid://cknwhxjmwh6mk" path="res://objects/Stef/voicelines/Tam/Hit by a car.ogg" id="16_mqfll"]
+[ext_resource type="Script" uid="uid://dfffagcim5xvv" path="res://scripts/Stef/NPCInteractie.cs" id="29_l7e7y"]
 
-[node name="root" type="Node3D" unique_id=278607736 node_paths=PackedStringArray("MaleCharacters", "FemaleCharacters", "VoicePlayer")]
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ovtkn"]
+radius = 0.06689453
+height = 0.17095947
+
+[node name="root" type="Node3D" unique_id=253047830 node_paths=PackedStringArray("MaleCharacters", "FemaleCharacters", "PrijsLabel", "RepairText", "NPCInteractie")]
 script = ExtResource("1_xq7co")
 MaleCharacters = [NodePath("models/men/character-male-a2"), NodePath("models/men/character-male-b2"), NodePath("models/men/character-male-c2"), NodePath("models/men/character-male-d2"), NodePath("models/men/character-male-e2"), NodePath("models/men/character-male-f2")]
 FemaleCharacters = [NodePath("models/women/character-female-a2"), NodePath("models/women/character-female-b2"), NodePath("models/women/character-female-c2"), NodePath("models/women/character-female-d2"), NodePath("models/women/character-female-e2"), NodePath("models/women/character-female-f2")]
@@ -37,7 +42,9 @@ MaleVoicelines_English_1 = Array[AudioStream]([ExtResource("2_gdh2t"), ExtResour
 MaleVoicelines_English_2 = Array[AudioStream]([ExtResource("7_bxn41"), ExtResource("8_ov3cw"), ExtResource("9_3hoc3"), ExtResource("10_jqqtr"), ExtResource("11_ovtkn"), ExtResource("12_l7e7y")])
 MaleVoicelines_English_3 = Array[AudioStream]([])
 FemaleVoicelines_English_1 = Array[AudioStream]([ExtResource("13_ovtkn"), ExtResource("14_l7e7y"), ExtResource("15_mpv4x"), ExtResource("16_mqfll")])
-VoicePlayer = NodePath("")
+PrijsLabel = NodePath("Control")
+RepairText = NodePath("Control/Label")
+NPCInteractie = NodePath("models/StaticBody3D/CollisionShape3D")
 
 [node name="models" type="Node3D" parent="." unique_id=303708964]
 
@@ -80,3 +87,83 @@ transform = Transform3D(0.35, 0, 0, 0, 0.35, 0, 0, 0, 0.35, 0, 0, 0)
 
 [node name="character-female-f2" parent="models/women" unique_id=178866368 instance=ExtResource("13_ov3cw")]
 transform = Transform3D(0.35, 0, 0, 0, 0.35, 0, 0, 0, 0.35, 0, 0, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="models" unique_id=1246620425]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.15615845, 0)
+collision_layer = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="models/StaticBody3D" unique_id=526502450]
+shape = SubResource("CapsuleShape3D_ovtkn")
+
+[node name="Control" type="Control" parent="." unique_id=311627666 node_paths=PackedStringArray("AcceptButton", "RejectButton", "WaitButton", "TekstLabel")]
+layout_mode = 3
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -133.75
+offset_top = -97.0
+offset_right = 133.75
+grow_horizontal = 2
+grow_vertical = 0
+script = ExtResource("29_l7e7y")
+AcceptButton = NodePath("accept")
+RejectButton = NodePath("reject")
+WaitButton = NodePath("wait")
+TekstLabel = NodePath("Label")
+
+[node name="Label" type="Label" parent="Control" unique_id=741917798]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -66.0
+offset_top = -19.0
+offset_right = 68.5
+offset_bottom = 19.0
+grow_horizontal = 2
+
+[node name="accept" type="Button" parent="Control" unique_id=790330961]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -15.5
+offset_right = 101.0
+offset_bottom = 15.5
+grow_vertical = 2
+text = "accept offer"
+
+[node name="reject" type="Button" parent="Control" unique_id=1896189974]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -106.0
+offset_top = -15.5
+offset_bottom = 15.5
+grow_horizontal = 0
+grow_vertical = 2
+text = "decline offer"
+
+[node name="wait" type="Button" parent="Control" unique_id=1701876341]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -42.25
+offset_top = -25.0
+offset_right = 42.25
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 12
+text = "dont answer"
+
+[connection signal="pressed" from="Control/accept" to="Control" method="_on_accept_pressed"]
+[connection signal="pressed" from="Control/reject" to="Control" method="_on_reject_pressed"]
+[connection signal="pressed" from="Control/wait" to="Control" method="_on_wait_pressed"]

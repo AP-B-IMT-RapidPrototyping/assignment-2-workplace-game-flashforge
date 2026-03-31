@@ -32,12 +32,6 @@ size = Vector3(0.45715332, 0.5854492, 0.11923218)
 height = 0.44415283
 radius = 0.076660156
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_m5a2o"]
-size = Vector3(0.45300293, 0.16461182, 0.76464844)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_cn6kn"]
-size = Vector3(0.5492554, 0.20397949, 0.7839966)
-
 [sub_resource type="BoxShape3D" id="BoxShape3D_pjuyf"]
 size = Vector3(1.1486816, 0.56951904, 2.437561)
 
@@ -289,35 +283,6 @@ shape = SubResource("CylinderShape3D_cn6kn")
 transform = Transform3D(-0.1, 6.039832e-08, 0, -1.509958e-08, -0.4, 0, 0, 0, 0.1, 0, 0, 0)
 mesh = SubResource("CylinderMesh_yg51h")
 surface_material_override/0 = SubResource("StandardMaterial3D_yg51h")
-
-[node name="deuren" type="Node3D" parent="animatie/item slots" unique_id=757668240]
-visible = false
-
-[node name="linker deur" type="Marker3D" parent="animatie/item slots/deuren" unique_id=1053716411]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6014092, 0.7442894, 0)
-
-[node name="StaticBody3D" type="StaticBody3D" parent="animatie/item slots/deuren/linker deur" unique_id=1642075838]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -0.04295373, -0.0315665, 0.07521242)
-collision_layer = 2
-physics_material_override = SubResource("PhysicsMaterial_6dfp2")
-script = ExtResource("3_txtdd")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="animatie/item slots/deuren/linker deur/StaticBody3D" unique_id=278698693]
-transform = Transform3D(1, 4.371139e-08, -4.371139e-08, -4.371139e-08, -4.371139e-08, -1, -4.371139e-08, 1, -4.3711385e-08, 0.015422866, 0.13007331, 0.09463507)
-shape = SubResource("BoxShape3D_m5a2o")
-
-[node name="rechter deur" type="Marker3D" parent="animatie/item slots/deuren" unique_id=836525833]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.53400075, 0.9007928, 0)
-
-[node name="StaticBody3D" type="StaticBody3D" parent="animatie/item slots/deuren/rechter deur" unique_id=510627830]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0.08671045, -0.03156653, 0.09150118)
-collision_layer = 2
-physics_material_override = SubResource("PhysicsMaterial_6dfp2")
-script = ExtResource("3_txtdd")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="animatie/item slots/deuren/rechter deur/StaticBody3D" unique_id=360900526]
-transform = Transform3D(1, 4.371139e-08, -4.371139e-08, -4.371139e-08, -4.371139e-08, -1, -4.371139e-08, 1, -4.3711385e-08, -0.038013436, 0.012977362, 0.012207091)
-shape = SubResource("BoxShape3D_cn6kn")
 
 [node name="auto_leeg" parent="animatie" unique_id=1567512547 instance=ExtResource("5_m5a2o")]
 

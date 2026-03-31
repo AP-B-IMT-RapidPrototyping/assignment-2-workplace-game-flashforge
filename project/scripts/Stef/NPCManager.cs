@@ -3,10 +3,10 @@ using System;
 
 public partial class NPCManager : Node3D
 {
-	[Export] public Godot.Collections.Array<Node3D> MaleCharacters;
-	[Export] public Godot.Collections.Array<Node3D> FemaleCharacters;
+    [Export] public Godot.Collections.Array<Node3D> MaleCharacters;
+    [Export] public Godot.Collections.Array<Node3D> FemaleCharacters;
 
-	[Export] public Godot.Collections.Array<AudioStream> MaleVoicelines_English_1;
+    [Export] public Godot.Collections.Array<AudioStream> MaleVoicelines_English_1;
     [Export] public Godot.Collections.Array<AudioStream> MaleVoicelines_English_2;
     [Export] public Godot.Collections.Array<AudioStream> MaleVoicelines_English_3;
     
@@ -16,138 +16,135 @@ public partial class NPCManager : Node3D
 
     [Export] public AudioStreamPlayer3D VoicePlayer;
     [Export] public Node3D PlayerToFollow;
+    [Export] public Control PrijsLabel;
+	[Export] public Label RepairText;
+    [Export] public CollisionShape3D NPCInteractie;
+	[Export] public NPCInteractie InteractieMenu;
 
+    private int _huidigeAutoPrijs = 0;
     private Random _random = new Random();
-	private bool _isAutoBezig = false;
-	private Node3D _huidigeZichtbareModel = null;
+    private bool _isAutoBezig = false;
+    private Node3D _huidigeZichtbareModel = null;
     private int _huidigeSessieId = 0;
-	public override void _Ready()
+
+    public override void _Ready()
     {
         VerbergAlleModellen(MaleCharacters);
         VerbergAlleModellen(FemaleCharacters);
+        if (PrijsLabel != null) PrijsLabel.Hide();
     }
+
     public override void _Process(double delta)
     {
         if (PlayerToFollow != null && _huidigeZichtbareModel != null && IsInstanceValid(_huidigeZichtbareModel))
         {
             Vector3 targetPosition = PlayerToFollow.GlobalPosition;
             targetPosition.Y = _huidigeZichtbareModel.GlobalPosition.Y;
-
             _huidigeZichtbareModel.LookAt(targetPosition, Vector3.Up);
             _huidigeZichtbareModel.RotateY(Mathf.DegToRad(180));
         }
     }
-	private void VerbergAlleModellen(Godot.Collections.Array<Node3D> lijst)
+
+    public void StelPrijsIn(int prijs)
+    {
+        _huidigeAutoPrijs = prijs;
+    }
+
+    public void ToonPrijsOpUI()
+    {
+        if (PrijsLabel != null && _huidigeZichtbareModel != null && _huidigeZichtbareModel.Visible)
+        {
+            RepairText.Text = $"I can give you ${_huidigeAutoPrijs} for the repair";
+            PrijsLabel.Show();
+        }
+    }
+
+    public void VerbergPrijsUI()
+    {
+        if (PrijsLabel != null) PrijsLabel.Hide();
+    }
+
+    private void VerbergAlleModellen(Godot.Collections.Array<Node3D> lijst)
     {
         if (lijst == null) return;
-        foreach (Node3D model in lijst)
-        {
-            model?.Hide();
-        }
-    }
-	public async void NPCSpawn()
+    foreach (Node3D model in lijst) model?.Hide();
+    
+    if (NPCInteractie != null) 
     {
-        var data = Gamedata.LoadGame();
-        if (data.NPCSetting == 0) 
-        {
-        GD.Print("NPC Spawn geannuleerd: NPCSetting staat op UIT.");
-        return; // Stop de functie hier
-        }
+        NPCInteractie.Disabled = true; 
+    }
+    }
+
+    public async void NPCSpawn()
+    {
+		if (InteractieMenu != null) InteractieMenu.ResetInteractie();
         _isAutoBezig = false;
-		_huidigeSessieId++;
-		int mijnSessieId = _huidigeSessieId;
-
-		_isAutoBezig = true;
-		int geslacht = _random.Next(0, 2); 
-		Godot.Collections.Array<AudioStream> gekozenLijst = null;
-		Godot.Collections.Array<Node3D> gekozenLijstModels = null;
-
-    if (geslacht == 0)
-    {
-        gekozenLijstModels = MaleCharacters;
-        
-        int setKeuze = _random.Next(0, 2);
-        switch (setKeuze)
-        {
-            case 0: gekozenLijst = MaleVoicelines_English_1; break;
-            case 1: gekozenLijst = MaleVoicelines_English_2; break;
-            case 2: gekozenLijst = MaleVoicelines_English_3; break;
-        }
-    }
-    else if (geslacht == 1)
-    {
-        gekozenLijstModels = FemaleCharacters;
-        int setKeuze = _random.Next(0, 1);
-        switch (setKeuze)
-        {
-            case 0: gekozenLijst = FemaleVoicelines_English_1; break;
-            case 1: gekozenLijst = FemaleVoicelines_English_2; break;
-            case 2: gekozenLijst = FemaleVoicelines_English_3; break;
-        }
-    }
-		if (gekozenLijstModels != null && gekozenLijstModels.Count > 0)
-		{
-			int modelId = _random.Next(0, gekozenLijstModels.Count);
-			_huidigeZichtbareModel = gekozenLijstModels[modelId];
-			
-			if (IsInstanceValid(_huidigeZichtbareModel))
-			{
-				await ToSignal(GetTree().CreateTimer(12.0f), "timeout");
-				if (!_isAutoBezig || mijnSessieId != _huidigeSessieId) return;
-				_huidigeZichtbareModel.Show();
-			}
-		}
-
-		await ToSignal(GetTree().CreateTimer(2.0f), "timeout");
-		if (!_isAutoBezig || mijnSessieId != _huidigeSessieId) return;
-
-		SpeeleersteVoiceline(gekozenLijst);
-
-		while (_isAutoBezig && mijnSessieId == _huidigeSessieId)
-		{
-			float wachtTijd = (float)_random.Next(30, 61);
-			await ToSignal(GetTree().CreateTimer(wachtTijd), "timeout");
-
-			if (!_isAutoBezig || mijnSessieId != _huidigeSessieId) break;
-
-			SpeelVoiceline(gekozenLijst);
-		}
-        GD.Print($"Sessie {mijnSessieId} is beëindigd.");
-	}
-
-	public void NPCDespawn()
-	{
-		StopPraten();
-
-		if (_huidigeZichtbareModel != null && IsInstanceValid(_huidigeZichtbareModel))
-		{
-			_huidigeZichtbareModel.Hide();
-			_huidigeZichtbareModel = null;
-		}
-	}
-
-	public void StopPraten()
-	{
-		_isAutoBezig = false;
         _huidigeSessieId++;
-		if (VoicePlayer != null && VoicePlayer.IsPlaying())
-		{
-			VoicePlayer.Stop();
-		}
-	}
+        int mijnSessieId = _huidigeSessieId;
+        _isAutoBezig = true;
 
-	private void SpeeleersteVoiceline(Godot.Collections.Array<AudioStream> lijst)
-	{
-		if (lijst == null || lijst.Count == 0 || VoicePlayer == null) return;
-		VoicePlayer.Stream = lijst[0];
-		VoicePlayer.Play();
-	}
+        int geslacht = _random.Next(0, 2); 
+        Godot.Collections.Array<AudioStream> gekozenLijst = null;
+        Godot.Collections.Array<Node3D> gekozenLijstModels = (geslacht == 0) ? MaleCharacters : FemaleCharacters;
 
-	private void SpeelVoiceline(Godot.Collections.Array<AudioStream> lijst)
-	{
-		if (lijst == null || lijst.Count <= 1 || VoicePlayer == null) return;
-		int index = _random.Next(1, lijst.Count);
-		VoicePlayer.Stream = lijst[index];
-		VoicePlayer.Play();
-	}
+        int setKeuze = _random.Next(0, 3);
+        if (geslacht == 0) {
+            switch (setKeuze) {
+                case 0: gekozenLijst = MaleVoicelines_English_1; break;
+                case 1: gekozenLijst = MaleVoicelines_English_2; break;
+                case 2: gekozenLijst = MaleVoicelines_English_3; break;
+            }
+        } else {
+            switch (setKeuze) {
+                case 0: gekozenLijst = FemaleVoicelines_English_1; break;
+                case 1: gekozenLijst = FemaleVoicelines_English_2; break;
+                case 2: gekozenLijst = FemaleVoicelines_English_3; break;
+            }
+        }
+
+        if (gekozenLijstModels != null && gekozenLijstModels.Count > 0)
+    {
+        _huidigeZichtbareModel = gekozenLijstModels[_random.Next(0, gekozenLijstModels.Count)];
+        
+        await ToSignal(GetTree().CreateTimer(12.0f), "timeout");
+        if (!_isAutoBezig || mijnSessieId != _huidigeSessieId) return;
+        
+        _huidigeZichtbareModel.Show();
+
+        if (NPCInteractie != null)
+        {
+            NPCInteractie.Disabled = false;
+        }
+    }
+
+        await ToSignal(GetTree().CreateTimer(2.0f), "timeout");
+        if (!_isAutoBezig || mijnSessieId != _huidigeSessieId) return;
+
+        SpeelVoiceline(gekozenLijst, true);
+
+        while (_isAutoBezig && mijnSessieId == _huidigeSessieId)
+        {
+            await ToSignal(GetTree().CreateTimer(_random.Next(30, 61)), "timeout");
+            if (!_isAutoBezig || mijnSessieId != _huidigeSessieId) break;
+            SpeelVoiceline(gekozenLijst, false);
+        }
+    }
+
+    public void NPCDespawn()
+    {
+        _isAutoBezig = false;
+        _huidigeSessieId++;
+        if (VoicePlayer != null) VoicePlayer.Stop();
+        if (PrijsLabel != null) PrijsLabel.Hide();
+        if (_huidigeZichtbareModel != null) _huidigeZichtbareModel.Hide();
+        if (NPCInteractie != null) NPCInteractie.Hide();
+        _huidigeZichtbareModel = null;
+    }
+
+    private void SpeelVoiceline(Godot.Collections.Array<AudioStream> lijst, bool isEerste)
+    {
+        if (lijst == null || lijst.Count == 0 || VoicePlayer == null) return;
+        VoicePlayer.Stream = isEerste ? lijst[0] : lijst[_random.Next(1, lijst.Count)];
+        VoicePlayer.Play();
+    }
 }

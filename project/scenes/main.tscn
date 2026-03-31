@@ -216,7 +216,7 @@ InteractieLabel = NodePath("../UI/interact")
 transform = Transform3D(1.5, 0, 0, 0, -1.7484556e-08, -1.5, 0, 0.4, -6.556708e-08, 0, 0, 0)
 
 [node name="HoldPosition" parent="player/Camera3D" parent_id_path=PackedInt32Array(1728694951, 1031425661) index="1" unique_id=584969109]
-transform = Transform3D(0.99999976, 0, 0, 0, 0.99999976, 0, 0, 0, 0.99999976, 0.21455264, -0.12333605, -0.33508188)
+transform = Transform3D(0.99999976, 0, 0, 0, 0.99999976, 0, 0, 0, 0.99999976, 0.06297016, -0.032082155, -0.0760808)
 
 [node name="Map" type="Node3D" parent="." unique_id=736395342]
 
