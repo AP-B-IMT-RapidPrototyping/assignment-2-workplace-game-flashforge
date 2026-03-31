@@ -191,6 +191,9 @@ PlayerToFollow = NodePath("../player")
 [node name="Winkel" parent="." unique_id=390292694 instance=ExtResource("18_155or")]
 transform = Transform3D(-5.6824803e-09, 0, -0.13, 0, 0.13, 0, 0.13, 0, -5.6824803e-09, 3.186037, 0, 9.912935)
 
+[node name="cash-register2" parent="Winkel" index="0" unique_id=1101481720]
+script = null
+
 [node name="items" type="Node3D" parent="." unique_id=1247544496]
 transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -3.5980082, 0.1111421, 2.8073006)
 
@@ -204,7 +207,7 @@ collision_layer = 2
 MoneySystem = NodePath("../../UI/MoneyManager")
 
 [node name="wiel" parent="items" unique_id=413077558 node_paths=PackedStringArray("MoneySystem") instance=ExtResource("72_xrs0c")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.191164, 0, 0.8779917)
+transform = Transform3D(-1.7484556e-08, 0.40000004, 0, -0.40000004, -1.7484556e-08, 0, 0, 0, 0.40000004, 15.345453, -0.045981348, 16.622137)
 collision_layer = 2
 MoneySystem = NodePath("../../UI/MoneyManager")
 
@@ -4192,4 +4195,5 @@ transform = Transform3D(0.13, 0, 0, 0, 0.13, 0, 0, 0, 0.13, -4.312922, 1.7484555
 
 [editable path="UI"]
 [editable path="NPCManager"]
+[editable path="Winkel"]
 [editable path="player"]

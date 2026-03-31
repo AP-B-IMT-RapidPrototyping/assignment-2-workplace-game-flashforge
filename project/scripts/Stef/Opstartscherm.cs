@@ -17,10 +17,11 @@ public partial class Opstartscherm : Control
     [Export] public CheckButton NPCKnop;
     public bool NPCSwitch = false;
     private int NPCSetting;
-    
+    public int TutorialCompleted;
+
     public override void _Ready()
     {
-        NPCKnop.ButtonPressed =false;
+        NPCKnop.ButtonPressed = false;
         PopupMenu popup = SelectedLanguage.GetPopup();
         popup.IdPressed += OnMenuItemPressed;
         Gamedata.SaveData data = Gamedata.LoadGame();
@@ -33,56 +34,60 @@ public partial class Opstartscherm : Control
         _currentLanguageId = (int)id;
         if (NPCSwitch == true)
         {
-           NPCSetting = 1;
+            NPCSetting = 1;
         }
         else
         {
             NPCSetting = 0;
         }
         var data = Gamedata.LoadGame();
-        Gamedata.SaveGame(data.Money, _currentLanguageId, NPCSetting);
+        Gamedata.SaveGame(data.Money, _currentLanguageId, NPCSetting, TutorialCompleted);
 
         switch (id)
         {
             case 0:
                 start.Text = "start";
                 settings.Text = "settings";
-                quit.Text ="quit";
-                tutorial.Text ="tutorial";
-                Language.Text="language";
-                SelectedLanguage.Text ="English";
+                quit.Text = "quit";
+                tutorial.Text = "tutorial";
+                Language.Text = "language";
+                SelectedLanguage.Text = "English";
                 break;
             case 1:
                 start.Text = "starten";
                 settings.Text = "instellingen";
-                quit.Text ="afluiten";
-                tutorial.Text ="voorbeeld";
-                Language.Text="taal";
-                SelectedLanguage.Text ="Nederlands";
+                quit.Text = "afluiten";
+                tutorial.Text = "voorbeeld";
+                Language.Text = "taal";
+                SelectedLanguage.Text = "Nederlands";
                 break;
             case 2:
                 start.Text = "commencer";
                 settings.Text = "paramètres";
-                quit.Text ="quitter";
-                tutorial.Text ="tutoriel";
-                Language.Text="langue";
-                SelectedLanguage.Text ="Francais";
+                quit.Text = "quitter";
+                tutorial.Text = "tutoriel";
+                Language.Text = "langue";
+                SelectedLanguage.Text = "Francais";
                 break;
             case 3:
                 start.Text = "start";
                 settings.Text = "einstellungen";
-                quit.Text ="aufhoren";
-                tutorial.Text ="tutorial";
-                Language.Text="sprache";
-                SelectedLanguage.Text ="Deutch";
-            break;
+                quit.Text = "aufhoren";
+                tutorial.Text = "tutorial";
+                Language.Text = "sprache";
+                SelectedLanguage.Text = "Deutch";
+                break;
         }
     }
     public void _on_start_pressed()
     {
-        if (StartScene != null)
+        if (TutorialCompleted == 1)
         {
             GetTree().ChangeSceneToPacked(StartScene);
+        }
+        else if (TutorialCompleted == 0)
+        {
+            GetTree().ChangeSceneToPacked(Tutorial);
         }
     }
     public void _on_instellingen_pressed()
@@ -109,6 +114,8 @@ public partial class Opstartscherm : Control
     }
     public void _on_afsluiten_pressed()
     {
+        var data = Gamedata.LoadGame();
+        Gamedata.SaveGame(data.Money, _currentLanguageId, NPCSetting, TutorialCompleted);
         GetTree().Quit();
     }
     public void _on_tutorial_pressed()

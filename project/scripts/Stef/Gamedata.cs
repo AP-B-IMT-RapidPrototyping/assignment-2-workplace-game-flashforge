@@ -4,16 +4,17 @@ using System.Linq;
 
 public partial class Gamedata : Node
 {
-	private const string SavePath = "user://savegame.save";
+    private const string SavePath = "user://savegame.save";
 
     public struct SaveData
     {
         public int Money;
         public int SelectedLanguage;
         public int NPCSetting;
+        public int TutorialCompleted;
     }
 
-    public static void SaveGame( int currentMoney, int SelectedLanguage, int NPCSetting)
+    public static void SaveGame(int currentMoney, int SelectedLanguage, int NPCSetting, int TutorialCompleted)
     {
         using var file = FileAccess.Open(SavePath, FileAccess.ModeFlags.Write);
         if (file == null) return;
@@ -21,7 +22,8 @@ public partial class Gamedata : Node
         {
             {"Money", currentMoney},
             {"Language", SelectedLanguage},
-            {"NPC Setting", NPCSetting}
+            {"NPC Setting", NPCSetting},
+            {"TutorialCompleted", TutorialCompleted}
         };
         string jsonString = Json.Stringify(data);
         file.StoreString(jsonString);
@@ -30,29 +32,33 @@ public partial class Gamedata : Node
 
     public static SaveData LoadGame()
     {
-        SaveData loadedData = new SaveData { Money = 1000, SelectedLanguage = 0, NPCSetting = 0 };
+        SaveData loadedData = new SaveData { Money = 1000, SelectedLanguage = 0, NPCSetting = 0, TutorialCompleted = 0 };
 
         if (!FileAccess.FileExists(SavePath)) return loadedData;
 
         using var file = FileAccess.Open(SavePath, FileAccess.ModeFlags.Read);
         string jsonString = file.GetAsText();
-        
+
         var json = new Json();
         var parseResult = json.Parse(jsonString);
 
         if (parseResult == Error.Ok)
         {
             var data = (Godot.Collections.Dictionary)json.Data;
-            
-            if (data.ContainsKey("Money")) 
+
+            if (data.ContainsKey("Money"))
                 loadedData.Money = (int)data["Money"];
-            
-            if (data.ContainsKey("Language")) 
+
+            if (data.ContainsKey("Language"))
                 loadedData.SelectedLanguage = (int)data["Language"];
-                if (data.ContainsKey("NPC Setting")) 
+
+            if (data.ContainsKey("NPC Setting"))
                 loadedData.NPCSetting = (int)data["NPC Setting"];
+
+            if (data.ContainsKey("TutorialCompleted"))
+                loadedData.NPCSetting = (int)data["TutorialCompleted"];
         }
 
-        return loadedData;;
+        return loadedData; ;
     }
 }

@@ -3,6 +3,8 @@ using System;
 
 public partial class Carmanager : Node3D
 {
+    [Signal] public delegate void AutoKlaarEventHandler();
+    [Signal] public delegate void AutoVerwijderdEventHandler();
     [Export] public PackedScene AutoScene;
     [Export] public float WachttijdSeconden = 5.0f;
     [Export] public Vector3 SpawnPositie = new Vector3(-4, 0, 1.75f);
