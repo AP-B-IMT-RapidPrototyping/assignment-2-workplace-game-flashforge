@@ -57,7 +57,7 @@ public partial class TutorialUI : Control
 
     public async void tutorial_2()
 {
-    TutorialLabel.Text = "Pak een onderdeel op met 'E'.";
+    TutorialLabel.Text = "Pak een van de ontbrekende onderdelen op met 'E'. Deze staan naast de auto geplaatst";
     
     if (PlayerNode != null)
     {
@@ -81,7 +81,7 @@ public partial class TutorialUI : Control
 
     public async void tutorial_3()
 {
-    TutorialLabel.Text = "Plaats het onderdeel nu op de auto.";
+    TutorialLabel.Text = "Plaats het onderdeel nu op de juiste plaats op de auto.";
     
     if (PlayerNode != null)
     {
@@ -117,42 +117,39 @@ public partial class TutorialUI : Control
         
         TutorialLabel.Text = "Je krijgt geld voor elke reparatie. In het echte spel kosten onderdelen ook geld.\n(Wachten op volgende klant...)";
         
-        await Wacht(3.0f);
+        await Wacht(6.0f);
         
         tutorial_5();
     }
 
-    public async void tutorial_5()
+   public async void tutorial_5()
+{
+    TutorialLabel.Text = "Daar is een klant! Praat met de NPC om het bod te bekijken.";
+    
+    NPCManager.IsTutorialMode = true;
+
+    NPCManager.SetTutorialTekst("Ik geef je $5 voor deze hele auto. (Lachwekkend laag bod)");
+    if (NPCMenu != null)
     {
-        TutorialLabel.Text = "Daar is een klant! Praat met de NPC om het bod te bekijken.";
-    
-        await Wacht(3.0f); 
-
-        if (NPCMenu != null)
-        {
-            NPCMenu.ResetInteractie();
-            NPCMenu.ToonKnoppen(false, true);
-            NPCMenu.OverschrijfTekst("Ik geef je $5 voor deze hele auto. (Lachwekkend laag bod)");
-        }
-
-        await ToSignal(CarManager, TutorialCarManager.SignalName.AutoVerwijderd);
-
-        TutorialLabel.Text = "Goed gedaan. Wacht op de volgende klant.";
-        await Wacht(4.0f);
-        CarManager.SpawnNieuweAuto();
-    
-        await Wacht(12.0f);
-
-        if (NPCMenu != null)
-        {
-            NPCMenu.ResetInteractie();
-            NPCMenu.ToonKnoppen(true, false);
-            NPCMenu.OverschrijfTekst("Deze reparatie is belangrijk, ik bied $500!");
-        }
-
-        await ToSignal(CarManager, TutorialCarManager.SignalName.AutoKlaar);
-        tutorial_6();
+        NPCMenu.ResetInteractie();
+        NPCMenu.AcceptButton.Hide();
+        NPCMenu.RejectButton.Show();
     }
+
+    await ToSignal(CarManager, TutorialCarManager.SignalName.AutoVerwijderd);
+
+    
+    NPCManager.SetTutorialTekst("Deze reparatie is belangrijk, ik bied $500!");
+    if (NPCMenu != null)
+    {
+        NPCMenu.ResetInteractie();
+        NPCMenu.AcceptButton.Show();
+        NPCMenu.RejectButton.Hide();
+    }
+
+    await ToSignal(CarManager, TutorialCarManager.SignalName.AutoKlaar);
+    tutorial_6();
+}
 
     public async void tutorial_6()
     {

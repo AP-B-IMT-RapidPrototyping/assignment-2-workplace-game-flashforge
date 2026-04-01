@@ -74,6 +74,10 @@ public partial class NPCInteractie : Control
         {
             TekstLabel.Text = nieuweTekst;
         }
+        else
+        {
+            GD.Print("tekstlabel niet gevonden");
+        }
     }
 
     public void ToonKnoppen(bool accept, bool reject)

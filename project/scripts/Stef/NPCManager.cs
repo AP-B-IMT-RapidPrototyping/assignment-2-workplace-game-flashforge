@@ -20,6 +20,8 @@ public partial class NPCManager : Node3D
 	[Export] public Label RepairText;
     [Export] public CollisionShape3D NPCInteractie;
 	[Export] public NPCInteractie InteractieMenu;
+    [Export] public bool IsTutorialMode = false;
+private string _tutorialTekstOverride = "";
 
     private int _huidigeAutoPrijs = 0;
     private Random _random = new Random();
@@ -51,13 +53,24 @@ public partial class NPCManager : Node3D
     }
 
     public void ToonPrijsOpUI()
+{
+    if (PrijsLabel != null && _huidigeZichtbareModel != null && _huidigeZichtbareModel.Visible)
     {
-        if (PrijsLabel != null && _huidigeZichtbareModel != null && _huidigeZichtbareModel.Visible)
+        if (IsTutorialMode && !string.IsNullOrEmpty(_tutorialTekstOverride))
+        {
+            RepairText.Text = _tutorialTekstOverride;
+        }
+        else
         {
             RepairText.Text = $"I can give you ${_huidigeAutoPrijs} for the repair";
-            PrijsLabel.Show();
         }
+        PrijsLabel.Show();
     }
+}
+public void SetTutorialTekst(string tekst)
+{
+    _tutorialTekstOverride = tekst;
+}
 
     public void VerbergPrijsUI()
     {

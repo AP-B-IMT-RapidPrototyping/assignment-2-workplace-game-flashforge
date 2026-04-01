@@ -32,7 +32,7 @@ public partial class PlayerController : CharacterBody3D
         Vector3 velocity = Velocity;
         if (!IsOnFloor()) velocity += GetGravity() * (float)delta;
 
-        if (Input.IsActionJustPressed("ui_accept") && IsOnFloor())
+        if (Input.IsActionJustPressed("jump") && IsOnFloor())
             velocity.Y = _jumpVelocity;
 
         Vector2 inputDir = Input.GetVector("move_left", "move_right", "move_forward", "move_backward");
